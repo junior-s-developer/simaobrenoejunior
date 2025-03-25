@@ -1,0 +1,44 @@
+@media (max-width: 480px) {
+
+    #nav-desktop{
+        display: none;
+    }
+    
+    #navbar-mobile{
+        display: block;
+    }
+
+    #navbar-mobile #mobile-menu a:not(.about):hover {
+        color: inherit;
+    }
+    
+    main {
+        padding: 153px 20px;
+    }
+    .section1{
+        display: block;
+    }
+    
+    .section1 .content-text{
+        flex: 100%;
+    }
+    
+    .section1 h1{
+        text-align: center;
+    }
+    
+    .section1 h3{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .section1 img{
+        display: none;
+    }
+    
+    .section1 .img-scren{
+        display: flex;
+        max-width: 100%;
+        border-radius: 5px;
+    }
+}

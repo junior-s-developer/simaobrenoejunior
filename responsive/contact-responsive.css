@@ -1,0 +1,26 @@
+@media (max-width: 480px) {
+
+    #nav-desktop{
+        display: none;
+    }
+    
+    #navbar-mobile{
+        display: block;
+    }
+
+    #navbar-mobile #mobile-menu a:not(.contact):hover {
+        color: inherit;
+    }
+    
+    main {
+        padding: 0px 20px;
+    }
+
+    .agendar-section{
+        margin-top: 104px;
+    }
+    
+    section h2{
+        text-align: center;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Simão Breno & Júnior</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../responsive/contact-responsive.css">
+    <script defer src="../javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav id="nav-desktop">
+        <img src="/img/Logo-SB&J-2.png" alt="Logo Marca">
+        <ul>
+            <li>
+                <a href="/index.html">Início</a>
+            </li>
+            <li>
+                <a href="/navbar/about.html">Biografia</a>
+            </li>
+            <li>
+                <a class="portfolio" href="/navbar/portfolio.html">Portfólio</a>
+            </li>
+            <li>
+                <a class="contact" href="#">Fale Conosco</a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav id="navbar-mobile">
+        <div class="logo">
+            <img src="/img/Logo-SB&J-2.png" alt="Logo Marca">
+            <i id="menu-toggle" class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul id="mobile-menu">
+            <li>
+                <a href="/index.html">Início</a>
+            </li>
+            <li>
+                <a href="/navbar/about.html">Biografia</a>
+            </li>
+            <li>
+                <a href="/navbar/portfolio.html">Portfólio</a>
+            </li>
+            <li>
+                <a class="contact" href="#">Fale Conosco</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="agendar-section">
+            <h2>Agendar um Show</h2>
+            <br><p>Preencha o formulário abaixo e envie sua solicitação pelo WhatsApp.</p><br><br>
+    
+            <form id="showForm">
+    
+                <div class="input-row">
+                    <div class="input-group nome">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="input-group telefone">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" pattern="\(\d{2}\) \d{5}-\d{4}" inputmode="numeric" required>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-group local">
+                        <label for="local">Local do Evento</label>
+                        <input type="text" id="local" name="local" required>
+                    </div>
+                    <div class="input-group data">
+                        <label for="data">Data do Evento</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                </div>
+    
+                <label for="mensagem">Detalhes do Evento</label>
+                <textarea id="mensagem" name="mensagem" rows="7"></textarea>
+    
+                <button type="button" onclick="enviarWhatsApp()">Enviar</button>
+            </form>
+        </section>
+    </main>
+</body>

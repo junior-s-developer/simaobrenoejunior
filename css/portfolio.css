@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body{
+    color: white;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    /*overflow: hidden;*/
+}
+
+#nav-desktop{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    padding: 50px 15% 16px 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
+}
+
+#nav-desktop img{
+    max-width: 100%;
+    width: 50px;
+    /*border: solid 1px red;*/
+}
+
+#nav-desktop ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+#nav-desktop li{
+    display: flex;
+    margin-left: 60px;
+    border-radius: 5px;
+}
+
+#nav-desktop a{
+    color: white;
+    text-decoration: none;
+}
+
+#nav-desktop a:not(.portfolio):hover{
+    color: #e2ca3f;
+}
+
+#nav-desktop .portfolio{
+    color: #e2ca3f;
+    border-bottom: solid 1px #e2ca3f;
+}
+
+main {
+    /*background-color: red;*/
+    padding: 0px 15% 0px 15%;
+    /*border: solid 1px red;*/
+}
+
+section strong {
+    color: #9b8a29;
+}
+
+.section-clipe{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 150px;
+}
+
+.section-clipe .text h3{
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.section-clipe .text{
+    flex: 40%;
+    text-align: justify;
+}
+
+.section-clipe .video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-clipe video{
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    background: none;
+    border: none;
+    outline: none;
+    object-fit: contain; 
+}
+
+.section-clipe .video h3{
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    color: #9b8a29;
+}
+
+.section-tbt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 50px;
+}
+
+.section-tbt .text{
+    flex: 40%;
+    text-align: justify;
+}
+
+.section-tbt .text h3{
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.section-tbt iframe{
+    max-width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    object-fit: contain; 
+    border-radius: 10px;
+}
+
+.section-teaser{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 90px;
+    gap: 100px;
+}
+
+.section-teaser .text{
+    flex: 40%;
+    text-align: justify;
+}
+
+.section-teaser .text h3{
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.section-teaser video{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    background: none;
+    border: none;
+    outline: none;
+    object-fit: contain; 
+    border-radius: 10px;
+}
+
+/*NavBar Mobile*/
+
+#navbar-mobile{
+    display: none;
+    /*background-color: #1e1e1e;*/
+    background-color: #333333;
+    border-radius: 0px 0px 20px 20px;
+    /*box-shadow: 0px 1px 6px #9b8a29;*/
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    /*border: solid 1px red;*/
+}
+
+#navbar-mobile .logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15%;
+    /*border: solid 1px red;*/
+}
+
+#navbar-mobile .logo img{
+    max-width: 40px;
+}
+
+#navbar-mobile .logo i{
+    /*padding-bottom: 20px;*/
+    font-size: 24px;
+    padding: 20px 0px;
+    color: #9b8a29;}
+
+#navbar-mobile ul {
+    display: flex;
+    flex-direction: column;  
+    /*border: solid 1px red;*/
+}
+
+#navbar-mobile li {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#navbar-mobile a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+#navbar-mobile .portfolio {
+    color: #e2ca3f;
+    border-bottom: solid 1px #e2ca3f;
+}
+
+#navbar-mobile a:not(.portfolio):hover {
+    color: #e2ca3f;
+}
+
+#navbar-mobile #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+#navbar-mobile #mobile-menu.active {
+    max-height: 500px;
+  }

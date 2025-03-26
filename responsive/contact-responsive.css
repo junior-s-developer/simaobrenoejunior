@@ -23,4 +23,16 @@
     section h2{
         text-align: center;
     }
+
+    .input-row{
+        display: block;
+    }
+
+    form label{
+        color: #9b8a29;
+    }
+
+    section h2{
+        color: #9b8a29;
+    }
 }

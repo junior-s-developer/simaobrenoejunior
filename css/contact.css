@@ -147,7 +147,7 @@ form button{
     /*background-color: #1e1e1e;*/
     background-color: #333333;
     border-radius: 0px 0px 20px 20px;
-    /*box-shadow: 0px 1px 6px #9b8a29;*/
+    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
     position: fixed;
     top:0;
     left: 0;

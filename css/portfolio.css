@@ -13,6 +13,38 @@ body{
     /*overflow: hidden;*/
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+
+.back-to-top i{
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: #9b8a29;
+    color: black;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 #nav-desktop{
     display: flex;
     justify-content: space-evenly;

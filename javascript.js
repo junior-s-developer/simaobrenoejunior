@@ -28,3 +28,23 @@ function enviarWhatsApp() {
     window.open(url, '_blank');
 }
 
+// voltar ao topo //
+
+const backToTopButton = document.getElementById('voltar-topo');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+backToTopButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+

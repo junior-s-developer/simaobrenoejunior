@@ -42,9 +42,6 @@
     .section-tbt .text {
         order: 1;
     }
-
-
-
     
     .section-teaser{
         display: flex;
@@ -52,28 +49,11 @@
         margin-top: 50px;
         gap: 24px;
     }
-    
-    .section-teaser .text{
-        flex: 40%;
-        text-align: justify;
-    }
-    
-    .section-teaser .text h3{
-        text-align: center;
-        margin-bottom: 24px;
-        font-size: 16px;
-        text-transform: uppercase;
-    }
-    
-    .section-teaser video{
-        display: block;
-        max-width: 100%;
+
+    .section-teaser .video-resolution, .section-tbt .video-resolution, .section-clipe .video-resolution{
+        width: 100%;
         height: auto;
-        background: none;
-        border: none;
-        outline: none;
-        object-fit: contain; 
-        border-radius: 10px;
+        /*border: solid 1px red;*/
     }
 
     .section-teaser #vira-vira-video{

@@ -162,7 +162,6 @@ section strong {
 .section-teaser video{
     display: block;
     max-width: 100%;
-    height: auto;
     background: none;
     border: none;
     outline: none;

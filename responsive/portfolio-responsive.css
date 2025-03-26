@@ -24,10 +24,6 @@
         margin-bottom: 24px;
     }
     
-    .section-clipe .video h3{
-        margin-bottom: 0px;
-    }
-    
     .section-tbt{
         display: flex;
         flex-direction: column;
@@ -50,10 +46,11 @@
         gap: 24px;
     }
 
-    .section-teaser .video-resolution, .section-tbt .video-resolution, .section-clipe .video-resolution{
+    .section-teaser .video-resolution, 
+    .section-tbt .video-resolution, 
+    .section-clipe .video-resolution{
         width: 100%;
         height: auto;
-        /*border: solid 1px red;*/
     }
 
     .section-teaser #vira-vira-video{

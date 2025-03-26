@@ -22,13 +22,13 @@ body.fade-in {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #000;
+    /*background-color: #000;
     color: #fff;
     padding: 10px 15px;
     border-radius: 50px;
-    font-size: 14px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 14px;*/
+    /*text-decoration: none;*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);*/
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s;
     opacity: 0;
     visibility: hidden;
@@ -38,10 +38,12 @@ body.fade-in {
 
 .back-to-top i{
     font-size: 12px;
+    text-decoration: none;
     padding: 10px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: #9b8a29;
     color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
 }
 
 .back-to-top.show {

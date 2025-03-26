@@ -28,6 +28,10 @@
         display: block;
     }
 
+    .input-group{
+        flex: 100%;
+    }
+
     form label{
         color: #9b8a29;
     }

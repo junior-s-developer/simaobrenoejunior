@@ -18,27 +18,6 @@ body.fade-in {
     opacity: 1;
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    z-index: 1000;
-}
-
-.back-to-top i{
-    font-size: 12px;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 50%;
-    background-color: #9b8a29;
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
-}
-
 .back-to-top.show {
     opacity: 1;
     visibility: visible;

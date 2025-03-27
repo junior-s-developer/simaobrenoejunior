@@ -35,27 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-
-    // BOTÃO VOLTAR AO TOPO
-    const backToTopButton = document.getElementById('voltar-topo');
-
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-
-        backToTopButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
 });
 
 // ENVIAR WHATSAPP (fora do DOMContentLoaded porque pode ser chamado de botão)
@@ -69,10 +48,10 @@ function enviarWhatsApp() {
     const numeroDestino = "5535984368959";
 
     const mensagem = `Olá, meu nome é *${nome}*. Gostaria de agendar um show.
-📍 Local: *${local}*  
-📅 Data: *${data}*  
-📞 Telefone: *${telefone}*  
-📝 Detalhes: *${detalhes}*`;
+    📍 Local: *${local}*  
+    📅 Data: *${data}*  
+    📞 Telefone: *${telefone}*  
+    📝 Detalhes: *${detalhes}*`;
 
     const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');

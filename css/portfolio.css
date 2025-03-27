@@ -18,12 +18,6 @@ body.fade-in {
     opacity: 1;
 }
 
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 #nav-desktop{
     display: flex;
     justify-content: space-evenly;
@@ -83,7 +77,8 @@ section strong {
     align-items: center;
     justify-content: space-between;
     gap: 100px;
-    margin-top: 150px;
+    margin-top: 166px;
+    /*border: solid 1px red;*/
 }
 
 .section-clipe .text h3{

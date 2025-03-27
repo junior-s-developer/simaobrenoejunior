@@ -1,3 +1,7 @@
+/*=========================================================*/
+/*Celular pequeno*/
+/*=========================================================*/
+
 @media (max-width: 480px) {
 
     #nav-desktop{
@@ -42,3 +46,99 @@
         border-radius: 5px;
     }
 }
+
+/*=========================================================*/
+/*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
+/*=========================================================*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    #nav-desktop{
+        display: none;
+    }
+    
+    #navbar-mobile{
+        display: block;
+    }
+
+    #navbar-mobile #mobile-menu a:not(.about):hover {
+        color: inherit;
+    }
+    
+    main {
+        padding: 153px 20px;
+    }
+
+    .section1{
+        display: block;
+    }
+    
+    .section1 .content-text{
+        flex: 100%;
+    }
+    
+    .section1 h1{
+        text-align: center;
+    }
+    
+    .section1 h3{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .section1 img{
+        display: none;
+    }
+    
+    .section1 .img-scren{
+        display: flex;
+        max-width: 100%;
+        border-radius: 5px;
+    }
+  }
+
+/*=========================================================*/
+/*Tablet vertical (iPad em pé, por exemplo)*/
+/*=========================================================*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    
+    main {
+        padding: 166px 50px 0px 50px;
+    }
+    
+    .section-clipe{
+        gap: 50px;
+    }
+    
+    .section-tbt{
+        gap: 50px;
+    }
+    
+    .section-teaser{
+        gap: 50px;
+    }
+  }
+  
+/*=========================================================*/
+/*Desktop padrão / Tablet deitado*/
+/*=========================================================*/
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    main {
+        padding: 166px 100px 0px 100px;
+    }
+    
+    .section-clipe{
+        gap: 100px;
+    }
+    
+    .section-tbt{
+        gap: 100px;
+    }
+    
+    .section-teaser{
+        gap: 100px;
+    }
+  }  

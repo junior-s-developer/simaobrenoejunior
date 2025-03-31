@@ -64,6 +64,21 @@
     .section-teaser #vira-vira-text{
         order: 1;
     }
+
+    .section-carnaval2020{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 26px;
+    }
+
+    .section-carnaval2020 iframe {
+        order: 2;
+    }
+
+    .section-carnaval2020 .text {
+        order: 1;
+    }
 }
 
 /*=========================================================*/
@@ -132,6 +147,21 @@
     .section-teaser #vira-vira-text{
         order: 1;
     }
+
+    .section-carnaval2020{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 26px;
+    }
+
+    .section-carnaval2020 iframe {
+        order: 2;
+    }
+
+    .section-carnaval2020 .text {
+        order: 1;
+    }
   }
 
 /*=========================================================*/
@@ -155,6 +185,10 @@
     .section-teaser{
         gap: 50px;
     }
+
+    .section-carnaval2020{
+        gap: 50px;
+    }
   }
   
 
@@ -169,15 +203,19 @@
     }
     
     .section-clipe{
-        gap: 100px;
+        gap: 50px;
     }
     
     .section-tbt{
-        gap: 100px;
+        gap: 50px;
     }
     
     .section-teaser{
-        gap: 100px;
+        gap: 50px;
+    }
+
+    .section-carnaval2020{
+        gap: 50px;
     }
   }  
   

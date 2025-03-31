@@ -173,6 +173,34 @@ section strong {
     border-radius: 10px;
 }
 
+.section-carnaval2020{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 50px;
+}
+
+.section-carnaval2020 .text{
+    flex: 40%;
+    text-align: justify;
+}
+
+.section-carnaval2020 .text h3{
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.section-carnaval2020 iframe{
+    max-width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    object-fit: contain; 
+    border-radius: 10px;
+}
+
 /*NavBar Mobile*/
 
 #navbar-mobile{

@@ -35,7 +35,6 @@ body.fade-in {
 #nav-desktop img{
     max-width: 100%;
     width: 50px;
-    /*border: solid 1px red;*/
 }
 
 #nav-desktop ul{
@@ -66,7 +65,6 @@ body.fade-in {
 
 main {
     padding: 166px 15% 0px 15%;
-    /*border: solid 1px red;*/
 }
 
 section strong {
@@ -78,39 +76,92 @@ section strong {
     justify-content: space-evenly;
     align-items: center;
     gap: 50px;
-    /*border: solid 1px red;*/
 }
 
 .section1 .content-text{
-    /*display: flex;*/
     flex: 40%;
-    /*border: solid 1px rgb(77, 196, 61);*/
-    /*max-width: 45%;*/
 }
 
 .section1 .text{
     text-align: justify;
     margin: auto;
-    /*border: solid 1px red;*/
 }
 
 .section1 h1{
-    /*text-align: center;*/
+    color: #9b8a29;
 }
 
 .section1 h3{
     margin-top: 20px;
+    color: #9b8a29;
 }
 
 .section1 img{
     flex: 40%;
     height: 100%;
     border-radius: 5px;
-    /*border: solid 1px red;*/
 }
 
 .img-scren{
     display: none;
+}
+
+.integral{
+    display: flex;
+    flex-direction: column;
+}
+
+.integral .perfil{
+    display: flex;
+    align-items: center;
+    margin: 100px 0px;
+    gap: 20px;
+}
+
+.integral .img-perfil{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: solid 3px #9b8a29;
+}
+
+.integral .text{
+    flex: 50%;
+    text-align: justify;
+}
+
+.integral ul{
+    text-align: justify;
+    padding-left: 20px;
+}
+
+.integral .content-historico{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 100px;
+}
+
+.integral .content-historico .figura{
+    flex: 50%;
+    border-radius: 5px;
+}
+
+.integral .content-historico p{
+    text-align: justify;
+}
+
+.integral .acesso{
+    color: rgb(0, 204, 255);
+}
+
+.integral .youtube {
+    width: 460px;
+    height: 250px;
+    border: none;
+    outline: none;
+    object-fit: contain; 
+    border-radius: 10px;
 }
 
 /*NavBar Mobile*/
@@ -126,7 +177,6 @@ section strong {
     left: 0;
     right: 0;
     z-index: 1000;
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile .logo{
@@ -134,7 +184,6 @@ section strong {
     justify-content: space-between;
     align-items: center;
     padding: 20px 15%;
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile .logo img{
@@ -142,15 +191,14 @@ section strong {
 }
 
 #navbar-mobile .logo i{
-    /*padding-bottom: 20px;*/
     font-size: 24px;
     padding: 20px 0px;
-    color: #9b8a29;}
+    color: #9b8a29;
+}
 
 #navbar-mobile ul {
     display: flex;
     flex-direction: column;  
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile li {

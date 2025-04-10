@@ -170,7 +170,7 @@ footer{
     align-items: center;
     margin-top: 80px;
     padding: 50px 15%;
-    background-color: #1f1f1f;
+    background-color: #2b2b2b;
     /*border-top: solid 2px #9b8a29;*/
 }
 
@@ -240,7 +240,7 @@ footer .contact i{
     text-align: center;
     padding: 20px 0px;
     color: #9b8a29;
-    background-color: #1f1f1f;
+    background-color: #2b2b2b;
 }
 
 /*NavBar Mobile*/
@@ -248,7 +248,7 @@ footer .contact i{
 #navbar-mobile{
     display: none;
     /*background-color: #1e1e1e;*/
-    background-color: #1f1f1f;
+    background-color: #2b2b2b;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
     position: fixed;

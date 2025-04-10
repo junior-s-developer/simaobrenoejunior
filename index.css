@@ -35,7 +35,6 @@ body.fade-in {
 #nav-desktop img{
     max-width: 100%;
     width: 50px;
-    /*border: solid 1px red;*/
 }
 
 #nav-desktop ul{
@@ -74,13 +73,11 @@ main {
     align-items: center;
     height: 60vh;
     text-align: center;
-    /*border: solid 1px red;*/
 }
 
 .section1 img{
     max-width: 40%;
     height: auto;
-    /*border: solid 1px red;*/
 }
 
 section h2 {
@@ -94,8 +91,6 @@ section i {
 section{
     display: flex;
     justify-content: space-between;
-    /*padding: 0px 100px 0px 100px;*/
-    /*border: solid 1px red;*/
 }
 
 .space{
@@ -108,7 +103,6 @@ section{
     justify-items: center;
     gap: 5px;
     margin-bottom: 5px;
-    /*border: solid 1px red;*/
 }
 
 .social-networks a{
@@ -122,13 +116,11 @@ section{
     font-size: 14px;
     justify-content: end;
     overflow: hidden;
-    /*border: solid 1px red;*/
 }
 
 .fa-instagram{
     display: flex;
     width: 17px;
-    /*border: solid 1px red;*/
 }
 
 .column2 h2{
@@ -141,7 +133,6 @@ section{
     justify-items: center;
     gap: 5px;
     margin-bottom: 5px;
-    /*border: solid 1px red;*/
 }
 
 .column2 .social-networks i{
@@ -149,12 +140,10 @@ section{
     margin: auto 0;
     font-size: 14px;
     overflow: hidden;
-    /*border: solid 1px red;*/
 }
 
 .fa-envelope{
     padding-top: 2px;
-    /*border: solid 1px red;*/
 }
 
 section a{
@@ -179,7 +168,6 @@ section a:not(.cel):hover{
     left: 0;
     right: 0;
     z-index: 1000;
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile .logo{
@@ -187,7 +175,6 @@ section a:not(.cel):hover{
     justify-content: space-between;
     align-items: center;
     padding: 20px 15%;
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile .logo img{
@@ -195,7 +182,6 @@ section a:not(.cel):hover{
 }
 
 #navbar-mobile .logo i{
-    /*padding-bottom: 20px;*/
     font-size: 24px;
     padding: 20px 0px;
     color: #9b8a29;}
@@ -203,7 +189,6 @@ section a:not(.cel):hover{
 #navbar-mobile ul {
     display: flex;
     flex-direction: column;  
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile li {

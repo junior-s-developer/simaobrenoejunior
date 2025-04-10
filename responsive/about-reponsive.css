@@ -73,6 +73,10 @@
     .integral .ordem {
         order: 1;
     }
+
+    .footer{
+        border-radius: 20px 20px 0px 0px;
+    }
 }
 
 /*=========================================================*/
@@ -138,6 +142,7 @@
         flex-direction: column;
         gap: 20px;
         margin-top: 50px;
+        border: solid 1px red;
     }
 
     .integral .content-historico .figura{
@@ -151,7 +156,12 @@
     .integral .ordem {
         order: 1;
     }
-  }
+
+    #texte{
+        border-radius: 20px 20px 0px 0px;
+        border: solid 1px red;
+    }
+}
 
 /*=========================================================*/
 /*Tablet vertical (iPad em pé, por exemplo)*/

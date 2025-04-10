@@ -200,12 +200,14 @@ footer .fa-instagram{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    overflow: hidden;
     /*border: solid 1px red;*/
 }
 
 footer .fa-youtube{
     display: flex;
     color: red;
+    overflow: hidden;
     /*border: solid 1px red;*/
 }
 
@@ -231,6 +233,7 @@ footer .tel, .email{
 
 footer .contact i{
     color: #9b8a29;
+    overflow: hidden;
 }
 
 .copy{

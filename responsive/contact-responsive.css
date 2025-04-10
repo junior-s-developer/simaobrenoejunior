@@ -31,6 +31,10 @@
     .input-row{
         display: block;
     }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
+    }
 }
 
 /*=========================================================*/
@@ -54,7 +58,11 @@
     main {
         padding: 0px 20px;
     }
-  }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
+    }
+}
 
 /*=========================================================*/
 /*Tablet vertical (iPad em pé, por exemplo)*/
@@ -77,7 +85,11 @@
     .section-teaser{
         gap: 50px;
     }
-  }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
+    }
+}
   
 
 /*=========================================================*/
@@ -101,5 +113,5 @@
     .section-teaser{
         gap: 100px;
     }
-  }  
+}  
   

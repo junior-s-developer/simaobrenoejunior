@@ -79,6 +79,10 @@
     .section-carnaval2020 .text {
         order: 1;
     }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
+    }
 }
 
 /*=========================================================*/
@@ -162,6 +166,10 @@
     .section-carnaval2020 .text {
         order: 1;
     }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
+    }
   }
 
 /*=========================================================*/
@@ -188,6 +196,10 @@
 
     .section-carnaval2020{
         gap: 50px;
+    }
+
+    footer{
+        border-radius: 20px 20px 0px 0px;
     }
   }
   

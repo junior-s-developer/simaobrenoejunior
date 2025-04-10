@@ -22,7 +22,7 @@ body.fade-in {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     padding: 50px 15% 16px 15%;
     position: fixed;
     top: 0;
@@ -77,82 +77,78 @@ main {
 
 .section1 img{
     max-width: 40%;
-    height: auto;
+    /*height: auto;*/
 }
 
-section h2 {
-    color: #9b8a29;
-}
-
-section i {
-    color: #9b8a29;
-}
-
-section{
+footer{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    /*margin-top: 50px;*/
+    padding: 50px 15%;
+    background-color: #2b2b2b;
 }
 
-.space{
-    padding-top: 20px;
+footer #logo{
+    max-width: 200px;
 }
 
-.column1 .social-networks{
+footer .content-contact{
     display: flex;
-    justify-content: left;
-    justify-items: center;
+    flex-direction: column;
+}
+
+footer .rede-social{
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
     gap: 5px;
-    margin-bottom: 5px;
+    font-size: 20px;
 }
 
-.social-networks a{
-    padding: 0;
-    margin: 0;
-}
-
-.column1 .social-networks i{
+footer .fa-instagram{
     display: flex;
-    margin: auto 0;
-    font-size: 14px;
-    justify-content: end;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     overflow: hidden;
 }
 
-.fa-instagram{
+footer .fa-youtube{
     display: flex;
-    width: 17px;
-}
-
-.column2 h2{
-    text-align: end;
-}
-
-.column2 .social-networks{
-    display: flex;
-    justify-content: end;
-    justify-items: center;
-    gap: 5px;
-    margin-bottom: 5px;
-}
-
-.column2 .social-networks i{
-    display: flex;
-    margin: auto 0;
-    font-size: 14px;
+    color: red;
     overflow: hidden;
 }
 
-.fa-envelope{
-    padding-top: 2px;
-}
-
-section a{
-    color: white;
+footer a{
     text-decoration: none;
+    color: white;
 }
 
-section a:not(.cel):hover{
+footer .contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+footer .tel, .email{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+footer .contact i{
     color: #9b8a29;
+    overflow: hidden;
+}
+
+.copy{
+    text-align: center;
+    padding: 20px 0px;
+    color: #9b8a29;
+    background-color: #2b2b2b;
 }
 
 /*NavBar Mobile*/

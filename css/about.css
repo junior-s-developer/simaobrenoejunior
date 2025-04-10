@@ -168,16 +168,13 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 50px;
     padding: 50px 15%;
     background-color: #2b2b2b;
-    /*border-top: solid 2px #9b8a29;*/
 }
 
 footer #logo{
     max-width: 200px;
-    /*margin-bottom: 10px;*/
-    /*border: solid 1px red;*/
 }
 
 footer .content-contact{
@@ -191,7 +188,6 @@ footer .rede-social{
     margin: 30px auto;
     gap: 5px;
     font-size: 20px;
-    /*border: solid 1px red;*/
 }
 
 footer .fa-instagram{
@@ -201,14 +197,12 @@ footer .fa-instagram{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     overflow: hidden;
-    /*border: solid 1px red;*/
 }
 
 footer .fa-youtube{
     display: flex;
     color: red;
     overflow: hidden;
-    /*border: solid 1px red;*/
 }
 
 footer a{
@@ -221,14 +215,12 @@ footer .contact{
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    /*border: solid 1px red;*/
 }
 
 footer .tel, .email{
     display: flex;
     align-items: center;
     gap: 5px;
-    /*border: solid 1px red;*/
 }
 
 footer .contact i{
@@ -247,7 +239,6 @@ footer .contact i{
 
 #navbar-mobile{
     display: none;
-    /*background-color: #1e1e1e;*/
     background-color: #2b2b2b;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
@@ -304,8 +295,8 @@ footer .contact i{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
-  }
+}
 
 #navbar-mobile #mobile-menu.active {
     max-height: 500px;
-  }
+}

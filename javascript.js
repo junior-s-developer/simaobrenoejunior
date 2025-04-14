@@ -37,22 +37,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ENVIAR WHATSAPP (fora do DOMContentLoaded porque pode ser chamado de botão)
-function enviarWhatsApp() {
-    const nome = document.getElementById('nome').value;
-    const telefone = document.getElementById('telefone').value;
-    const local = document.getElementById('local').value;
-    const data = document.getElementById('data').value;
-    const detalhes = document.getElementById('detalhes').value;
+document.querySelector('button').addEventListener('click', function () {
+  // Captura os elementos dos campos
+  const nomeInput = document.getElementById('nome');
+  const telefoneInput = document.getElementById('telefone');
+  const localInput = document.getElementById('local');
+  const dataInput = document.getElementById('data');
+  const detalhesInput = document.getElementById('mensagem');
 
-    const numeroDestino = "5535984368959";
+  // Captura os valores
+  const nome = nomeInput.value.trim();
+  const telefone = telefoneInput.value.trim();
+  const local = localInput.value.trim();
+  const data = dataInput.value.trim();
+  const detalhes = detalhesInput.value.trim();
 
-    const mensagem = `Olá, meu nome é *${nome}*. Gostaria de agendar um show.
-    📍 Local: *${local}*  
-    📅 Data: *${data}*  
-    📞 Telefone: *${telefone}*  
-    📝 Detalhes: *${detalhes}*`;
+  // Validações
+  if (!nome) {
+    alert('Digite seu nome.');
+    nomeInput.focus();
+    return;
+  }
 
-    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-}
+  if (!telefone) {
+    alert('Digite seu telefone.');
+    telefoneInput.focus();
+    return;
+  }
+
+  if (!local) {
+    alert('Informe o local do evento.');
+    localInput.focus();
+    return;
+  }
+
+  if (!data) {
+    alert('Informe a data do evento.');
+    dataInput.focus();
+    return;
+  }
+
+  if (!detalhes) {
+    alert('Diga-nos sobre seu evento.');
+    detalhesInput.focus();
+    return;
+  }
+
+  // Monta a mensagem
+  const mensagem = `Olá, meu nome é *${nome}*. Gostaria de agendar um show.
+    Local: *${local}*  
+    Data: *${data}*  
+    Telefone: *${telefone}*  
+    Detalhes: *${detalhes}*`;
+
+  // Codifica a mensagem
+  const mensagemCodificada = encodeURIComponent(mensagem);
+
+  // Número de destino (formato internacional, sem + ou espaços. Ex: 5535999999999)
+  const numeroDestino = '5535984368959'; // Substitua pelo seu número
+
+  // Cria a URL do WhatsApp
+  const url = `https://wa.me/${numeroDestino}?text=${mensagemCodificada}`;
+
+  // Redireciona para o WhatsApp
+  window.open(url, '_blank');
+});

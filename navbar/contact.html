@@ -56,34 +56,34 @@
             <h2>Agendar um Show</h2>
             <br><p>Preencha o formulário abaixo e envie sua solicitação pelo WhatsApp.</p><br><br>
     
-            <form id="showForm">
+            <form id="Form">
     
                 <div class="input-row">
                     <div class="input-group nome">
-                        <label for="nome">Nome</label>
+                        <label for="nome">Nome *</label>
                         <input type="text" id="nome" name="nome" required>
                     </div>
                     <div class="input-group telefone">
-                        <label for="telefone">Telefone / whatsapp</label>
+                        <label for="telefone">Telefone / whatsapp *</label>
                         <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" pattern="\(\d{2}\) \d{5}-\d{4}" inputmode="numeric" required>
                     </div>
                 </div>
     
                 <div class="input-row">
                     <div class="input-group local">
-                        <label for="local">Local do Evento</label>
+                        <label for="local">Local do Evento *</label>
                         <input type="text" id="local" name="local" required>
                     </div>
                     <div class="input-group data">
-                        <label for="data">Data do Evento</label>
+                        <label for="data">Data do Evento *</label>
                         <input type="date" id="data" name="data" required>
                     </div>
                 </div>
     
-                <label for="mensagem">Detalhes do Evento</label>
+                <label for="mensagem">Detalhes do Evento *</label>
                 <textarea id="mensagem" name="mensagem" rows="7"></textarea>
     
-                <button type="button" onclick="enviarWhatsApp()">Enviar</button>
+                <button type="button">Enviar</button>
             </form>
         </section>
     </main>

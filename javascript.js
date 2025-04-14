@@ -83,18 +83,25 @@ document.querySelector('button').addEventListener('click', function () {
     return;
   }
 
+  const partesData = data.split('-');
+  const dataFormatada = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
+
   // Monta a mensagem
-  const mensagem = `Olá, meu nome é *${nome}*. Gostaria de agendar um show.
-    Local: *${local}*  
-    Data: *${data}*  
-    Telefone: *${telefone}*  
-    Detalhes: *${detalhes}*`;
+  const mensagem = `Oi! Aqui é o *${nome}*. Entrei em contato pelo site, gostaria de saber sobre a disponibilidade e o orçamento para a realização de um show. Agradeço desde já!
+  
+  *Local*: ${local}  
+  *Data*: ${dataFormatada}  
+  *Telefone*: ${telefone}
+
+  *DETALHES DO EVENTO*:
+  
+  ${detalhes}`;
 
   // Codifica a mensagem
   const mensagemCodificada = encodeURIComponent(mensagem);
 
   // Número de destino (formato internacional, sem + ou espaços. Ex: 5535999999999)
-  const numeroDestino = '5535984368959'; // Substitua pelo seu número
+  const numeroDestino = '5535984728729'; // Substitua pelo seu número
 
   // Cria a URL do WhatsApp
   const url = `https://wa.me/${numeroDestino}?text=${mensagemCodificada}`;

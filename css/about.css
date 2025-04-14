@@ -32,6 +32,10 @@ body.fade-in {
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
 }
 
+#nav-desktop a {
+    display: flex;
+}
+
 #nav-desktop img{
     max-width: 100%;
     width: 50px;
@@ -247,6 +251,10 @@ footer .contact i{
     left: 0;
     right: 0;
     z-index: 1000;
+}
+
+#navbar-mobile .logo a {
+    display: flex;
 }
 
 #navbar-mobile .logo{

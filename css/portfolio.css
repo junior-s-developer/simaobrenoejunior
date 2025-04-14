@@ -32,10 +32,13 @@ body.fade-in {
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
 }
 
+#nav-desktop a {
+    display: flex;
+}
+
 #nav-desktop img{
     max-width: 100%;
     width: 50px;
-    /*border: solid 1px red;*/
 }
 
 #nav-desktop ul{
@@ -275,7 +278,6 @@ footer .contact i{
 
 #navbar-mobile{
     display: none;
-    /*background-color: #1e1e1e;*/
     background-color: #333333;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
@@ -284,7 +286,10 @@ footer .contact i{
     left: 0;
     right: 0;
     z-index: 1000;
-    /*border: solid 1px red;*/
+}
+
+#navbar-mobile .logo a {
+    display: flex;
 }
 
 #navbar-mobile .logo{
@@ -292,7 +297,6 @@ footer .contact i{
     justify-content: space-between;
     align-items: center;
     padding: 20px 15%;
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile .logo img{
@@ -300,7 +304,6 @@ footer .contact i{
 }
 
 #navbar-mobile .logo i{
-    /*padding-bottom: 20px;*/
     font-size: 24px;
     padding: 20px 0px;
     color: #9b8a29;}
@@ -308,7 +311,6 @@ footer .contact i{
 #navbar-mobile ul {
     display: flex;
     flex-direction: column;  
-    /*border: solid 1px red;*/
 }
 
 #navbar-mobile li {

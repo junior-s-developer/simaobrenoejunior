@@ -18,6 +18,10 @@ body.fade-in {
     opacity: 1;
 }
 
+a:focus{
+    outline: none;
+}
+
 #nav-desktop{
     display: flex;
     justify-content: space-evenly;

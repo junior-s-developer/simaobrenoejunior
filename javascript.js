@@ -87,15 +87,17 @@ document.querySelector('button').addEventListener('click', function () {
   const dataFormatada = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
 
   // Monta a mensagem
-  const mensagem = `Oi! Aqui é o *${nome}*. Entrei em contato pelo site, gostaria de saber sobre a disponibilidade e o orçamento para a realização de um show. Agradeço desde já!
+  const mensagem = `Oi! Aqui é o *${nome}*.
   
-  *Local*: ${local}  
-  *Data*: ${dataFormatada}  
-  *Telefone*: ${telefone}
+Entrei em contato pelo site, gostaria de saber sobre a disponibilidade e o orçamento para a realização de um show. Agradeço desde já!
+  
+*Local*: ${local}  
+*Data*: ${dataFormatada}  
+*Telefone*: ${telefone}
 
-  *DETALHES DO EVENTO*:
+*DETALHES DO EVENTO*:
   
-  ${detalhes}`;
+${detalhes}`;
 
   // Codifica a mensagem
   const mensagemCodificada = encodeURIComponent(mensagem);

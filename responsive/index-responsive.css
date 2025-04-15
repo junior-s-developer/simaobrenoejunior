@@ -20,12 +20,8 @@
         padding: 104px 20px 0px;
     }
     
-    .section1{
-        height: 50vh;
-    }
-    
-    .section1 img{
-        max-width: 80%;
+    .section-video p{
+        padding: 0px 10px;
     }
 
     footer{
@@ -59,6 +55,10 @@
         padding: 103px 20px 0px;
     }
 
+    .section-video p{
+        padding: 0px 10px;
+    }
+
     footer{
         border-radius: 20px 20px 0px 0px;
     }
@@ -74,8 +74,12 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    .section1 img{
-        max-width: 60%;
+    main {
+        padding: 116px 20px 0px 20px;
+    }
+
+    .section-video p{
+        padding: 0px 50px;
     }
 
     footer{
@@ -89,6 +93,10 @@
 
 @media (min-width: 1024px) and (max-width: 1279px) {
 
+    main {
+        padding: 116px 20px 0px 20px;
+    }
+    
     footer{
         border-radius: 20px 20px 0px 0px;
     }

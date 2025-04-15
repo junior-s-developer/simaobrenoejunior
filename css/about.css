@@ -79,6 +79,13 @@ section strong {
     color: #9b8a29;
 }
 
+.linha{
+    margin: auto;
+    width: 100px;
+    border: solid 5px #9b8a29;
+    margin: 100px auto 50px auto;
+}
+
 .section1{
     display: flex;
     justify-content: space-evenly;
@@ -164,12 +171,14 @@ section strong {
 }
 
 .integral .youtube {
-    width: 460px;
-    height: 250px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-width: 460px;
     border: none;
     outline: none;
     object-fit: contain; 
     border-radius: 10px;
+    overflow: hidden
 }
 
 footer{

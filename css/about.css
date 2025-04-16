@@ -131,7 +131,7 @@ section strong {
     display: flex;
     align-items: center;
     margin: 100px 0px;
-    gap: 20px;
+    gap: 50px;
 }
 
 .integral .img-perfil{
@@ -156,6 +156,10 @@ section strong {
     align-items: center;
     gap: 50px;
     margin-top: 100px;
+}
+
+.integral .content-historico h3{
+    text-align: center;
 }
 
 .integral .content-historico .figura{

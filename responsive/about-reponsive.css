@@ -180,18 +180,16 @@
     main {
         padding: 166px 50px 0px 50px;
     }
-    
-    .section-clipe{
+
+    .section1{
         gap: 50px;
     }
-    
-    .section-tbt{
+
+    .integral .content-historico{
         gap: 50px;
+
     }
-    
-    .section-teaser{
-        gap: 50px;
-    }
+
 
     .integral .content-historico .figura{
         flex: 100%;
@@ -210,18 +208,6 @@
 
     main {
         padding: 166px 100px 0px 100px;
-    }
-    
-    .section-clipe{
-        gap: 100px;
-    }
-    
-    .section-tbt{
-        gap: 100px;
-    }
-    
-    .section-teaser{
-        gap: 100px;
     }
 
     .integral .content-historico .figura{

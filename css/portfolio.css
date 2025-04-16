@@ -120,6 +120,7 @@ section strong {
 }
 
 .container-video .text h3{
+    text-transform: uppercase;
     text-align: center;
     margin-bottom: 24px;
     font-size: 16px;

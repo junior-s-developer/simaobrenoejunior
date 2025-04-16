@@ -13,6 +13,7 @@ body{
     font-size: 12px;
     opacity: 0;
     transition: opacity 0.3s ease;
+    line-height: 2;
 }
 
 body.fade-in {

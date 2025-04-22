@@ -101,6 +101,13 @@ strong {
     font-weight: 450;
 }
 
+.marcador{
+    color: #9b8a29;
+    flex-shrink: 0;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
 .container-apresentacao{
     display: flex;
     justify-content: space-evenly;
@@ -161,13 +168,16 @@ strong {
 }
 
 .container-perfil ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
     text-align: justify;
     padding-left: 20px;
 }
 
 .container-perfil ul li{
-    display: flex;
-    gap: 5px;
+   display: flex;
 }
 
 #img-vertical{

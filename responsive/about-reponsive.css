@@ -17,65 +17,52 @@
     }
     
     main {
-        padding: 153px 20px;
+        padding: 153px 20px 50px 20px;
     }
-    .section1{
-        display: block;
-    }
+
+    .container-apresentacao{
+        flex-direction: column;
+    } 
     
-    .section1 .content-text{
-        flex: 100%;
-    }
-    
-    .section1 h1{
+    .container-apresentacao h1{
         text-align: center;
     }
     
-    .section1 h3{
-        margin-top: 40px;
-    }
-
-    .section1 img{
+    #simao-junior{
         display: none;
     }
     
-    .section1 .img-scren{
+    .img-scren{
         display: flex;
         max-width: 100%;
-        border-radius: 5px;
     }
-
-    .integral .perfil{
+    
+    .container-perfil .perfil{
         flex-direction: column;
-        margin: 50px 0px;
+        gap: 10px;
     }
-
-    .integral .text{
+    
+    .container-perfil .text{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    .integral .content-historico{
+    
+    .container-historico .historico{
+        display: flex;
         flex-direction: column;
-        gap: 30px;
-        margin-top: 50px;
+    }
+    
+    .container-historico .historico .container-text{
+        width: 100%;
+    }
+    
+    .container-historico .historico .container-img{
+        width: 100%;
     }
 
-    .integral .content-historico .figura{
-        max-width: 100%;
-    }
-
-    .integral .youtube {
-        max-width: 100%;
-    }
-
-    .integral .ordem {
-        order: 1;
-    }
-
-    .linha{
-        margin: 50px auto 0px auto;
+    .ordem{
+        order: 2;
     }
 
     footer{
@@ -107,62 +94,52 @@
     }
     
     main {
-        padding: 153px 20px;
+        padding: 153px 20px 50px 20px;
     }
 
-    .section1{
-        display: block;
-    }
+    .container-apresentacao{
+        flex-direction: column;
+    } 
     
-    .section1 .content-text{
-        flex: 100%;
-    }
-    
-    .section1 h1{
+    .container-apresentacao h1{
         text-align: center;
     }
     
-    .section1 h3{
-        margin-top: 40px;
-    }
-
-    .section1 img{
+    #simao-junior{
         display: none;
     }
     
-    .section1 .img-scren{
+    .img-scren{
         display: flex;
         max-width: 100%;
-        border-radius: 5px;
     }
-
-    .integral .perfil{
+    
+    .container-perfil .perfil{
         flex-direction: column;
-        margin: 50px 0px;
+        gap: 10px;
     }
-
-    .integral .text{
+    
+    .container-perfil .text{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    .integral .content-historico{
+    
+    .container-historico .historico{
+        display: flex;
         flex-direction: column;
-        gap: 30px;
-        margin-top: 50px;
+    }
+    
+    .container-historico .historico .container-text{
+        width: 100%;
+    }
+    
+    .container-historico .historico .container-img{
+        width: 100%;
     }
 
-    .integral .content-historico .figura{
-        max-width: 100%;
-    }
-
-    .integral .youtube {
-        max-width: 100%;
-    }
-
-    .integral .ordem {
-        order: 1;
+    .ordem{
+        order: 2;
     }
 
     footer{
@@ -211,11 +188,7 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 166px 100px 0px 100px;
-    }
-
-    .integral .content-historico .figura{
-        flex: 60%;
+        padding: 166px 50px 0px 50px;
     }
 
     footer{

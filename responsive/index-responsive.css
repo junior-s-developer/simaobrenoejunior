@@ -75,7 +75,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
 
     main {
-        padding: 116px 20px 0px 20px;
+        padding: 116px 50px 0px 50px;
     }
 
     .section-video p{
@@ -94,7 +94,7 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 116px 20px 0px 20px;
+        padding: 116px 50px 0px 50px;
     }
     
     footer{

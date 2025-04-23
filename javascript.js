@@ -65,6 +65,12 @@ document.querySelector('button').addEventListener('click', function () {
     return;
   }
 
+  if (telefone.length !== 15) {
+    alert("Digite um número de telefone válido: \nDDD 9XXXX-XXXX.");
+    telefoneInput.focus();
+    return;
+  }
+
   if (!local) {
     alert('Informe o local do evento.');
     localInput.focus();
@@ -110,4 +116,25 @@ ${detalhes}`;
 
   // Redireciona para o WhatsApp
   window.open(url, '_blank');
+});
+
+// MASCARA DE TELEFONE MÓVEL
+
+document.getElementById("telefone").addEventListener("input", function () {
+  
+  let valor = this.value.replace(/\D/g, ""); // Remove tudo que não for número
+
+  if (valor.length > 0) {
+    valor = "(" + valor;
+  }
+
+  if (valor.length > 3) {
+    valor = valor.slice(0, 3) + ") " + valor.slice(3);
+  }
+
+  if (valor.length > 10) {
+    valor = valor.slice(0, 10) + "-" + valor.slice(10);
+  }
+
+  this.value = valor;
 });

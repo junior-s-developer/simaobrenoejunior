@@ -113,6 +113,7 @@ strong {
     justify-content: space-evenly;
     align-items: center;
     gap: 50px;
+    margin-bottom: 50px;
 }
 
 .container-apresentacao .container-text{
@@ -147,6 +148,12 @@ strong {
     display: flex;
     flex-direction: column;
     gap: 50px;
+}
+
+.container-perfil-filho{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #121212;
 }
 
 .container-perfil .perfil{

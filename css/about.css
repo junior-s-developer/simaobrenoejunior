@@ -108,7 +108,7 @@ strong {
     font-weight: bold;
 }
 
-.container-apresentacao{
+.apresentacao{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -116,25 +116,26 @@ strong {
     margin-bottom: 50px;
 }
 
-.container-apresentacao .container-text{
+.apresentacao .container-text{
     flex: 40%;
 }
 
-.container-apresentacao .text{
+.apresentacao .text{
     text-align: justify;
     margin: auto;
 }
 
-.container-apresentacao h1{
+.apresentacao h1{
+    text-align: center;
     color: #9b8a29;
 }
 
-.container-apresentacao h3{
+.apresentacao h3{
     margin-top: 20px;
     color: #9b8a29;
 }
 
-.container-apresentacao img{
+.apresentacao img{
     flex: 40%;
     height: 100%;
     border-radius: 5px;
@@ -142,6 +143,32 @@ strong {
 
 .img-scren{
     display: none;
+    margin-bottom: 30px;
+}
+
+.container-apresentacao ul{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+    text-align: justify;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+.container-apresentacao ul li{
+   display: flex;
+   background-color: #121212;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.container-apresentacao ul li .conquista h3{
+    margin-bottom: 10px;
+}
+
+ .container-apresentacao ul li .conquista .text{
+    margin-top: 10px;
 }
 
 .container-perfil{

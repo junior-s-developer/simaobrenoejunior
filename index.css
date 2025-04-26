@@ -42,10 +42,6 @@ strong{
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
 }
 
-#nav-desktop a {
-    display: flex;
-}
-
 #nav-desktop img{
     max-width: 100%;
     width: 50px;
@@ -59,13 +55,15 @@ strong{
 
 #nav-desktop li{
     display: flex;
-    margin-left: 60px;
+    margin-left: 50px;
     border-radius: 5px;
 }
 
 #nav-desktop a{
+    display: flex;
     color: white;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 #nav-desktop a:not(.start,.instagram,.youtube,.cel,.email):hover{

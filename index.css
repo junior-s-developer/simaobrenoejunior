@@ -117,7 +117,7 @@ h1{
     outline: none;
     object-fit: contain; 
     border-radius: 10px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 footer{

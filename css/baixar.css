@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body{
+    color: white;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    line-height: 2;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+a:focus{
+    outline: none;
+}
+
+strong{
+    color: #9b8a29;
+}
+
+#nav-desktop{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    padding: 50px 15% 16px 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
+}
+
+#nav-desktop img{
+    max-width: 100%;
+    width: 50px;
+}
+
+#nav-desktop ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+#nav-desktop li{
+    display: flex;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+#nav-desktop a{
+    display: flex;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#nav-desktop a:not(.baixar,.instagram,.youtube,.cel,.email):hover{
+    color: #e2ca3f;
+}
+
+#nav-desktop .baixar{
+    color: #e2ca3f;
+    border-bottom: solid 1px #e2ca3f;
+}
+
+main {
+    padding: 166px 15% 0px 15%;
+}
+
+strong {
+    color: #9b8a29;
+}
+
+#link{
+    color: rgb(0, 204, 255);
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding: 50px 15%;
+    background-color: #2b2b2b;
+}
+
+footer #logo{
+    max-width: 200px;
+}
+
+footer .content-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .rede-social{
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+    gap: 20px;
+    font-size: 30px;
+}
+
+footer .fa-instagram{
+    display: flex;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+}
+
+footer .fa-youtube{
+    display: flex;
+    color: red;
+    overflow: hidden;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer .contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+footer .tel, .email{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+footer .contact i{
+    color: #9b8a29;
+    overflow: hidden;
+}
+
+.copy{
+    text-align: center;
+    padding: 20px 0px;
+    color: #9b8a29;
+    background-color: #2b2b2b;
+}
+
+/*NavBar Mobile*/
+
+#navbar-mobile{
+    display: none;
+    background-color: #2b2b2b;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+#navbar-mobile .logo a {
+    display: flex;
+}
+
+#navbar-mobile .logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15%;
+}
+
+#navbar-mobile .logo img{
+    max-width: 40px;
+}
+
+#navbar-mobile .logo i{
+    font-size: 24px;
+    padding: 20px 0px;
+    color: #9b8a29;
+}
+
+#navbar-mobile ul {
+    display: flex;
+    flex-direction: column;  
+}
+
+#navbar-mobile li {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#navbar-mobile a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+#navbar-mobile .baixar {
+    color: #e2ca3f;
+    border-bottom: solid 1px #e2ca3f;
+}
+
+#navbar-mobile a:not(.baixar):hover {
+    color: #e2ca3f;
+}
+
+#navbar-mobile #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+#navbar-mobile #mobile-menu.active {
+    max-height: 500px;
+}

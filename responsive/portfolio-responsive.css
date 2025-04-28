@@ -32,6 +32,10 @@
         width: 100%;
     }
 
+    .container-historico .historico .container-img .descricao{
+        text-align: center;
+    }
+
     .container-historico .historico .ordem {
         order: 2;
     }

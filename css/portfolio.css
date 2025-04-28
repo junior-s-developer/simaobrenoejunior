@@ -163,6 +163,23 @@ strong {
     color: #9b8a29;
 }
 
+.container-historico .historico .container-img .descricao{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.container-historico .historico .container-img .descricao h4{
+    line-height: 16px;
+}
+
+.container-historico .historico .container-img .descricao p{
+    font-size: 10px;
+    font-style: italic;
+    line-height: 16px;
+}
+
 footer{
     display: flex;
     flex-direction: column;

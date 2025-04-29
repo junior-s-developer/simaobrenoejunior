@@ -76,6 +76,9 @@ strong{
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
     padding: 0px 15% 0px 15%;
 }
 
@@ -149,6 +152,52 @@ strong {
 .container-download .download .linha a:hover {
     background-color: #bfa72c;
     transition: background-color 0.3s ease;
+}
+
+/* Múscias para download*/
+
+.container-audio{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-audio .title-text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.container-audio .title-text h2{
+    text-transform: uppercase;
+}
+
+.container-audio .title-text p{
+    text-transform: justify;
+}
+
+.container-audio .audio{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-audio .audio .title-audio{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-audio .audio .title-audio h3{
+    line-height: 100%;
+    overflow: hidden;
+    color: #9b8a29;
+}
+
+.container-audio .audio .title-audio .player{
+    background-color: white;
+    border-radius: 5px;
 }
 
 footer{

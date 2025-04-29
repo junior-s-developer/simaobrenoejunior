@@ -99,6 +99,10 @@ strong {
     margin-bottom: 40px;
 }
 
+.container-download .title-text h2{
+    text-transform: uppercase;
+}
+
 .container-download .download{
     display: flex;
     flex-direction: column;
@@ -116,6 +120,9 @@ strong {
 
 .container-download .download .linha p{
     text-transform: capitalize;
+    line-height: 100%;
+    overflow: hidden;
+
 }
 
 .container-download .download .linha .container-buttom{
@@ -124,14 +131,19 @@ strong {
 }
 
 .container-download .download .linha a{
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     background-color: #9b8a29;
     color: white;
-    padding: 3px 10px;
     border-radius: 3px;
+    padding: 7px;
+    line-height: 100%;
+    overflow: hidden;
 }
 
 .container-download .download .linha a:hover {

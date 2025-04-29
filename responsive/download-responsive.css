@@ -24,6 +24,16 @@
         margin-top: 156px;
     }
 
+    .container-download .title-text h2{
+        text-align: center;
+    }
+
+    .container-download .download .linha{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
     footer{
         border-radius: 20px 20px 0px 0px;
     }

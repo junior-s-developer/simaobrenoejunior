@@ -83,7 +83,15 @@ section strong {
     margin-top: 116px;
 }
 
-section h2{
+.agendar-section .title-text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.agendar-section .title-text h2{
     text-transform: uppercase;
     margin-top: 50px;
     color: #9b8a29;
@@ -148,6 +156,11 @@ form button{
     background-color: #9b8a29;
     color: white;
     cursor: pointer;
+}
+
+form button:hover{
+    background-color: #bfa72c;
+    transition: background-color 0.3s ease;
 }
 
 footer{

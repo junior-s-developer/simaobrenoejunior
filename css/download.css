@@ -66,17 +66,17 @@ strong{
     text-transform: uppercase;
 }
 
-#nav-desktop a:not(.baixar,.instagram,.youtube,.cel,.email):hover{
+#nav-desktop a:not(.download,.instagram,.youtube,.cel,.email):hover{
     color: #e2ca3f;
 }
 
-#nav-desktop .baixar{
+#nav-desktop .download{
     color: #e2ca3f;
     border-bottom: solid 1px #e2ca3f;
 }
 
 main {
-    padding: 166px 15% 0px 15%;
+    padding: 0px 15% 0px 15%;
 }
 
 strong {
@@ -85,6 +85,58 @@ strong {
 
 #link{
     color: rgb(0, 204, 255);
+}
+
+.container-download{
+    margin-top: 166px;
+}
+
+.container-download .title-text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.container-download .download{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-download .download .linha{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #2b2b2b;
+    border-radius: 5px;
+}
+
+.container-download .download .linha p{
+    text-transform: capitalize;
+}
+
+.container-download .download .linha .container-buttom{
+    display: flex;
+    gap: 10px;
+}
+
+.container-download .download .linha a{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #9b8a29;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.container-download .download .linha a:hover {
+    background-color: #bfa72c;
+    transition: background-color 0.3s ease;
 }
 
 footer{
@@ -209,12 +261,12 @@ footer .contact i{
     color: white;
 }
 
-#navbar-mobile .baixar {
+#navbar-mobile .download {
     color: #e2ca3f;
     border-bottom: solid 1px #e2ca3f;
 }
 
-#navbar-mobile a:not(.baixar):hover {
+#navbar-mobile a:not(.download):hover {
     color: #e2ca3f;
 }
 

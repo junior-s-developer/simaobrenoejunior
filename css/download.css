@@ -98,7 +98,7 @@ strong {
     display: flex;
     flex-direction: column;
     text-align: justify;
-    gap: 16px;
+    gap: 24px;
     margin-bottom: 40px;
 }
 
@@ -166,7 +166,7 @@ strong {
     display: flex;
     flex-direction: column;
     text-align: justify;
-    gap: 16px;
+    gap: 24px;
     margin-bottom: 40px;
 }
 

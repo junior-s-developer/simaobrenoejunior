@@ -128,6 +128,19 @@ strong {
     margin-bottom: 30px;
 }
 
+.container-apresentacao .title-text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.container-audio .title-text h2{
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
 .container-apresentacao ul{
     display: flex;
     flex-direction: column;

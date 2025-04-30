@@ -87,7 +87,7 @@ section strong {
     display: flex;
     flex-direction: column;
     text-align: justify;
-    gap: 10px;
+    gap: 16px;
     margin-bottom: 40px;
 }
 
@@ -95,6 +95,7 @@ section strong {
     text-transform: uppercase;
     margin-top: 50px;
     color: #9b8a29;
+    line-height: 24px;
 }
 
 form{

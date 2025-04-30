@@ -90,6 +90,29 @@ strong {
     color: rgb(0, 204, 255);
 }
 
+#img-vertical{
+    width: auto;
+    height: 100%;
+    max-height: 460px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#img-horizontal{
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
 .container-download{
     margin-top: 166px;
 }
@@ -198,10 +221,70 @@ strong {
     line-height: 16px;
     overflow: hidden;
     color: #9b8a29;
-    font-weight: bold;
 }
 
 .container-audio .audio .title-audio .player{
+    width: 250px;
+    height: 50px;
+    background-color: rgb(241, 243, 244);
+    border-radius: 4px;
+}
+
+/* Vídeos para download*/
+
+.container-video{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.container-video .title-text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.container-video .title-text h2{
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.container-video .title-text p{
+    text-transform: justify;
+}
+
+.container-video .video{
+    display: flex;
+    gap: 50px;
+}
+
+.container-video .video .title-video{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-video .video .title-video p{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+    z-index: 1;
+    line-height: 100%;
+    overflow: hidden;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.container-video .video .title-video .player{
     width: 250px;
     height: 50px;
     background-color: white;

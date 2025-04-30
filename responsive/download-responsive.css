@@ -34,7 +34,7 @@
         text-align: center;
     }
 
-    /* Múscias para download*/
+    /*Múscias para download*/
 
     .container-audio .title-text h2{
         text-align: center;
@@ -49,6 +49,13 @@
 
     .container-audio .audio .title-audio .player{
         width: 100%;
+    }
+
+    /*Vídeos para download*/
+
+    .container-video .video{
+        flex-direction: column;
+        gap: 40px;
     }
 
     footer{

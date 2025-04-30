@@ -2,6 +2,12 @@
 /*Celular pequeno*/
 /*=========================================================*/
 
+@media (max-width: 479px) {
+    .container-download .download .linha .container-buttom{
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 480px) {
 
     #nav-desktop{
@@ -28,12 +34,6 @@
         text-align: center;
     }
 
-    .container-download .download .linha{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
     /* Múscias para download*/
 
     .container-audio .title-text h2{
@@ -41,7 +41,14 @@
     }
 
     .container-audio .audio .title-audio{
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .container-audio .audio .title-audio .player{
+        width: 100%;
     }
 
     footer{

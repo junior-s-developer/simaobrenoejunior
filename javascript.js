@@ -142,3 +142,4 @@ document.getElementById("telefone").addEventListener("input", function () {
 // BLOQUEIO DE DATAS PASSADAS
 const hoje = new Date().toISOString().split("T")[0];
   document.getElementById("data").setAttribute("min", hoje);
+  

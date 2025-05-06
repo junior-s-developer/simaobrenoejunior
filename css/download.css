@@ -279,7 +279,6 @@ strong {
 .container-img{
     display: flex;
     flex-direction: column;
-    display: inline-block;
     margin: 10px;
 }
 
@@ -302,15 +301,16 @@ strong {
 
 .container-img .img{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*border: solid 1px rgb(81, 255, 0);*/
+}
+
+.container-img .img .img-banner{
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
-
-.container-img .img img{
-    width: 280px;
-    height: auto;
-    max-width: 100%;
 }
 
 .container-img .img a{
@@ -318,27 +318,17 @@ strong {
     overflow: hidden;
 }
 
-.container-img .img-banner{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 40px;
-}
-
-.container-img .img-banner .banner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.container-img .img-banner .banner a{
-    line-height: 100%;
-    overflow: hidden;
-}
-
-.container-img .img-banner img{
-    max-width: 280px;
-    border-radius: 10px;
+.container-img .img .img-banner .fundo-quadriculado{
+    display: inline-flex;
+    background-color: #ccc;
+    background-image: 
+    linear-gradient(45deg, #999 25%, transparent 25%),
+    linear-gradient(-45deg, #999 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #999 75%),
+    linear-gradient(-45deg, transparent 75%, #999 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    border-radius: 5px;
 }
 
 footer{

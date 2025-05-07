@@ -188,6 +188,7 @@ strong {
     width: 200px;
     height: 200px;
     border-radius: 100%;
+    background-color: white;
     border: solid 3px #9b8a29;
 }
 

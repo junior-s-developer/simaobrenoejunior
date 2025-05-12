@@ -74,6 +74,10 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
+    #nav-desktop{
+        padding: 50px 50px 16px 50px;
+    }
+
     main {
         padding: 116px 50px 0px 50px;
     }

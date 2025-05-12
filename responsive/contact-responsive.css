@@ -15,6 +15,10 @@
     #navbar-mobile #mobile-menu a:not(.contact):hover {
         color: inherit;
     }
+
+    .home{
+        margin-top: 60px;
+    }
     
     main {
         padding: 0px 20px;
@@ -59,6 +63,10 @@
         color: inherit;
     }
 
+    .home{
+        margin-top: 50px;
+    }
+
     main {
         padding: 0px 20px;
     }
@@ -77,6 +85,10 @@
 /*=========================================================*/
 
 @media (min-width: 768px) and (max-width: 1023px) {
+
+    #nav-desktop{
+        padding: 50px 50px 16px 50px;
+    }
     
     main {
         padding: 0px 50px 0px 50px;

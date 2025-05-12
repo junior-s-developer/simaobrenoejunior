@@ -13,6 +13,10 @@
     #nav-desktop{
         display: none;
     }
+
+    .home{
+        margin-bottom: 40px;
+    }
     
     #navbar-mobile{
         display: block;
@@ -100,6 +104,10 @@
     #nav-desktop{
         display: none;
     }
+
+    .home{
+        margin-bottom: 40px;
+    }
     
     #navbar-mobile{
         display: block;
@@ -163,6 +171,10 @@
 /*=========================================================*/
 
 @media (min-width: 768px) and (max-width: 1023px) {
+
+    #nav-desktop{
+        padding: 50px 50px 16px 50px;
+    }
     
     main {
         padding: 0px 50px 0px 50px;

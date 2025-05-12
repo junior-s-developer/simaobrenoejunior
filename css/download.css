@@ -113,6 +113,28 @@ strong {
     outline: none;
 }
 
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.home a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    background-color: #2b2b2b;
+    border-radius: 5px;
+    color: white;
+}
+
+.home a:hover{
+  color: #9b8a29;
+}
+
 .container-download{
     margin-top: 166px;
 }

@@ -16,6 +16,10 @@
         color: inherit;
     }
 
+    .home{
+        margin-bottom: 5px;
+    }
+
     main {
         padding: 164px 20px 50px 20px;
     }
@@ -67,6 +71,10 @@
         color: inherit;
     }
 
+    .home{
+        margin-bottom: 5px;
+    }
+
     main {
         padding: 164px 20px 50px 20px;
     }
@@ -89,6 +97,10 @@
 /*=========================================================*/
 
 @media (min-width: 768px) and (max-width: 1023px) {
+
+    #nav-desktop{
+        padding: 50px 50px 16px 50px;
+    }
     
     main {
         padding: 164px 50px 50px 50px;

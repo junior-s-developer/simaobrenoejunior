@@ -118,6 +118,7 @@ section strong {
     margin-top: 50px;
     color: #9b8a29;
     line-height: 24px;
+    overflow: hidden;
 }
 
 form{

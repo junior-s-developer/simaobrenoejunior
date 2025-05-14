@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body{
@@ -47,31 +50,72 @@ strong{
     width: 50px;
 }
 
-#nav-desktop ul{
+#nav-desktop .menu{
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
 }
 
-#nav-desktop li{
+#nav-desktop .menu > li{
     display: flex;
     margin-left: 50px;
-    border-radius: 5px;
+    position: relative;
 }
 
-#nav-desktop a{
+#nav-desktop .menu a{
     display: flex;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-#nav-desktop a:not(.download,.instagram,.youtube,.cel,.email):hover{
+#nav-desktop .menu .dropdown .submenu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  list-style: none;
+  padding: 0;
+  margin: 1px 0 0 10px;
+  z-index: 1000;
+  border-radius: 0px 7px 7px 7px;
+}
+
+#nav-desktop .menu .dropdown li{
+    display: flex;
+    line-height: 100%;
+    margin: 15px 80px 15px 10px;
+}
+
+#nav-desktop .menu a:hover{
     color: #e2ca3f;
 }
 
+#nav-desktop .menu .dropdown:hover .submenu,
+#nav-desktop .menu .dropdown:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 #nav-desktop .download{
-    color: #e2ca3f;
+    display: inline-block;
+    margin-left: -1px;
+    color: #e2ca3f !important;
+    position: relative;
+}
+
+#nav-desktop .download::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
     border-bottom: solid 1px #e2ca3f;
 }
 
@@ -118,21 +162,25 @@ strong {
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    background-color: #2b2b2b;
+    gap: 5px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.home h4{
+    text-transform: uppercase;
+    color: #9b8a29;
+    font-weight: bold;
 }
 
 .home a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 5px;
-    background-color: #2b2b2b;
-    border-radius: 5px;
     color: white;
+    text-decoration: none;
 }
 
 .home a:hover{
-  color: #9b8a29;
+  text-decoration: underline;
 }
 
 .container-download{
@@ -409,6 +457,12 @@ footer .tel, .email{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+footer .email i{
+    display: flex;
+    padding-top: 1.3px;
+    align-items: center;
 }
 
 footer .contact i{

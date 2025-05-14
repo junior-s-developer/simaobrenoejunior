@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body{
@@ -47,32 +50,56 @@ strong{
     width: 50px;
 }
 
-#nav-desktop ul{
+#nav-desktop .menu{
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
 }
 
-#nav-desktop li{
+#nav-desktop .menu > li{
     display: flex;
     margin-left: 50px;
-    border-radius: 5px;
+    position: relative;
 }
 
-#nav-desktop a{
+#nav-desktop .menu a{
     display: flex;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-#nav-desktop a:not(.start,.instagram,.youtube,.cel,.email):hover{
+#nav-desktop .menu .dropdown .submenu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  list-style: none;
+  padding: 0;
+  margin: 1px 0 0 10px;
+  z-index: 1000;
+  border-radius: 0px 7px 7px 7px;
+}
+
+#nav-desktop .menu .dropdown li{
+    display: flex;
+    line-height: 100%;
+    margin: 15px 80px 15px 10px;
+}
+
+#nav-desktop .menu a:hover{
     color: #e2ca3f;
 }
 
-#nav-desktop .start{
-    color: #e2ca3f;
-    border-bottom: solid 1px #e2ca3f;
+#nav-desktop .menu .dropdown:hover .submenu,
+#nav-desktop .menu .dropdown:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 main {
@@ -176,6 +203,12 @@ footer .tel, .email{
     gap: 5px;
 }
 
+footer .email i{
+    display: flex;
+    padding-top: 1.3px;
+    align-items: center;
+}
+
 footer .contact i{
     color: #9b8a29;
     overflow: hidden;
@@ -222,14 +255,16 @@ footer .contact i{
     padding: 20px 0px;
     color: #9b8a29;}
 
-#navbar-mobile ul {
+#navbar-mobile .menu {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    /*padding: 0px 10px; */ 
 }
 
-#navbar-mobile li {
+#navbar-mobile .menu > li {
     text-align: center;
     margin-bottom: 30px;
+    list-style: none;
 }
 
 #navbar-mobile a {
@@ -238,21 +273,37 @@ footer .contact i{
     color: white;
 }
 
-#navbar-mobile .start {
-    color: #e2ca3f;
-    border-bottom: solid 1px #e2ca3f;
+#navbar-mobile .menu .dropdown .submenu{
+    display: flex;
+    flex-direction: column;  
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    line-height: 1;
 }
 
-#navbar-mobile a:not(.start):hover {
-    color: #e2ca3f;
+#navbar-mobile .menu .dropdown .submenu li a{
+    color: #9b8a29;
+}
+
+#navbar-mobile .menu .dropdown .submenu.open {
+    max-height: 200px;
+}
+
+#mobile-menu.open {
+  max-height: 500px; /* ou mais, dependendo do conteúdo */
+  padding: 20px 0;
 }
 
 #navbar-mobile #mobile-menu {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
-  }
+}
 
 #navbar-mobile #mobile-menu.active {
     max-height: 500px;
-  }
+}

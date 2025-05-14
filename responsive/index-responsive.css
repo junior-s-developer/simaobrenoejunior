@@ -11,10 +11,6 @@
     #navbar-mobile{
         display: block;
     }
-
-    #navbar-mobile #mobile-menu a:not(.start):hover {
-        color: inherit;
-    }
     
     main {
         padding: 104px 20px 0px;

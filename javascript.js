@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("fade-in");
 
   // FADE-OUT ao sair
+  let navegando = false;
   document.querySelectorAll("a[href]").forEach(link => {
     const url = link.getAttribute("href");
 
@@ -35,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
       !link.target // ignora target="_blank"
     ) {
       link.addEventListener("click", function (e) {
+        if (navegando) return;
+        navegando = true;
+
         e.preventDefault();
         document.body.classList.remove("fade-in");
         document.body.style.opacity = 0;
@@ -47,17 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // MÁSCARA DE TELEFONE
-  document.getElementById("telefone").addEventListener("input", function () {
-    let valor = this.value.replace(/\D/g, "");
-    if (valor.length > 0) valor = "(" + valor;
-    if (valor.length > 3) valor = valor.slice(0, 3) + ") " + valor.slice(3);
-    if (valor.length > 10) valor = valor.slice(0, 10) + "-" + valor.slice(10);
-    this.value = valor;
-  });
+  const telefoneInput = document.getElementById("telefone");
+  if (telefoneInput) {
+    telefoneInput.addEventListener("input", function () {
+      let valor = this.value.replace(/\D/g, "");
+
+      if (valor.length > 0) valor = "(" + valor;
+      if (valor.length > 3) valor = valor.slice(0, 3) + ") " + valor.slice(3);
+      if (valor.length > 10) valor = valor.slice(0, 10) + "-" + valor.slice(10);
+      if (valor.length > 15) valor = valor.slice(0, 15);
+
+      this.value = valor;
+    });
+  }
 
   // BLOQUEIO DE DATAS PASSADAS
-  const hoje = new Date().toISOString().split("T")[0];
-  document.getElementById("data").setAttribute("min", hoje);
+  const dataInput = document.getElementById("data");
+  if (dataInput) {
+    const hoje = new Date().toISOString().split("T")[0];
+    dataInput.setAttribute("min", hoje);
+  }
 
   // BOTÃO WHATSAPP
   document.querySelector('button').addEventListener('click', function () {
@@ -103,6 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const hoje = new Date();
+    const dataSelecionada = new Date(data + 'T00:00:00');
+    if (dataSelecionada < hoje.setHours(0, 0, 0, 0)) {
+      alert('A data do evento não pode ser no passado.');
+      dataInput.focus();
+      return;
+    }
+
     if (!detalhes) {
       alert('Diga-nos sobre seu evento.');
       detalhesInput.focus();
@@ -113,16 +134,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const dataFormatada = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
 
     const mensagem = `Oi! Aqui é o *${nome}*.
-    
-Entrei em contato pelo site, gostaria de saber sobre a disponibilidade e o orçamento para a realização de um show. Agradeço desde já!
 
-*Local*: ${local}  
-*Data*: ${dataFormatada}  
-*Telefone*: ${telefone}
+  Entrei em contato pelo site, gostaria de saber sobre a disponibilidade e o orçamento para a realização de um show. Agradeço desde já!
 
-*DETALHES DO EVENTO*:
+  *Local*: ${local}  
+  *Data*: ${dataFormatada}  
+  *Telefone*: ${telefone}
 
-${detalhes}`;
+  *DETALHES DO EVENTO*:
+
+  ${detalhes}`;
 
     const mensagemCodificada = encodeURIComponent(mensagem);
     const numeroDestino = '5535984728729';
@@ -130,4 +151,4 @@ ${detalhes}`;
 
     window.open(url, '_blank');
   });
-});
+})

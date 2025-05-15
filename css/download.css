@@ -545,6 +545,22 @@ footer .contact i{
     color: #9b8a29;
 }
 
+#navbar-mobile .download{
+    display: inline-block;
+    color: #e2ca3f;
+    position: relative;
+}
+
+#navbar-mobile .download::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    border-bottom: solid 1px #e2ca3f;
+}
+
 #navbar-mobile .menu .dropdown .submenu.open {
     max-height: 200px;
 }

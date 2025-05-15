@@ -80,15 +80,16 @@ strong{
   background: #222;
   list-style: none;
   padding: 0;
-  margin: 1px 0 0 10px;
+  margin: 3px 0 0 0px;
   z-index: 1000;
   border-radius: 0px 7px 7px 7px;
+  border: solid 1px #444;
 }
 
 #nav-desktop .menu .dropdown li{
     display: flex;
     line-height: 100%;
-    margin: 15px 80px 15px 10px;
+    margin: 30px 80px 30px 30px;
 }
 
 #nav-desktop .menu a:hover{
@@ -258,7 +259,6 @@ footer .contact i{
 #navbar-mobile .menu {
     display: flex;
     flex-direction: column;
-    /*padding: 0px 10px; */ 
 }
 
 #navbar-mobile .menu > li {

@@ -336,14 +336,15 @@ footer .contact i{
     padding: 20px 0px;
     color: #9b8a29;}
 
-#navbar-mobile ul {
+#navbar-mobile .menu {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
 }
 
-#navbar-mobile li {
+#navbar-mobile .menu > li {
     text-align: center;
     margin-bottom: 30px;
+    list-style: none;
 }
 
 #navbar-mobile a {
@@ -352,13 +353,29 @@ footer .contact i{
     color: white;
 }
 
-#navbar-mobile .contact {
-    color: #e2ca3f;
-    border-bottom: solid 1px #e2ca3f;
+#navbar-mobile .menu .dropdown .submenu{
+    display: flex;
+    flex-direction: column;  
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    line-height: 1;
 }
 
-#navbar-mobile a:not(.contact):hover {
-    color: #e2ca3f;
+#navbar-mobile .menu .dropdown .submenu li a{
+    color: #9b8a29;
+}
+
+#navbar-mobile .menu .dropdown .submenu.open {
+    max-height: 200px;
+}
+
+#mobile-menu.open {
+  max-height: 500px;
+  padding: 20px 0;
 }
 
 #navbar-mobile #mobile-menu {
@@ -370,4 +387,3 @@ footer .contact i{
 #navbar-mobile #mobile-menu.active {
     max-height: 500px;
 }
-

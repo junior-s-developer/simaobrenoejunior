@@ -12,10 +12,6 @@
         display: block;
     }
 
-    #navbar-mobile #mobile-menu a:not(.about):hover {
-        color: inherit;
-    }
-
     .home{
         margin-bottom: 35px;
     }
@@ -91,10 +87,6 @@
     
     #navbar-mobile{
         display: block;
-    }
-
-    #navbar-mobile #mobile-menu a:not(.about):hover {
-        color: inherit;
     }
 
     .home{

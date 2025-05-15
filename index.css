@@ -294,7 +294,7 @@ footer .contact i{
 }
 
 #mobile-menu.open {
-  max-height: 500px; /* ou mais, dependendo do conteúdo */
+  max-height: 500px;
   padding: 20px 0;
 }
 

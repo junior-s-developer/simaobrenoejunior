@@ -116,6 +116,10 @@ a:focus{
     border-bottom: solid 1px #e2ca3f;
 }
 
+#nav-desktop .select{
+    color: #e2ca3f !important;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -403,6 +407,10 @@ footer .contact i{
     transform: translateX(-50%);
     width: 70%;
     border-bottom: solid 1px #e2ca3f;
+}
+
+#navbar-mobile .select{
+    color: #e2ca3f !important;
 }
 
 #navbar-mobile .menu .dropdown .submenu.open {

@@ -194,9 +194,18 @@ main {
 }
 
 .container-agenda .container-programacao .evento h4{
+    display: flex;
+    align-items: center;
     line-height: 1;
     font-size: 24px;
     text-transform: capitalize;
+    color: #9b8a29;
+}
+
+.container-agenda .container-programacao .evento h5{
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 3px;
     color: #9b8a29;
 }
 

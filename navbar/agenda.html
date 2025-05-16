@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fale Conosco - Simão Breno & Júnior</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.png">
-    <link rel="stylesheet" href="../css/contact.css">
-    <link rel="stylesheet" href="../responsive/contact-responsive.css">
+    <link rel="stylesheet" href="../css/agenda.css">
+    <link rel="stylesheet" href="../responsive/agenda-responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -25,10 +25,10 @@
                 <a href="../navbar/download.html">Download</a>
             </li>
             <li>
-                <a href="../navbar/agenda.html">Agenda</a>
+                <a class="agenda" href="../navbar/agenda.html">Agenda</a>
             </li>
             <li>
-                <a class="contact" href="../navbar/contact.html">Fale Conosco</a>
+                <a href="../navbar/contact.html">Fale Conosco</a>
             </li>
         </ul>
     </nav>
@@ -55,55 +55,54 @@
                 <a href="../navbar/download.html">Download</a>
             </li>
             <li>
-                <a href="../navbar/agenda.html">Agenda</a>
+                <a class="agenda" href="../navbar/agenda.html">Agenda</a>
             </li>
             <li>
-                <a class="contact" href="../navbar/contact.html">Fale Conosco</a>
+                <a href="../navbar/contact.html">Fale Conosco</a>
             </li>
         </ul>
     </nav>
 
     <main>
-        <section class="agendar-section">
         <div class="home">
             <a href="../index.html">Página Inicial</a>
             <span>|</span>
-            <h4>Fale Conosco</h4>
+            <h4>Agenda</h4>
         </div>
-            <div class="title-text">
-                <h2>Agendar um Show</h2>
-                <p>Preencha o <strong>formulário</strong> abaixo e envie sua solicitação pelo <strong>WhatsApp</strong>.</p>
+
+        <section class="container-agenda">
+            <div class="title-agenda">
+                <h3>Confira nossa programação</h3>
             </div>
-    
-            <form id="Form">
-    
-                <div class="input-row">
-                    <div class="input-group nome">
-                        <label for="nome">Nome *</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    <div class="input-group telefone">
-                        <label for="telefone">Telefone / whatsapp *</label>
-                        <input type="text" id="telefone" name="telefone" inputmode="numeric" placeholder="(99) 99999-9999" maxlength="15" required>
-                    </div>
+            <div class="container-programacao">
+                <div class="data">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <p>07/06/2025</p>
                 </div>
-    
-                <div class="input-row">
-                    <div class="input-group local">
-                        <label for="local">Local do Evento *</label>
-                        <input type="text" id="local" name="local" required>
-                    </div>
-                    <div class="input-group data">
-                        <label for="data">Data do Evento *</label>
-                        <input type="date" id="data" name="data" required>
-                    </div>
+                <div class="evento">
+                    <h4>X Expo Capeb</h4>
+                    <p>Boa Esperança - MG</p>
                 </div>
-    
-                <label for="mensagem">Detalhes do Evento *</label>
-                <textarea id="mensagem" name="mensagem" rows="7"></textarea>
-    
-                <button type="button">Enviar</button>
-            </form>
+                <div class="tickets">
+                    <a href="https://www.instagram.com/p/DJpqWhQN0sP/?igsh=MXBib3hvZ2lzZTVxNQ%3D%3D" target="_blank" rel="noopener noreferrer">Tickets</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-agenda">
+            <div class="container-programacao">
+                <div class="data">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <p>24/05/2025</p>
+                </div>
+                <div class="evento">
+                    <h4>Festa da família</h4>
+                    <p class="texto">Cooperativa dos Costas,<br>Boa Esperança - MG.</p>
+                </div>
+                <div style="border-color: unset;" class="tickets">
+                    <p>Particular</p>
+                </div>
+            </div>
         </section>
     </main>
 

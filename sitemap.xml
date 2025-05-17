@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://simaobrenoejunior.com.br/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/agenda.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/contact.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/curriculo.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/download.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/portfolio.html</loc>
+    <priority>0.80</priority>
+  </url>
+</urlset>

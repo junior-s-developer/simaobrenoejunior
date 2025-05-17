@@ -150,14 +150,16 @@ main {
   text-decoration: underline;
 }
 
-.container-agenda{
-    margin-top: 50px;
+.agendas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.container-agenda .title-agenda{
+.title-agenda{
     text-transform: uppercase;
     color: #9b8a29;
-    margin-bottom: 25px;
+    margin: 50px 0px 25px 0px;
 }
 
 .container-programacao{
@@ -213,14 +215,14 @@ main {
     line-height: 20px;
 }
 
-.container-agenda .container-programacao .tickets{
+.container-agenda .container-programacao .button{
     display: flex;
     border: solid 2px white;
     border-radius: 5px;
     margin-left: auto;
 }
 
-.container-agenda .container-programacao .tickets a{
+.container-agenda .container-programacao .button a{
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -228,15 +230,15 @@ main {
     font-weight: bold;
 }
 
-.container-agenda .container-programacao .tickets a:hover{
+.container-agenda .container-programacao .button a:hover{
     color: #9b8a29;
 }
 
-.container-agenda .container-programacao .tickets:hover{
+.container-agenda .container-programacao .button:hover{
     border-color: #9b8a29;
 }
 
-.container-agenda .container-programacao .tickets p{
+.container-agenda .container-programacao .button p{
     text-transform: uppercase;
     padding: 10px 30px;
     font-weight: bold;

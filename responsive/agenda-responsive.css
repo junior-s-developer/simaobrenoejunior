@@ -40,15 +40,15 @@
         text-align: center;
     }
 
-    .container-agenda .container-programacao .tickets{
+    .container-agenda .container-programacao .button{
         margin: 0;
     }
 
-    .container-agenda .container-programacao .tickets a:hover{
+    .container-agenda .container-programacao .button a:hover{
         color: unset;
     }
 
-    .container-agenda .container-programacao .tickets:hover{
+    .container-agenda .container-programacao .button:hover{
         border-color: unset;
     }
 
@@ -103,15 +103,15 @@
         text-align: center;
     }
 
-    .container-agenda .container-programacao .tickets{
+    .container-agenda .container-programacao .button{
         margin: 0;
     }
 
-    .container-agenda .container-programacao .tickets a:hover{
+    .container-agenda .container-programacao .button a:hover{
         color: unset;
     }
 
-    .container-agenda .container-programacao .tickets:hover{
+    .container-agenda .container-programacao .button:hover{
         border-color: unset;
     }
 
@@ -138,11 +138,11 @@
         padding: 0px 50px 0px 50px;
     }
 
-    .container-agenda .container-programacao .tickets a:hover{
+    .container-agenda .container-programacao .button a:hover{
         color: unset;
     }
 
-    .container-agenda .container-programacao .tickets:hover{
+    .container-agenda .container-programacao .button:hover{
         border-color: unset;
     }
 
@@ -162,11 +162,11 @@
         padding: 0px 100px 0px 100px;
     }
 
-    .container-agenda .container-programacao .tickets a:hover{
+    .container-agenda .container-programacao .button a:hover{
         color: unset;
     }
 
-    .container-agenda .container-programacao .tickets:hover{
+    .container-agenda .container-programacao .button:hover{
         border-color: unset;
     }
 }

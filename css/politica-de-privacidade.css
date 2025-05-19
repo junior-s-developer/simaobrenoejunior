@@ -39,6 +39,7 @@ header {
 
 header h1 {
   text-transform: uppercase;
+  color: #9b8a29;
 }
 
 main {
@@ -46,10 +47,6 @@ main {
     flex-direction: column;
     gap: 40px;
     padding: 50px 15% 50px 15%;
-}
-
-main section {
-  /*margin-bottom: 40px;*/
 }
 
 main h2 {

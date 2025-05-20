@@ -116,7 +116,7 @@ a:focus{
     border-bottom: solid 1px #e2ca3f;
 }
 
-#link{
+.link{
     color: rgb(0, 204, 255);
 }
 
@@ -307,8 +307,11 @@ footer .contact i{
 .copy{
     text-align: center;
     padding: 10px 0px;
-    color: #9b8a29;
     background-color: #2b2b2b;
+}
+
+.copy p{
+    color: #9b8a29;
 }
 
 .autor{
@@ -316,7 +319,7 @@ footer .contact i{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #181818;
+    background-color: #2b2b2b;
     gap: 10px;
 }
 

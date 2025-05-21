@@ -151,4 +151,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.open(url, '_blank');
   });
+
+  // IMPEDIR MENSAGEM DE FORMSPREE
+  const form = document.getElementById("newsletter-form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Impede o envio normal
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "/navbar/confirmacao-cadastro.html"; // Seu redirecionamento
+      } else {
+        alert("Erro ao enviar o formulário.");
+      }
+    });
+  });
 })

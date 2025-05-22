@@ -1,3 +1,7 @@
+/*function handleCaptchaResponse(token) {
+  console.log("reCAPTCHA validado com sucesso:", token);
+}*/
+
 document.addEventListener("DOMContentLoaded", () => {
   // MENU MOBILE
   const toggleButton = document.getElementById("menu-toggle");
@@ -152,21 +156,23 @@ document.addEventListener("DOMContentLoaded", () => {
     window.open(url, '_blank');
   });
 
-  // IMPEDIR MENSAGEM DE FORMSPREE
-  const form = document.getElementById("newsletter-form");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Impede o envio normal
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        window.location.href = "/navbar/confirmacao-cadastro.html"; // Seu redirecionamento
-      } else {
-        alert("Erro ao enviar o formulário.");
+  // reCAPTCHA
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('sib-form');
+
+    // Intercepta a resposta de sucesso
+    const observer = new MutationObserver(() => {
+      const successMessage = document.getElementById('success-message');
+      const isVisible = window.getComputedStyle(successMessage).display !== 'none';
+
+      if (isVisible) {
+        window.location.href = 'confirmacao-cadastro.html';
       }
     });
+
+    // Observa mudanças no DOM para saber quando o sucesso é exibido
+    const config = { attributes: true, childList: true, subtree: true };
+    const successPanel = document.getElementById('success-message');
+    observer.observe(successPanel, config);
   });
 })

@@ -164,14 +164,24 @@
                 </div>
             </div>
         </div>
-        <div class="newsletter">
+
+        <!--FORMULÁRIO DA BREVO-->
+        <form id="sib-form" class="newsletter" method="POST" action="https://sibforms.com/serve/MUIFADVyhiIVZzCM4fz9uKtRfzbO1EGUAPT9IbGTTv7NrVVDzBhJfoKF4efIjqcmfyACuFsVn5bn3IJ_A8VC02U__PmWTb97vPqmMiX4jcx7It2oilns0MEq-R2ari4NlbIzzP6ANSwbKNTpEthDOFfDCIBrZvCm4_jwSfjxWedeWcUzDsT1cArhl0DQWZkBpZmZHxzG56Vq_SAm" data-type="subscription">
             <h2>Novidades da Dupla</h2>
             <p>Cadastre seu e-mail e fique por dentro de lançamentos, shows e bastidores.</p>
-            <form id="newsletter-form" action="https://formspree.io/f/xgvkbwvq" method="POST">
-                <input type="email" name="email" placeholder="Digite seu e-mail" required>
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div>
+            <input type="text" id="EMAIL" name="EMAIL" placeholder="Digite seu e-mail" required />
+
+            <div class="g-recaptcha sib-visible-recaptcha" 
+            id="sib-captcha" data-sitekey="6Lf-gkUrAAAAAAX9_MLItOUf8GzK6jFVoca-ZidD" 
+            data-callback="handleCaptchaResponse" 
+            style="direction:ltr"></div>
+
+            <button type="submit">Cadastrar</button>
+
+            <input type="text" name="email_address_check" value="" hidden>
+            <input type="hidden" name="locale" value="pt">
+        </form>
+
     </footer>
     <div class="copy">
         <p>&copy; 2025 Simão Breno & Júnior. Todos os direitos reservados.</p>
@@ -185,6 +195,7 @@
         </a>
     </div>
     <script src="javascript.js"></script>
-    <a href="/navbar/confirmacao-cadastro.html"></a>
+    <script src="https://www.google.com/recaptcha/api.js?hl=pt" async defer></script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>

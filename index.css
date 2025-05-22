@@ -221,15 +221,21 @@ footer .contact i{
     overflow: hidden;
 }
 
+/*FORMULÁRIO*/
+
 footer .newsletter {
-    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px ;
     padding: 10px 20px;
     border-radius: 10px;
+    gap: 10px;
 }
 
 footer .newsletter h2{
     text-align: center;
-    margin-bottom: 10px;
     font-size: 16px;
     color: #9b8a29;
 }
@@ -246,18 +252,22 @@ footer .newsletter form{
     font-size: 12px;
 }
 
-footer .newsletter input[type="email"] {
+footer .newsletter input {
     padding: 10px;
     width: 100%;
     border: none;
     outline: none;
     border-radius: 5px;
-    margin-bottom: 15px;
+}
+
+.g-recaptcha {
+    margin-left: 2px;
 }
 
 footer .newsletter button {
     display: flex;
     justify-content: center;
+    align-items: center;
     text-transform: uppercase;
     color: white;
     background-color: #9b8a29;

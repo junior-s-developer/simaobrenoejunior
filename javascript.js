@@ -157,24 +157,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // reCAPTCHA
-  document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('sib-form');
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      // Aqui você pode impedir o envio se quiser processar antes
-    });
-
-    window.addEventListener('message', function (event) {
-      if (
-        event.data &&
-        typeof event.data === 'string' &&
-        event.data.includes('sib-form-response-success')
-      ) {
-        window.location.href = 'confirmacao-cadastro.html';
-      }
-    });
-  }
-});
-
+  
 })

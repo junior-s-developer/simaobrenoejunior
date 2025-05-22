@@ -158,21 +158,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // reCAPTCHA
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('sib-form');
+  const form = document.getElementById('sib-form');
 
-    // Intercepta a resposta de sucesso
-    const observer = new MutationObserver(() => {
-      const successMessage = document.getElementById('success-message');
-      const isVisible = window.getComputedStyle(successMessage).display !== 'none';
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      // Aqui você pode impedir o envio se quiser processar antes
+    });
 
-      if (isVisible) {
+    window.addEventListener('message', function (event) {
+      if (
+        event.data &&
+        typeof event.data === 'string' &&
+        event.data.includes('sib-form-response-success')
+      ) {
         window.location.href = 'confirmacao-cadastro.html';
       }
     });
+  }
+});
 
-    // Observa mudanças no DOM para saber quando o sucesso é exibido
-    const config = { attributes: true, childList: true, subtree: true };
-    const successPanel = document.getElementById('success-message');
-    observer.observe(successPanel, config);
-  });
 })

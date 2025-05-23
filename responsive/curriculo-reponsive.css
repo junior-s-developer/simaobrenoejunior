@@ -4,73 +4,73 @@
 
 @media (max-width: 480px) {
 
-    #nav-desktop{
+    #nav-desktop {
         display: none;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
 
-    .home{
+    .home {
         margin-bottom: 35px;
     }
-    
+
     main {
         padding: 153px 20px 50px 20px;
     }
 
-    .container-apresentacao{
+    .container-apresentacao {
         flex-direction: column;
-    } 
-    
-    .container-apresentacao h1{
+    }
+
+    .container-apresentacao h1 {
         text-align: center;
     }
-    
-    #simao-junior{
+
+    #simao-junior {
         display: none;
     }
-    
-    .img-scren{
+
+    .img-scren {
         display: flex;
         max-width: 100%;
     }
-    
-    .container-perfil .perfil{
+
+    .container-perfil .perfil {
         flex-direction: column;
         gap: 10px;
     }
-    
-    .container-perfil .text{
+
+    .container-perfil .text {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
-    .container-historico .historico{
+
+    .container-historico .historico {
         display: flex;
         flex-direction: column;
     }
-    
-    .container-historico .historico .container-text{
-        width: 100%;
-    }
-    
-    .container-historico .historico .container-img{
+
+    .container-historico .historico .container-text {
         width: 100%;
     }
 
-    .ordem{
+    .container-historico .historico .container-img {
+        width: 100%;
+    }
+
+    .ordem {
         order: 2;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
         margin-top: 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -81,73 +81,73 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-    #nav-desktop{
+    #nav-desktop {
         display: none;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
 
-    .home{
+    .home {
         margin-bottom: 35px;
     }
-    
+
     main {
         padding: 153px 20px 50px 20px;
     }
 
-    .container-apresentacao{
+    .container-apresentacao {
         flex-direction: column;
-    } 
-    
-    .container-apresentacao h1{
+    }
+
+    .container-apresentacao h1 {
         text-align: center;
     }
-    
-    #simao-junior{
+
+    #simao-junior {
         display: none;
     }
-    
-    .img-scren{
+
+    .img-scren {
         display: flex;
         max-width: 100%;
     }
-    
-    .container-perfil .perfil{
+
+    .container-perfil .perfil {
         flex-direction: column;
         gap: 10px;
     }
-    
-    .container-perfil .text{
+
+    .container-perfil .text {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
-    .container-historico .historico{
+
+    .container-historico .historico {
         display: flex;
         flex-direction: column;
     }
-    
-    .container-historico .historico .container-text{
-        width: 100%;
-    }
-    
-    .container-historico .historico .container-img{
+
+    .container-historico .historico .container-text {
         width: 100%;
     }
 
-    .ordem{
+    .container-historico .historico .container-img {
+        width: 100%;
+    }
+
+    .ordem {
         order: 2;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
         margin-top: 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -158,33 +158,33 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    #nav-desktop{
+    #nav-desktop {
         padding: 50px 50px 16px 50px;
     }
-    
+
     main {
         padding: 166px 50px 0px 50px;
     }
 
-    .section1{
+    .section1 {
         gap: 50px;
     }
 
-    .integral .content-historico{
+    .integral .content-historico {
         gap: 50px;
 
     }
 
 
-    .integral .content-historico .figura{
+    .integral .content-historico .figura {
         flex: 100%;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
-  }
-  
+}
+
 /*=========================================================*/
 /*Desktop padrão / Tablet deitado*/
 /*=========================================================*/
@@ -195,7 +195,7 @@
         padding: 166px 50px 0px 50px;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
-  }  
+}

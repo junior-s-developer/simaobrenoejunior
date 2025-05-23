@@ -4,59 +4,59 @@
 
 @media (max-width: 480px) {
 
-    #nav-desktop{
+    #nav-desktop {
         display: none;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
-    
+
     main {
         padding: 0px 20px 50px 20px;
     }
 
-    .home{
+    .home {
         margin-top: 160px;
     }
 
-    .container-programacao{
+    .container-programacao {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 30px;
     }
 
-    .title-agenda{
+    .title-agenda {
         text-align: center;
     }
 
-    .container-agenda .container-programacao .evento{
+    .container-agenda .container-programacao .evento {
         align-items: center;
         margin: 0px;
     }
 
-    .container-agenda .container-programacao .evento .texto{
+    .container-agenda .container-programacao .evento .texto {
         text-align: center;
     }
 
-    .container-agenda .container-programacao .button{
+    .container-agenda .container-programacao .button {
         margin: 0;
     }
 
-    .container-agenda .container-programacao .button a:hover{
+    .container-agenda .container-programacao .button a:hover {
         color: unset;
     }
 
-    .container-agenda .container-programacao .button:hover{
+    .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -66,12 +66,12 @@
 /*=========================================================*/
 
 @media (min-width: 481px) and (max-width: 767px) {
-    
-    #nav-desktop{
+
+    #nav-desktop {
         display: none;
     }
 
-    #navbar-mobile{
+    #navbar-mobile {
         display: block;
     }
 
@@ -79,47 +79,47 @@
         padding: 0px 20px;
     }
 
-        .container-programacao{
+    .container-programacao {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 30px;
     }
 
-    .home{
+    .home {
         margin-top: 50px;
     }
 
-    .title-agenda{
+    .title-agenda {
         text-align: center;
     }
 
-    .container-agenda .container-programacao .evento{
+    .container-agenda .container-programacao .evento {
         align-items: center;
         margin: 0px;
     }
 
-    .container-agenda .container-programacao .evento .texto{
+    .container-agenda .container-programacao .evento .texto {
         text-align: center;
     }
 
-    .container-agenda .container-programacao .button{
+    .container-agenda .container-programacao .button {
         margin: 0;
     }
 
-    .container-agenda .container-programacao .button a:hover{
+    .container-agenda .container-programacao .button a:hover {
         color: unset;
     }
 
-    .container-agenda .container-programacao .button:hover{
+    .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -130,27 +130,27 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    #nav-desktop{
+    #nav-desktop {
         padding: 50px 50px 16px 50px;
     }
-    
+
     main {
         padding: 0px 50px 0px 50px;
     }
 
-    .container-agenda .container-programacao .button a:hover{
+    .container-agenda .container-programacao .button a:hover {
         color: unset;
     }
 
-    .container-agenda .container-programacao .button:hover{
+    .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 }
-  
+
 
 /*=========================================================*/
 /*Desktop padrão / Tablet deitado*/
@@ -162,11 +162,11 @@
         padding: 0px 100px 0px 100px;
     }
 
-    .container-agenda .container-programacao .button a:hover{
+    .container-agenda .container-programacao .button a:hover {
         color: unset;
     }
 
-    .container-agenda .container-programacao .button:hover{
+    .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
 }

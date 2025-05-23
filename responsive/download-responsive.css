@@ -3,22 +3,22 @@
 /*=========================================================*/
 
 @media (max-width: 479px) {
-    .container-download .download .linha .container-buttom{
+    .container-download .download .linha .container-buttom {
         flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
 
-    #nav-desktop{
+    #nav-desktop {
         display: none;
     }
 
-    .home{
+    .home {
         margin-bottom: 40px;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
 
@@ -26,67 +26,67 @@
         padding: 0px 20px 50px 20px;
     }
 
-    .container-download{
+    .container-download {
         margin-top: 156px;
     }
 
     /*Currículo e Portólio para download*/
 
-    .container-download .title-text h2{
+    .container-download .title-text h2 {
         text-align: center;
     }
 
     /*Múscias para download*/
 
-    .container-audio .title-text h2{
+    .container-audio .title-text h2 {
         text-align: center;
     }
 
-    .container-audio .audio .title-audio{
+    .container-audio .audio .title-audio {
         display: flex;
         flex-direction: column;
         align-items: start;
         gap: 10px;
     }
 
-    .container-audio .audio .title-audio .player{
+    .container-audio .audio .title-audio .player {
         width: 100%;
     }
 
     /*Vídeos para download*/
 
-    .container-video .video{
+    .container-video .video {
         flex-direction: column;
         gap: 40px;
     }
 
-    .container-video .title-text h2{
+    .container-video .title-text h2 {
         text-align: center;
     }
 
     /*Logomarca para download*/
 
-    .container-img .title-text h2{
+    .container-img .title-text h2 {
         text-align: center;
     }
 
-    .container-img .img{
+    .container-img .img {
         flex-direction: column;
         gap: 20px;
     }
 
-    .container-img .img .img-banner .fundo-quadriculado{
+    .container-img .img .img-banner .fundo-quadriculado {
         display: flex;
         justify-content: center;
         width: 500px;
         height: auto;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -96,16 +96,16 @@
 /*=========================================================*/
 
 @media (min-width: 481px) and (max-width: 767px) {
-    
-    #nav-desktop{
+
+    #nav-desktop {
         display: none;
     }
 
-    .home{
+    .home {
         margin-bottom: 40px;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
 
@@ -113,47 +113,47 @@
         padding: 0px 20px;
     }
 
-        /*Currículo e Portólio para download*/
+    /*Currículo e Portólio para download*/
 
-        .container-download .title-text h2{
-            text-align: center;
-        }
-    
-        /*Múscias para download*/
-    
-        .container-audio .title-text h2{
-            text-align: center;
-        }
-    
-        /*Vídeos para download*/
-    
-        .container-video .title-text h2{
-            text-align: center;
-        }
-    
-        /*Logomarca para download*/
-    
-        .container-img .title-text h2{
-            text-align: center;
-        }
+    .container-download .title-text h2 {
+        text-align: center;
+    }
 
-        .container-img .img{
-            flex-direction: column;
-            gap: 20px;
-        }
-    
-        .container-img .img .img-banner .fundo-quadriculado{
-            display: flex;
-            justify-content: center;
-            width: 800px;
-            height: auto;
-        }
+    /*Múscias para download*/
 
-    footer{
+    .container-audio .title-text h2 {
+        text-align: center;
+    }
+
+    /*Vídeos para download*/
+
+    .container-video .title-text h2 {
+        text-align: center;
+    }
+
+    /*Logomarca para download*/
+
+    .container-img .title-text h2 {
+        text-align: center;
+    }
+
+    .container-img .img {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .container-img .img .img-banner .fundo-quadriculado {
+        display: flex;
+        justify-content: center;
+        width: 800px;
+        height: auto;
+    }
+
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -164,55 +164,55 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    #nav-desktop{
+    #nav-desktop {
         padding: 50px 50px 16px 50px;
     }
-    
+
     main {
         padding: 0px 50px 0px 50px;
     }
 
     /*Currículo e Portólio para download*/
 
-    .container-download .title-text h2{
+    .container-download .title-text h2 {
         text-align: center;
     }
 
     /*Múscias para download*/
 
-    .container-audio .title-text h2{
+    .container-audio .title-text h2 {
         text-align: center;
     }
 
     /*Vídeos para download*/
 
-    .container-video .title-text h2{
+    .container-video .title-text h2 {
         text-align: center;
     }
 
     /*Logomarca para download*/
 
-    .container-img .title-text h2{
+    .container-img .title-text h2 {
         text-align: center;
     }
 
-    .container-img .img{
+    .container-img .img {
         flex-direction: column;
         gap: 20px;
     }
 
-    .container-img .img .img-banner .fundo-quadriculado{
+    .container-img .img .img-banner .fundo-quadriculado {
         display: flex;
         justify-content: center;
         width: 800px;
         height: auto;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 }
-  
+
 
 /*=========================================================*/
 /*Desktop padrão / Tablet deitado*/
@@ -226,26 +226,25 @@
 
     /*Currículo e Portólio para download*/
 
-    .container-download .title-text h2{
+    .container-download .title-text h2 {
         text-align: center;
     }
 
     /*Múscias para download*/
 
-    .container-audio .title-text h2{
+    .container-audio .title-text h2 {
         text-align: center;
     }
 
     /*Vídeos para download*/
 
-    .container-video .title-text h2{
+    .container-video .title-text h2 {
         text-align: center;
     }
 
     /*Logomarca para download*/
 
-    .container-img .title-text h2{
+    .container-img .title-text h2 {
         text-align: center;
     }
-}  
-  
+}

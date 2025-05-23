@@ -1,34 +1,35 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
-    color: white;
-    background-color: black;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    line-height: 2;
+  color: white;
+  background-color: black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  line-height: 2;
 }
 
 body.fade-in {
-    opacity: 1;
+  opacity: 1;
 }
 
-strong{
-    color: #9b8a29;
+strong {
+  color: #9b8a29;
 }
 
-.link{
-    color: rgb(0, 204, 255);
+.link {
+  color: rgb(0, 204, 255);
 }
 
 header {
@@ -42,34 +43,34 @@ header h1 {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 50px 15% 50px 15%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px 15% 50px 15%;
 }
 
-.home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #2b2b2b;
-    gap: 5px;
-    height: 70px;
-    border-radius: 5px;
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b2b;
+  gap: 5px;
+  height: 70px;
+  border-radius: 5px;
 }
 
-.home h4{
-    text-transform: uppercase;
-    color: #9b8a29;
-    font-weight: bold;
+.home h4 {
+  text-transform: uppercase;
+  color: #9b8a29;
+  font-weight: bold;
 }
 
-.home a{
-    text-decoration: none;
-    color: white;
+.home a {
+  text-decoration: none;
+  color: white;
 }
 
-.home a:hover{
+.home a:hover {
   text-decoration: underline;
 }
 

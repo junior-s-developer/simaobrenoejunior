@@ -4,39 +4,39 @@
 
 @media (max-width: 480px) {
 
-    #nav-desktop{
+    #nav-desktop {
         display: none;
     }
-    
-    #navbar-mobile{
+
+    #navbar-mobile {
         display: block;
     }
 
-    .home{
+    .home {
         margin-top: 160px;
     }
-    
+
     main {
         padding: 0px 20px 50px 20px;
     }
 
-    .agendar-section{
+    .agendar-section {
         margin-top: 104px;
     }
-    
-    section h2{
+
+    section h2 {
         text-align: center;
     }
 
-    .input-row{
+    .input-row {
         display: block;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -46,16 +46,16 @@
 /*=========================================================*/
 
 @media (min-width: 481px) and (max-width: 767px) {
-    
-    #nav-desktop{
+
+    #nav-desktop {
         display: none;
     }
 
-    #navbar-mobile{
+    #navbar-mobile {
         display: block;
     }
 
-    .home{
+    .home {
         margin-top: 50px;
     }
 
@@ -63,11 +63,11 @@
         padding: 0px 20px;
     }
 
-    footer{
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 
-    .copy{
+    .copy {
         padding: 20px 20px;
     }
 }
@@ -78,31 +78,31 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    #nav-desktop{
+    #nav-desktop {
         padding: 50px 50px 16px 50px;
     }
-    
+
     main {
         padding: 0px 50px 0px 50px;
     }
-    
-    .section-clipe{
-        gap: 50px;
-    }
-    
-    .section-tbt{
-        gap: 50px;
-    }
-    
-    .section-teaser{
+
+    .section-clipe {
         gap: 50px;
     }
 
-    footer{
+    .section-tbt {
+        gap: 50px;
+    }
+
+    .section-teaser {
+        gap: 50px;
+    }
+
+    footer {
         border-radius: 20px 20px 0px 0px;
     }
 }
-  
+
 
 /*=========================================================*/
 /*Desktop padrão / Tablet deitado*/
@@ -113,17 +113,16 @@
     main {
         padding: 0px 100px 0px 100px;
     }
-    
-    .section-clipe{
+
+    .section-clipe {
         gap: 100px;
     }
-    
-    .section-tbt{
+
+    .section-tbt {
         gap: 100px;
     }
-    
-    .section-teaser{
+
+    .section-teaser {
         gap: 100px;
     }
-}  
-  
+}

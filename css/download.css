@@ -5,11 +5,12 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
-  overflow-x: hidden;
+html,
+body {
+    overflow-x: hidden;
 }
 
-body{
+body {
     color: white;
     background-color: black;
     font-family: 'Poppins', sans-serif;
@@ -23,15 +24,15 @@ body.fade-in {
     opacity: 1;
 }
 
-a:focus{
+a:focus {
     outline: none;
 }
 
-strong{
+strong {
     color: #9b8a29;
 }
 
-#nav-desktop{
+#nav-desktop {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -45,24 +46,24 @@ strong{
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
 }
 
-#nav-desktop img{
+#nav-desktop img {
     max-width: 100%;
     width: 50px;
 }
 
-#nav-desktop .menu{
+#nav-desktop .menu {
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
 }
 
-#nav-desktop .menu > li{
+#nav-desktop .menu>li {
     display: flex;
     margin-left: 50px;
     position: relative;
 }
 
-#nav-desktop .menu a{
+#nav-desktop .menu a {
     display: flex;
     color: white;
     text-decoration: none;
@@ -70,29 +71,29 @@ strong{
 }
 
 #nav-desktop .menu .dropdown .submenu {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #222;
-  list-style: none;
-  padding: 0;
-  margin: 3px 0 0 10px;
-  z-index: 1000;
-  border-radius: 0px 7px 7px 7px;
-  border: solid 1px #444;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #222;
+    list-style: none;
+    padding: 0;
+    margin: 3px 0 0 10px;
+    z-index: 1000;
+    border-radius: 0px 7px 7px 7px;
+    border: solid 1px #444;
 }
 
-#nav-desktop .menu .dropdown li{
+#nav-desktop .menu .dropdown li {
     display: flex;
     line-height: 100%;
     margin: 30px 80px 30px 30px;
 }
 
-#nav-desktop .menu a:hover{
+#nav-desktop .menu a:hover {
     color: #e2ca3f;
 }
 
@@ -103,7 +104,7 @@ strong{
     pointer-events: auto;
 }
 
-#nav-desktop .download{
+#nav-desktop .download {
     display: inline-block;
     margin-left: -1px;
     color: #e2ca3f !important;
@@ -131,11 +132,11 @@ strong {
     color: #9b8a29;
 }
 
-.link{
+.link {
     color: rgb(0, 204, 255);
 }
 
-#img-vertical{
+#img-vertical {
     width: auto;
     height: 100%;
     max-height: 460px;
@@ -147,7 +148,7 @@ strong {
     border-radius: 5px;
 }
 
-#img-horizontal{
+#img-horizontal {
     width: 100%;
     height: auto;
     max-width: 480px;
@@ -158,7 +159,7 @@ strong {
     outline: none;
 }
 
-.home{
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,26 +170,26 @@ strong {
     border-radius: 5px;
 }
 
-.home h4{
+.home h4 {
     text-transform: uppercase;
     color: #9b8a29;
     font-weight: bold;
 }
 
-.home a{
+.home a {
     color: white;
     text-decoration: none;
 }
 
-.home a:hover{
-  text-decoration: underline;
+.home a:hover {
+    text-decoration: underline;
 }
 
-.container-download{
+.container-download {
     margin-top: 166px;
 }
 
-.container-download .title-text{
+.container-download .title-text {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -196,20 +197,20 @@ strong {
     margin-bottom: 40px;
 }
 
-.container-download .title-text h2{
+.container-download .title-text h2 {
     text-transform: uppercase;
     line-height: 28px;
 }
 
-.container-download .download{
+.container-download .download {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.container-download .download .linha{
+.container-download .download .linha {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     padding: 10px;
@@ -217,14 +218,14 @@ strong {
     border-radius: 5px;
 }
 
-.container-download .download .linha p{
+.container-download .download .linha p {
     text-transform: capitalize;
     line-height: 16px;
     overflow: hidden;
     max-width: 50%;
 }
 
-.container-download .download .linha .container-buttom{
+.container-download .download .linha .container-buttom {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,12 +235,12 @@ strong {
 
 /* Múscias para download*/
 
-.container-audio{
+.container-audio {
     display: flex;
     flex-direction: column;
 }
 
-.container-audio .title-text{
+.container-audio .title-text {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -247,22 +248,22 @@ strong {
     margin-bottom: 40px;
 }
 
-.container-audio .title-text h2{
+.container-audio .title-text h2 {
     text-transform: uppercase;
     line-height: 30px;
 }
 
-.container-audio .title-text p{
+.container-audio .title-text p {
     text-transform: justify;
 }
 
-.container-audio .audio{
+.container-audio .audio {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.container-audio .audio .title-audio{
+.container-audio .audio .title-audio {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -271,13 +272,13 @@ strong {
     border-radius: 5px;
 }
 
-.container-audio .audio .title-audio p{
+.container-audio .audio .title-audio p {
     line-height: 16px;
     overflow: hidden;
     color: #9b8a29;
 }
 
-.container-audio .audio .title-audio .player{
+.container-audio .audio .title-audio .player {
     width: 250px;
     height: 50px;
     background-color: rgb(241, 243, 244);
@@ -286,7 +287,7 @@ strong {
 
 /* Vídeos para download*/
 
-.container-video{
+.container-video {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -294,7 +295,7 @@ strong {
     margin: 10px;
 }
 
-.container-video .title-text{
+.container-video .title-text {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -302,21 +303,21 @@ strong {
     margin-bottom: 40px;
 }
 
-.container-video .title-text h2{
+.container-video .title-text h2 {
     text-transform: uppercase;
     line-height: 30px;
 }
 
-.container-video .title-text p{
+.container-video .title-text p {
     text-transform: justify;
 }
 
-.container-video .video{
+.container-video .video {
     display: flex;
     gap: 50px;
 }
 
-.container-video .video .title-video{
+.container-video .video .title-video {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -324,7 +325,7 @@ strong {
     gap: 10px;
 }
 
-.container-video .video .title-video p{
+.container-video .video .title-video p {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -338,7 +339,7 @@ strong {
     border-radius: 4px;
 }
 
-.container-video .video .title-video .player{
+.container-video .video .title-video .player {
     width: 250px;
     height: 50px;
     background-color: white;
@@ -347,13 +348,13 @@ strong {
 
 /* Logomarca para download*/
 
-.container-img{
+.container-img {
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
 
-.container-img .title-text{
+.container-img .title-text {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -361,47 +362,47 @@ strong {
     margin-bottom: 40px;
 }
 
-.container-img .title-text h2{
+.container-img .title-text h2 {
     text-transform: uppercase;
     line-height: 30px;
 }
 
-.container-img .title-text p{
+.container-img .title-text p {
     text-transform: justify;
 }
 
-.container-img .img{
+.container-img .img {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container-img .img .img-banner{
+.container-img .img .img-banner {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.container-img .img a{
+.container-img .img a {
     line-height: 100%;
     overflow: hidden;
 }
 
-.container-img .img .img-banner .fundo-quadriculado{
+.container-img .img .img-banner .fundo-quadriculado {
     display: inline-flex;
     background-color: #ccc;
-    background-image: 
-    linear-gradient(45deg, #999 25%, transparent 25%),
-    linear-gradient(-45deg, #999 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #999 75%),
-    linear-gradient(-45deg, transparent 75%, #999 75%);
+    background-image:
+        linear-gradient(45deg, #999 25%, transparent 25%),
+        linear-gradient(-45deg, #999 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #999 75%),
+        linear-gradient(-45deg, transparent 75%, #999 75%);
     background-size: 16px 16px;
     background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
     border-radius: 5px;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -411,17 +412,17 @@ footer{
     background-color: #2b2b2b;
 }
 
-footer #logo{
+footer #logo {
     max-width: 180px;
     margin: auto;
 }
 
-footer .content-contact{
+footer .content-contact {
     display: flex;
     flex-direction: column;
 }
 
-footer .rede-social{
+footer .rede-social {
     display: flex;
     align-items: center;
     margin: 30px auto;
@@ -429,7 +430,7 @@ footer .rede-social{
     font-size: 30px;
 }
 
-footer .fa-instagram{
+footer .fa-instagram {
     display: flex;
     background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
     background-clip: text;
@@ -438,52 +439,53 @@ footer .fa-instagram{
     overflow: hidden;
 }
 
-footer .fa-youtube{
+footer .fa-youtube {
     display: flex;
     color: red;
     overflow: hidden;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: white;
 }
 
-footer .contact{
+footer .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
 
-footer .tel, .email{
+footer .tel,
+.email {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-footer .email i{
+footer .email i {
     display: flex;
     padding-top: 1.3px;
     align-items: center;
 }
 
-footer .contact i{
+footer .contact i {
     color: #9b8a29;
     overflow: hidden;
 }
 
-.copy{
+.copy {
     text-align: center;
     padding: 0px 20px 20px 20px;
     background-color: #2b2b2b;
 }
 
-.copy p{
+.copy p {
     color: #9b8a29;
 }
 
-.autor{
+.autor {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -492,12 +494,12 @@ footer .contact i{
     gap: 10px;
 }
 
-.autor p{
+.autor p {
     color: white;
     font-size: 10px;
 }
 
-.autor a i{
+.autor a i {
     color: white;
     background-color: #0A66C2;
     font-size: 14px;
@@ -508,13 +510,13 @@ footer .contact i{
 
 /*NavBar Mobile*/
 
-#navbar-mobile{
+#navbar-mobile {
     display: none;
     background-color: #333333;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -524,28 +526,29 @@ footer .contact i{
     display: flex;
 }
 
-#navbar-mobile .logo{
+#navbar-mobile .logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 15%;
 }
 
-#navbar-mobile .logo img{
+#navbar-mobile .logo img {
     max-width: 40px;
 }
 
-#navbar-mobile .logo i{
+#navbar-mobile .logo i {
     font-size: 24px;
     padding: 20px 0px;
-    color: #9b8a29;}
+    color: #9b8a29;
+}
 
 #navbar-mobile .menu {
     display: flex;
     flex-direction: column;
 }
 
-#navbar-mobile .menu > li {
+#navbar-mobile .menu>li {
     text-align: center;
     margin-bottom: 30px;
     list-style: none;
@@ -557,9 +560,9 @@ footer .contact i{
     color: white;
 }
 
-#navbar-mobile .menu .dropdown .submenu{
+#navbar-mobile .menu .dropdown .submenu {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -569,11 +572,11 @@ footer .contact i{
     line-height: 1;
 }
 
-#navbar-mobile .menu .dropdown .submenu li a{
+#navbar-mobile .menu .dropdown .submenu li a {
     color: #9b8a29;
 }
 
-#navbar-mobile .download{
+#navbar-mobile .download {
     display: inline-block;
     color: #e2ca3f;
     position: relative;
@@ -594,8 +597,8 @@ footer .contact i{
 }
 
 #mobile-menu.open {
-  max-height: 500px;
-  padding: 20px 0;
+    max-height: 500px;
+    padding: 20px 0;
 }
 
 #navbar-mobile #mobile-menu {

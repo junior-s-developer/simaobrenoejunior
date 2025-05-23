@@ -182,28 +182,11 @@
 
         <!--FORMULÁRIO DA BREVO-->
         <style>
+            #sib-container input::placeholder,
             #sib-container input:-ms-input-placeholder {
                 text-align: left;
                 font-family: 'Poppins', sans-serif !important;
                 color: #c0ccda;
-            }
-
-            #sib-container input::placeholder {
-                text-align: left;
-                font-family: 'Poppins', sans-serif !important;
-                color: #c0ccda;
-            }
-
-            #sib-container textarea::placeholder {
-                text-align: left;
-                font-family: 'Poppins', sans-serif !important;
-                color: #c0ccda;
-            }
-
-            #sib-container a {
-                text-decoration: underline;
-                color: #2BB2FC;
-                font-family: 'Poppins', sans-serif !important;
             }
 
             .sib-form-message-panel,
@@ -213,6 +196,11 @@
             .sib-text-form-block,
             .input {
                 font-family: 'Poppins', sans-serif !important;
+            }
+
+            .entry__field:focus-within {
+                border: 2px solid #e2ca3f !important;
+                box-shadow: none !important;
             }
         </style>
 
@@ -234,7 +222,6 @@
                         </span>
                     </div>
                 </div>
-                <div></div>
                 <div id="success-message" class="sib-form-message-panel"
                     style="font-size:16px; text-align:left; font-family: 'Poppins', sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:350px;">
                     <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -248,7 +235,6 @@
                         </span>
                     </div>
                 </div>
-                <div></div>
                 <div id="sib-container" class="sib-container--medium sib-container--vertical"
                     style="padding: 0; text-align:center; background-color:transparent; max-width:350px; border-radius:10px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr">
                     <form id="sib-form" method="POST"

@@ -202,8 +202,11 @@ form {
 }
 
 form label {
-    color: #9b8a29;
     margin-bottom: 5px;
+}
+
+form label span {
+    color: red;
 }
 
 form input {

@@ -190,11 +190,21 @@
 
         <!--FORMULÁRIO DA BREVO-->
         <style>
+            .form__label-row label {
+                font-family: 'Poppins', sans-serif !important;
+                font-size: 12px;
+                line-height: 1;
+                margin: 10px 0px 5px 0px;
+                color: white;
+            }
+
+            .form__label-row label span{
+                color: red;
+            }
+
             #sib-container input::placeholder,
             #sib-container input:-ms-input-placeholder {
-                text-align: left;
                 font-family: 'Poppins', sans-serif !important;
-                color: #c0ccda;
             }
 
             .sib-form-message-panel,
@@ -207,7 +217,7 @@
             }
 
             .entry__field:focus-within {
-                border: 1px solid #e2ca3f !important;
+                border: 1 solid #e2ca3f !important;
                 box-shadow: none !important;
             }
 
@@ -221,7 +231,7 @@
         <!--CSS da Brevo-->
         <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
-        <div class="sib-form" style="text-align: center; max-width: 300px !important; padding: 0px !important; margin: 0 !important;
+        <div class="sib-form" style="text-align: center; max-width: 260px !important; padding: 0px !important; margin: 0 !important;
                 background-color: transparent;                                 ">
             <div id="sib-form-container" class="sib-form-container">
                 <div id="error-message" class="sib-form-message-panel"
@@ -273,7 +283,7 @@
                             <div class="sib-input sib-form-block" style="padding: 0 !important;">
                                 <div class="form__entry entry_block">
                                     <div class="form__label-row ">
-
+                                        <label for="nome" style="margin-top: 0px !important;">Nome <span>&#42;</span></label>
                                         <div class="entry__field" style="height: 32px; margin: 0 !important;">
                                             <input class="input " maxlength="200" type="text" id="NOME" name="NOME"
                                                 autocomplete="off" placeholder="Digite seu nome"
@@ -292,8 +302,8 @@
                             <div class="sib-input sib-form-block" style="padding: 0 !important;">
                                 <div class="form__entry entry_block">
                                     <div class="form__label-row ">
-
-                                        <div class="entry__field" style="height: 32px; margin: 10px 0 0 0 !important;">
+                                        <label for="email">E-mail <span>&#42;</span></label>
+                                        <div class="entry__field" style="height: 32px; margin: 0px 0 0 0 !important;">
                                             <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off"
                                                 placeholder="Digite seu e-mail"
                                                 style="font-family: 'Poppins', sans-serif; font-size: 12px; color: #333333; text-transform: lowercase;"

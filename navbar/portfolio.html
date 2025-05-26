@@ -513,11 +513,17 @@
                 font-family: 'Poppins', sans-serif !important;
                 font-size: 12px;
                 line-height: 1;
-                margin: 20px 0px 5px 0px;
+                margin: 20px 0px 8px 0px;
             }
 
             .form__label-row label span{
                 color: red;
+            }
+
+            input.input::placeholder{
+                text-transform: none;
+                font-family: 'Poppins', sans-serif !important;
+
             }
 
             #sib-container input::placeholder,
@@ -590,7 +596,7 @@
                         </div>
                         <div style="padding: 0px 0;">
                             <div class="sib-form-block"
-                                style="padding: 0 !important; font-size:12px; text-align:center; font-family: 'Poppins', sans-serif; color:white; background-color:transparent; margin-bottom: 20px;">
+                                style="padding: 0 !important; font-size:12px; text-align:center; font-family: 'Poppins', sans-serif; color:white; background-color:transparent; margin-bottom: 30px;">
                                 <div class="sib-text-form-block">
                                     <p>Cadastre seu nome e e-mail para receber novidades sobre lançamentos, shows e
                                         bastidores.</p>
@@ -605,7 +611,7 @@
                                         <div class="entry__field" style="height: 32px; margin: 0 !important;">
                                             <input class="input " maxlength="200" type="text" id="NOME" name="NOME"
                                                 autocomplete="off" placeholder="Digite seu nome"
-                                                style="font-family: 'Poppins', sans-serif; font-size: 12px; color: #333333;"
+                                                style="text-transform: capitalize; font-family: 'Poppins', sans-serif; font-size: 12px; color: #333333;"
                                                 data-required="true" required />
                                         </div>
                                     </div>
@@ -623,7 +629,7 @@
                                         <label for="email">E-mail <span>&#42;</span></label>
                                         <div class="entry__field" style="height: 32px; margin: 0px 0 0 0 !important;">
                                             <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off"
-                                                placeholder="Digite seu e-mail"
+                                                placeholder=" Digite seu e-mail"
                                                 style="font-family: 'Poppins', sans-serif; font-size: 12px; color: #333333; text-transform: lowercase;"
                                                 data-required="true" required />
                                         </div>
@@ -638,7 +644,7 @@
                         <div style="padding: 0px 0;">
                             <div class="sib-form-block" style="text-align: center;">
                                 <button class="sib-form-block__button sib-form-block__button-with-loader"
-                                    style="font-size:10px; text-align:center; font-weight:700; font-family: 'Poppins', sans-serif; color:white; background-color:#9b8a29; border-radius:5px; border-width:0px; margin-top: 10px;"
+                                    style="font-size:10px; text-align:center; font-weight:700; font-family: 'Poppins', sans-serif; color:white; background-color:#9b8a29; border-radius:5px; border-width:0px; margin-top: 20px;"
                                     form="sib-form" type="submit">
                                     <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
                                         viewBox="0 0 512 512">

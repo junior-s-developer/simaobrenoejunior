@@ -78,7 +78,7 @@
     .container-img .img .img-banner .fundo-quadriculado {
         display: flex;
         justify-content: center;
-        width: 500px;
+        width: 100%;
         height: auto;
     }
 
@@ -145,7 +145,7 @@
     .container-img .img .img-banner .fundo-quadriculado {
         display: flex;
         justify-content: center;
-        width: 800px;
+        width: 100%;
         height: auto;
     }
 
@@ -169,7 +169,7 @@
     }
 
     main {
-        padding: 0px 50px 0px 50px;
+        padding: 0px 50px 50px 50px;
     }
 
     /*Currículo e Portólio para download*/
@@ -201,10 +201,11 @@
         gap: 20px;
     }
 
+
     .container-img .img .img-banner .fundo-quadriculado {
         display: flex;
         justify-content: center;
-        width: 800px;
+        width: 100%;
         height: auto;
     }
 
@@ -221,7 +222,7 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 0px 100px 0px 100px;
+        padding: 0px 100px 50px 100px;
     }
 
     /*Currículo e Portólio para download*/

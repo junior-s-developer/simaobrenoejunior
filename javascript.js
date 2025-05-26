@@ -156,6 +156,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.open(url, '_blank');
   });
 
-  // reCAPTCHA
-  
+  // ATUALIZAR STATUS DE EVENTOS REALIZADOS
+  const eventos = document.querySelectorAll('.container-programacao');
+
+  eventos.forEach(evento => {
+    const dataTexto = evento.getAttribute('data-date'); // Ex: "2025-05-24"
+    if (!dataTexto) return;
+
+    const partes = dataTexto.split("-");
+    const dataEvento = new Date(partes[0], partes[1] - 1, partes[2]); // YYYY, MM, DD
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0); // Ignorar hora
+
+    if (dataEvento < hoje) {
+      const statusSpan = evento.querySelector('.status-evento');
+      if (statusSpan) {
+        statusSpan.innerHTML = '<i class="fa-solid fa-check icone-verde"></i> Evento Realizado';
+        statusSpan.classList.add('evento-passado'); // Se quiser usar CSS
+      }
+    }
+  });
 })

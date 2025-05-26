@@ -249,6 +249,20 @@ main {
     font-weight: bold;
 }
 
+.evento-passado {
+    display: inline-block;
+    color: #4caf50;
+    font-style: italic;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.icone-verde {
+    color: #4caf50;
+    margin-right: 6px;
+    font-weight: bold;
+}
+
 footer {
     display: flex;
     flex-direction: column;

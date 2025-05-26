@@ -455,8 +455,10 @@ footer .contact i {
     transition: max-height 0.3s ease;
     list-style: none;
     padding: 0;
-    margin-top: 5px;
-    line-height: 1;
+}
+
+#navbar-mobile .menu .dropdown .submenu li {
+    margin-top: 30px;
 }
 
 #navbar-mobile .menu .dropdown .submenu li a {

@@ -4,22 +4,6 @@
 
 @media (max-width: 480px) {
 
-    #nav-desktop {
-        display: none;
-    }
-
-    #navbar-mobile {
-        display: block;
-    }
-
-    main {
-        padding: 104px 20px 50px;
-    }
-
-    .section-video p {
-        padding: 0px 10px;
-    }
-
     footer {
         border-radius: 20px 20px 0px 0px;
     }
@@ -35,20 +19,12 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-    #nav-desktop {
-        display: none;
+    footer {
+        border-radius: 20px 20px 0px 0px;
     }
 
-    #navbar-mobile {
-        display: block;
-    }
-
-    main {
-        padding: 103px 20px 0px;
-    }
-
-    .section-video p {
-        padding: 0px 10px;
+    .copy {
+        padding: 20px 20px;
     }
 }
 
@@ -58,16 +34,8 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    #nav-desktop {
-        padding: 50px 50px 16px 50px;
-    }
-
-    main {
-        padding: 116px 50px 0px 50px;
-    }
-
-    .section-video p {
-        padding: 0px 50px;
+    footer {
+        border-radius: 20px 20px 0px 0px;
     }
 }
 
@@ -77,7 +45,7 @@
 
 @media (min-width: 1024px) and (max-width: 1279px) {
 
-    main {
-        padding: 116px 50px 0px 50px;
+    footer {
+        border-radius: 20px 20px 0px 0px;
     }
 }

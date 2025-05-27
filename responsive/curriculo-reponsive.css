@@ -64,15 +64,6 @@
     .ordem {
         order: 2;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-        margin-top: 0px;
-    }
-
-    .copy {
-        padding: 20px 20px;
-    }
 }
 
 /*=========================================================*/
@@ -141,15 +132,6 @@
     .ordem {
         order: 2;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-        margin-top: 0px;
-    }
-
-    .copy {
-        padding: 20px 20px;
-    }
 }
 
 /*=========================================================*/
@@ -179,10 +161,6 @@
     .integral .content-historico .figura {
         flex: 100%;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-    }
 }
 
 /*=========================================================*/
@@ -193,9 +171,5 @@
 
     main {
         padding: 166px 50px 0px 50px;
-    }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
     }
 }

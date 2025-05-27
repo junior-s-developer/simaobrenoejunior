@@ -81,14 +81,6 @@
         width: 100%;
         height: auto;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-    }
-
-    .copy {
-        padding: 20px 20px;
-    }
 }
 
 /*=========================================================*/
@@ -148,14 +140,6 @@
         width: 100%;
         height: auto;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-    }
-
-    .copy {
-        padding: 20px 20px;
-    }
 }
 
 /*=========================================================*/
@@ -207,10 +191,6 @@
         justify-content: center;
         width: 100%;
         height: auto;
-    }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
     }
 }
 

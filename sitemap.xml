@@ -20,6 +20,10 @@
     <loc>https://simaobrenoejunior.com.br/navbar/download.html</loc>
     <priority>0.80</priority>
   </url>
+    <url>
+    <loc>https://simaobrenoejunior.com.br/navbar/galeria.html</loc>
+    <priority>0.80</priority>
+  </url>
   <url>
     <loc>https://simaobrenoejunior.com.br/navbar/portfolio.html</loc>
     <priority>0.80</priority>

@@ -1,0 +1,48 @@
+/*=========================================================*/
+/*Celular pequeno*/
+/*=========================================================*/
+
+@media (max-width: 480px) {
+
+    .galeria-evento h2 {
+        text-align: center;
+    }
+
+    .galeria-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+/*=========================================================*/
+/*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
+/*=========================================================*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .galeria-evento h2 {
+        text-align: center;
+    }
+
+    .galeria-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+/*=========================================================*/
+/*Tablet vertical (iPad em pé, por exemplo)*/
+/*=========================================================*/
+
+@media (min-width: 768px) and (max-width: 1023px) {}
+
+
+/*=========================================================*/
+/*Desktop padrão / Tablet deitado*/
+/*=========================================================*/
+
+@media (min-width: 1024px) and (max-width: 1279px) {}

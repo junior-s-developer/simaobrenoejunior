@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
-    <meta name="keywords" content="Simão Breno, Júnior Silva, dupla sertaneja, música autoral, shows, eventos, agenda, portfólio, vídeos, download, contato, sertanejo universitário, música brasileira">
+    <meta name="description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta name="keywords"
+        content="Simão Breno, Júnior Silva, dupla sertaneja, música autoral, shows, eventos, agenda, portfólio, vídeos, download, contato, sertanejo universitário, música brasileira">
     <meta name="author" content="Desenvolvido por José Odete Da Silva Júnior para Simão Breno & Júnior">
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://simaobrenoejunior.com.br/navbar/agenda.html">
     <meta property="og:title" content="Agenda de Shows e Eventos - Simão Breno & Júnior">
-    <meta property="og:description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta property="og:description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
     <meta property="og:image" content="https://simaobrenoejunior.com.br/img/logo-meta.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -24,7 +27,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://simaobrenoejunior.com.br/navbar/agenda.html">
     <meta name="twitter:title" content="Agenda de Shows e Eventos - Simão Breno & Júnior">
-    <meta name="twitter:description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta name="twitter:description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
     <meta name="twitter:image" content="https://simaobrenoejunior.com.br/img/logo-meta.png">
 
     <!-- DADOS ESTRUTURADOS JSON-LD -->
@@ -62,10 +66,14 @@
     <!-- Ícone para dispositivos Apple (iPhone/iPad) -->
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="../css/agenda.css">
-    <link rel="stylesheet" href="../responsive/agenda-responsive.css">
+    <link rel="stylesheet" href="../css/galeria.css">
+    <link rel="stylesheet" href="../responsive/galeria-responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!--Css do shows.html-->
+    <link rel="stylesheet" href="../css/shows.css">
+    <link rel="stylesheet" href="../responsive/shows-responsive.css">
 
     <!--Css do rodapé-->
     <link rel="stylesheet" href="../css/rodape.css">
@@ -90,7 +98,10 @@
                 <a href="../navbar/download.html">Download</a>
             </li>
             <li>
-                <a class="agenda" href="../navbar/agenda.html">Agenda</a>
+                <a class="galeria" href="../navbar/galeria.html">Galeria</a>
+            </li>
+            <li>
+                <a href="../navbar/agenda.html">Agenda</a>
             </li>
             <li>
                 <a href="../navbar/contact.html">Contato</a>
@@ -118,7 +129,10 @@
                 <a href="../navbar/download.html">Download</a>
             </li>
             <li>
-                <a class="agenda" href="../navbar/agenda.html">Agenda</a>
+                <a class="galeria" href="../navbar/galeria.html">Galeria</a>
+            </li>
+            <li>
+                <a href="../navbar/agenda.html">Agenda</a>
             </li>
             <li>
                 <a href="../navbar/contact.html">Contato</a>
@@ -126,8 +140,17 @@
         </ul>
     </nav>
 
-    <main style="border: solid 1px red; margin-top: 200px;">
-        <h1>teste</h1>
+    <main class="p-4 max-w-6xl mx-auto">
+        <div class="filtros-galeria">
+            <a href="../index.html" class="link-botao">Página Inicial</a>
+            <span class="separador-vertical">|</span>
+            <a href="#" class="link-botao" id="botao-shows"
+                onclick="carregarConteudo('../includes/shows.html', this); return false;">Shows</a>
+            <span class="separador-vertical">|</span>
+            <a href="#" class="link-botao" id="botao-videos"
+                onclick="carregarConteudo('../includes/videos.html', this); return false;">Vídeos</a>
+        </div>
+        <div id="conteudo-dinamico"></div>
     </main>
     <div id="rodape-container"></div>
     <script src="../javascript.js"></script>

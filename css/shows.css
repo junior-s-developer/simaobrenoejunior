@@ -1,0 +1,40 @@
+.galeria-evento {
+    padding: 20px;
+    background-color: #121212;
+    border-radius: 8px;
+}
+
+.galeria-evento h2 {
+    color: #9b8a29;
+    margin-bottom: 24px;
+}
+
+.galeria-evento p {
+    text-align: justify;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.link-botao.ativo {
+    color: #e2ca3f;
+}

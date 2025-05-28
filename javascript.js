@@ -148,6 +148,37 @@ ${detalhes}`;
 });
 
 // ==============================
+// FILTROS DE GALERIA
+// ==============================
+function carregarConteudo(pagina, botaoClicado = null) {
+  fetch(pagina)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('conteudo-dinamico').innerHTML = html;
+      /*window.scrollTo({
+        top: document.getElementById('conteudo-dinamico').offsetTop,
+        behavior: 'smooth'
+      });*/
+
+      // Atualiza visual dos botões
+      document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
+      if (botaoClicado) {
+        botaoClicado.classList.add('ativo');
+      }
+    })
+    .catch(error => {
+      document.getElementById('conteudo-dinamico').innerHTML = '<p style="color:red;">Erro ao carregar o conteúdo.</p>';
+      console.error('Erro ao carregar:', error);
+    });
+}
+
+// Ao carregar a página, ativa "Shows" por padrão
+document.addEventListener('DOMContentLoaded', () => {
+  const botaoShows = document.getElementById('botao-shows');
+  carregarConteudo('../includes/shows.html', botaoShows);
+});
+
+// ==============================
 // CONFIGURAÇÕES DO FORMULÁRIO BREVO
 // ==============================
 window.REQUIRED_CODE_ERROR_MESSAGE = "Escolha um código de país";

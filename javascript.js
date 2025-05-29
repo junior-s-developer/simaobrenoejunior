@@ -163,23 +163,28 @@ function carregarConteudo(pagina, botaoClicado = null) {
       .then(html => {
         container.innerHTML = html;
 
-        // Atualiza visual dos botões
+        // Reaplica fade-in
+        requestAnimationFrame(() => {
+          container.classList.add('fade-in');
+          container.style.opacity = 1;
+        });
+
+        // Botão ativo
         document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
         if (botaoClicado) {
           botaoClicado.classList.add('ativo');
         }
 
-        // Aplica fade-in após inserir o conteúdo
-        requestAnimationFrame(() => {
-          container.classList.add('fade-in');
-          container.style.opacity = 1;
-        });
+        // ⚠️ Verifica se está carregando o slider e inicia
+        if (pagina.includes('shows.html')) {
+          iniciarSliderShows();
+        }
       })
       .catch(error => {
         container.innerHTML = '<p style="color:red;">Erro ao carregar o conteúdo.</p>';
         console.error('Erro ao carregar:', error);
       });
-  }, 300); // Espera o fade-out
+  }, 300);
 }
 
 // Ao carregar a página, ativa "Shows" por padrão

@@ -4,15 +4,54 @@
 
 @media (max-width: 480px) {
 
-    .galeria-evento h2 {
+    .card h2 {
         text-align: center;
     }
 
-    .galeria-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
+    .galeria-wrapper {
+        flex-direction: column;
+
+    }
+
+    .galeria-dupla {
+        flex-direction: column;
+    }
+
+    #texto-slide h3 {
+        font-size: 16px;
+    }
+
+    #texto-slide p {
+        font-size: 12px;
+    }
+
+    .seta.externa {
+        position: absolute;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 152px;
+    }
+
+    .seta.externa:hover {
+        color: unset;
+    }
+
+    .seta.esquerda {
+        left: 0px;
+        margin-left: 5px;
+        z-index: 1000;
+    }
+
+    .seta.direita {
+        right: 0;
+        margin-right: 5px;
+    }
+
+    .indicadores button {
+        width: 7px;
+        height: 7px;
     }
 }
 
@@ -22,15 +61,54 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-    .galeria-evento h2 {
+    .card h2 {
         text-align: center;
     }
 
-    .galeria-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
+    .galeria-wrapper {
+        flex-direction: column;
+
+    }
+
+    .galeria-dupla {
+        flex-direction: column;
+    }
+
+    #texto-slide h3 {
+        font-size: 16px;
+    }
+
+    #texto-slide p {
+        font-size: 12px;
+    }
+
+    .seta.externa {
+        position: absolute;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 127px;
+    }
+
+    .seta.externa:hover {
+        color: unset;
+    }
+
+    .seta.esquerda {
+        left: 0px;
+        margin-left: 5px;
+        z-index: 1000;
+    }
+
+    .seta.direita {
+        right: 0;
+        margin-right: 5px;
+    }
+
+    .indicadores button {
+        width: 7px;
+        height: 7px;
     }
 }
 
@@ -38,11 +116,84 @@
 /*Tablet vertical (iPad em pé, por exemplo)*/
 /*=========================================================*/
 
-@media (min-width: 768px) and (max-width: 1023px) {}
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .lado-midia {
+        flex: 1 1 50%;
+        max-width: 450px;
+    }
+
+    .lado-texto {
+        flex: 1 1 50%;
+        max-width: 500px;
+        color: #fff;
+    }
+
+    .seta.externa {
+        position: absolute;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 167px;
+        font-size: 3rem;
+    }
+
+    .seta.externa:hover {
+        color: unset;
+    }
+
+    .seta.esquerda {
+        left: 0px;
+        margin-left: 5px;
+        z-index: 1000;
+    }
+
+    .seta.direita {
+        right: 0;
+        margin-right: 5px;
+    }
+}
 
 
 /*=========================================================*/
 /*Desktop padrão / Tablet deitado*/
 /*=========================================================*/
 
-@media (min-width: 1024px) and (max-width: 1279px) {}
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .lado-midia {
+        flex: 1 1 50%;
+        max-width: 450px;
+    }
+
+    .lado-texto {
+        flex: 1 1 50%;
+        max-width: 500px;
+        color: #fff;
+    }
+
+    .seta.externa {
+        position: absolute;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 167px;
+        font-size: 3rem;
+    }
+
+    .seta.externa:hover {
+        color: unset;
+    }
+
+    .seta.esquerda {
+        left: 0px;
+        margin-left: 5px;
+        z-index: 1000;
+    }
+
+    .seta.direita {
+        right: 0;
+        margin-right: 5px;
+    }
+}

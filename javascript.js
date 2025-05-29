@@ -151,25 +151,35 @@ ${detalhes}`;
 // FILTROS DE GALERIA
 // ==============================
 function carregarConteudo(pagina, botaoClicado = null) {
-  fetch(pagina)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('conteudo-dinamico').innerHTML = html;
-      /*window.scrollTo({
-        top: document.getElementById('conteudo-dinamico').offsetTop,
-        behavior: 'smooth'
-      });*/
+  const container = document.getElementById('conteudo-dinamico');
 
-      // Atualiza visual dos botões
-      document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
-      if (botaoClicado) {
-        botaoClicado.classList.add('ativo');
-      }
-    })
-    .catch(error => {
-      document.getElementById('conteudo-dinamico').innerHTML = '<p style="color:red;">Erro ao carregar o conteúdo.</p>';
-      console.error('Erro ao carregar:', error);
-    });
+  // Inicia fade-out
+  container.classList.remove('fade-in');
+  container.style.opacity = 0;
+
+  setTimeout(() => {
+    fetch(pagina)
+      .then(response => response.text())
+      .then(html => {
+        container.innerHTML = html;
+
+        // Atualiza visual dos botões
+        document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
+        if (botaoClicado) {
+          botaoClicado.classList.add('ativo');
+        }
+
+        // Aplica fade-in após inserir o conteúdo
+        requestAnimationFrame(() => {
+          container.classList.add('fade-in');
+          container.style.opacity = 1;
+        });
+      })
+      .catch(error => {
+        container.innerHTML = '<p style="color:red;">Erro ao carregar o conteúdo.</p>';
+        console.error('Erro ao carregar:', error);
+      });
+  }, 300); // Espera o fade-out
 }
 
 // Ao carregar a página, ativa "Shows" por padrão

@@ -24,6 +24,15 @@ body.fade-in {
     opacity: 1;
 }
 
+#conteudo-dinamico {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#conteudo-dinamico.fade-in {
+  opacity: 1;
+}
+
 a:focus {
     outline: none;
 }

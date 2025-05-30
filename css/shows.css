@@ -46,6 +46,7 @@
     height: auto;
     object-fit: cover;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     border-radius: 8px;
     user-select: none;
 }

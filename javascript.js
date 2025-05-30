@@ -30,13 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("a[href]").forEach(link => {
     const url = link.getAttribute("href");
 
-    if (
-      url &&
-      !url.startsWith("#") &&
-      !url.startsWith("http") &&
-      !link.hasAttribute("download") &&
-      !link.target
-    ) {
+    const isAnchor = url === "#" || url.startsWith("#");
+    const isExternal = url.startsWith("http");
+    const isDownload = link.hasAttribute("download");
+    const hasTarget = link.hasAttribute("target");
+
+    const isInsideDynamic = link.closest('.galeria-wrapper');
+
+    if (!isAnchor && !isExternal && !isDownload && !hasTarget && !isInsideDynamic) {
       link.addEventListener("click", function (e) {
         if (navegando) return;
         navegando = true;
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-
   // MÁSCARA DE TELEFONE
   const telefoneInput = document.getElementById("telefone");
   if (telefoneInput) {
@@ -176,7 +176,10 @@ function iniciarTodosCarrosseis() {
     function scrollParaSlide(i) {
       const slide = slides[i];
       if (slide) {
-        slide.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+        carrossel.scrollTo({
+          left: slide.offsetLeft,
+          behavior: 'smooth'
+        });
         atualizarIndicadores(i);
         atualizarSetas();
       }
@@ -227,7 +230,6 @@ function iniciarTodosCarrosseis() {
     atualizarSetas();
   });
 }
-
 
 // Ao carregar a página, ativa "Shows" por padrão
 document.addEventListener('DOMContentLoaded', () => {

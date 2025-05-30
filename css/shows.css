@@ -1,4 +1,4 @@
-.container-card{
+.container-card {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -29,6 +29,7 @@
     height: 100%;
     width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;

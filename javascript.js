@@ -155,7 +155,7 @@ function iniciarTodosCarrosseis() {
 
   galerias.forEach(galeria => {
     const carrossel = galeria.querySelector('.carrossel');
-    const slides = carrossel.querySelectorAll('img');
+    const slides = carrossel.querySelectorAll('img, video');
     const indicadores = galeria.querySelector('.indicadores');
     const btnAnterior = galeria.querySelector('.anterior');
     const btnProximo = galeria.querySelector('.proximo');
@@ -176,6 +176,13 @@ function iniciarTodosCarrosseis() {
     function scrollParaSlide(i) {
       const slide = slides[i];
       if (slide) {
+        // Pausa todos os vídeos fora do slide atual
+        slides.forEach((s, index) => {
+          if (s.tagName === 'VIDEO' && index !== i) {
+            s.pause();
+          }
+        });
+
         carrossel.scrollTo({
           left: slide.offsetLeft,
           behavior: 'smooth'

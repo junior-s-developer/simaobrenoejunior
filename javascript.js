@@ -150,48 +150,115 @@ ${detalhes}`;
 // ==============================
 // FILTROS DE GALERIA
 // ==============================
-function carregarConteudo(pagina, botaoClicado = null) {
-  const container = document.getElementById('conteudo-dinamico');
+function iniciarTodosCarrosseis() {
+  const galerias = document.querySelectorAll('.galeria-wrapper');
 
-  // Inicia fade-out
-  container.classList.remove('fade-in');
-  container.style.opacity = 0;
+  galerias.forEach(galeria => {
+    const carrossel = galeria.querySelector('.carrossel');
+    const slides = carrossel.querySelectorAll('img');
+    const indicadores = galeria.querySelector('.indicadores');
+    const btnAnterior = galeria.querySelector('.anterior');
+    const btnProximo = galeria.querySelector('.proximo');
 
-  setTimeout(() => {
-    fetch(pagina)
-      .then(response => response.text())
-      .then(html => {
-        container.innerHTML = html;
+    let indiceAtual = 0;
 
-        // Reaplica fade-in
-        requestAnimationFrame(() => {
-          container.classList.add('fade-in');
-          container.style.opacity = 1;
-        });
-
-        // Botão ativo
-        document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
-        if (botaoClicado) {
-          botaoClicado.classList.add('ativo');
-        }
-
-        // ⚠️ Verifica se está carregando o slider e inicia
-        if (pagina.includes('shows.html')) {
-          iniciarSliderShows();
-        }
-      })
-      .catch(error => {
-        container.innerHTML = '<p style="color:red;">Erro ao carregar o conteúdo.</p>';
-        console.error('Erro ao carregar:', error);
+    // Cria os indicadores
+    indicadores.innerHTML = '';
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.addEventListener('click', () => {
+        indiceAtual = i;
+        scrollParaSlide(i);
       });
-  }, 300);
+      indicadores.appendChild(btn);
+    });
+
+    function scrollParaSlide(i) {
+      const slide = slides[i];
+      if (slide) {
+        slide.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+        atualizarIndicadores(i);
+        atualizarSetas();
+      }
+    }
+
+    function atualizarIndicadores(ativo) {
+      indicadores.querySelectorAll('button').forEach((btn, i) => {
+        btn.classList.toggle('ativo', i === ativo);
+      });
+    }
+
+    function atualizarSetas() {
+      btnAnterior.style.display = indiceAtual === 0 ? 'none' : 'flex';
+      btnProximo.style.display = indiceAtual === slides.length - 1 ? 'none' : 'flex';
+    }
+
+    btnAnterior.addEventListener('click', () => {
+      if (indiceAtual > 0) {
+        indiceAtual--;
+        scrollParaSlide(indiceAtual);
+      }
+    });
+
+    btnProximo.addEventListener('click', () => {
+      if (indiceAtual < slides.length - 1) {
+        indiceAtual++;
+        scrollParaSlide(indiceAtual);
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          indiceAtual = Array.from(slides).indexOf(entry.target);
+          atualizarIndicadores(indiceAtual);
+          atualizarSetas();
+        }
+      });
+    }, {
+      root: carrossel,
+      threshold: 0.6
+    });
+
+    slides.forEach(slide => observer.observe(slide));
+
+    // Inicializa
+    atualizarIndicadores(0);
+    atualizarSetas();
+  });
 }
+
 
 // Ao carregar a página, ativa "Shows" por padrão
 document.addEventListener('DOMContentLoaded', () => {
   const botaoShows = document.getElementById('botao-shows');
   carregarConteudo('../includes/shows.html', botaoShows);
 });
+
+function carregarConteudo(caminho, botao) {
+  fetch(caminho)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Erro ao carregar ${caminho}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      const container = document.getElementById("conteudo-dinamico");
+      if (!container) return console.error("Div #conteudo-dinamico não encontrada.");
+      container.innerHTML = html;
+
+      // Atualiza botão ativo
+      document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
+      if (botao) botao.classList.add('ativo');
+
+      // Inicializa carrossel após inserir o HTML
+      iniciarTodosCarrosseis();
+    })
+    .catch(error => {
+      console.error("Erro ao carregar o conteúdo:", error);
+    });
+}
 
 // ==============================
 // CONFIGURAÇÕES DO FORMULÁRIO BREVO

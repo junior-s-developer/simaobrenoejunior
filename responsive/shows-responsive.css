@@ -4,54 +4,27 @@
 
 @media (max-width: 480px) {
 
-    .card h2 {
-        text-align: center;
-    }
-
     .galeria-wrapper {
-        flex-direction: column;
-
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: auto;
+        order: 2;
     }
 
-    .galeria-dupla {
-        flex-direction: column;
+    .legenda-fixa {
+        order: 1;
     }
 
-    #texto-slide h3 {
-        font-size: 16px;
+    .legenda-fixa h3 {
+        font-size: 15px;
     }
 
-    #texto-slide p {
-        font-size: 12px;
+    .legenda-fixa p {
+        font-size: 13px;
     }
 
-    .seta.externa {
-        position: absolute;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 152px;
-    }
-
-    .seta.externa:hover {
-        color: unset;
-    }
-
-    .seta.esquerda {
-        left: 0px;
-        margin-left: 5px;
-        z-index: 1000;
-    }
-
-    .seta.direita {
-        right: 0;
-        margin-right: 5px;
-    }
-
-    .indicadores button {
-        width: 7px;
-        height: 7px;
+    .seta i {
+        font-size: 1.6rem;
     }
 }
 
@@ -59,58 +32,7 @@
 /*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
 /*=========================================================*/
 
-@media (min-width: 481px) and (max-width: 767px) {
-
-    .card h2 {
-        text-align: center;
-    }
-
-    .galeria-wrapper {
-        flex-direction: column;
-
-    }
-
-    .galeria-dupla {
-        flex-direction: column;
-    }
-
-    #texto-slide h3 {
-        font-size: 16px;
-    }
-
-    #texto-slide p {
-        font-size: 12px;
-    }
-
-    .seta.externa {
-        position: absolute;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 127px;
-    }
-
-    .seta.externa:hover {
-        color: unset;
-    }
-
-    .seta.esquerda {
-        left: 0px;
-        margin-left: 5px;
-        z-index: 1000;
-    }
-
-    .seta.direita {
-        right: 0;
-        margin-right: 5px;
-    }
-
-    .indicadores button {
-        width: 7px;
-        height: 7px;
-    }
-}
+@media (min-width: 481px) and (max-width: 767px) {}
 
 /*=========================================================*/
 /*Tablet vertical (iPad em pé, por exemplo)*/
@@ -118,40 +40,40 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    .lado-midia {
-        flex: 1 1 50%;
-        max-width: 450px;
+    .card {
+        flex-direction: column;
+        gap: 24px;
+        max-width: 100%;
     }
 
-    .lado-texto {
-        flex: 1 1 50%;
-        max-width: 500px;
-        color: #fff;
+    .galeria-wrapper {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: auto;
+        order: 2;
     }
 
-    .seta.externa {
-        position: absolute;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 167px;
-        font-size: 3rem;
+    .carrossel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 
-    .seta.externa:hover {
-        color: unset;
+    .legenda-fixa {
+        padding: 0 16px;
+        order: 1;
     }
 
-    .seta.esquerda {
-        left: 0px;
-        margin-left: 5px;
-        z-index: 1000;
+    .legenda-fixa h3 {
+        font-size: 16px;
     }
 
-    .seta.direita {
-        right: 0;
-        margin-right: 5px;
+    .legenda-fixa p {
+        font-size: 14px;
+    }
+
+    .seta i {
+        font-size: 1.8rem;
     }
 }
 
@@ -160,40 +82,4 @@
 /*Desktop padrão / Tablet deitado*/
 /*=========================================================*/
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .lado-midia {
-        flex: 1 1 50%;
-        max-width: 450px;
-    }
-
-    .lado-texto {
-        flex: 1 1 50%;
-        max-width: 500px;
-        color: #fff;
-    }
-
-    .seta.externa {
-        position: absolute;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 167px;
-        font-size: 3rem;
-    }
-
-    .seta.externa:hover {
-        color: unset;
-    }
-
-    .seta.esquerda {
-        left: 0px;
-        margin-left: 5px;
-        z-index: 1000;
-    }
-
-    .seta.direita {
-        right: 0;
-        margin-right: 5px;
-    }
-}
+@media (min-width: 1024px) and (max-width: 1279px) {}

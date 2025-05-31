@@ -223,6 +223,13 @@ function iniciarTodosCarrosseis() {
           indiceAtual = Array.from(slides).indexOf(entry.target);
           atualizarIndicadores(indiceAtual);
           atualizarSetas();
+
+          // Pausa os vídeos que não são o slide visível
+          slides.forEach((slide, index) => {
+            if (slide.tagName === 'VIDEO' && index !== indiceAtual) {
+              slide.pause();
+            }
+          });
         }
       });
     }, {

@@ -147,6 +147,25 @@ ${detalhes}`;
   });
 });
 
+document.querySelectorAll('.play-button').forEach((btn, i) => {
+  const video = btn.previousElementSibling; // o <video> está antes do botão
+
+  btn.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      btn.style.display = 'none';
+    } else {
+      video.pause();
+      btn.style.display = 'block';
+    }
+  });
+
+  // Quando o vídeo termina, exibe novamente o botão play
+  video.addEventListener('ended', () => {
+    btn.style.display = 'block';
+  });
+});
+
 // ==============================
 // FILTROS DE GALERIA
 // ==============================
@@ -180,6 +199,7 @@ function iniciarTodosCarrosseis() {
         slides.forEach((s, index) => {
           if (s.tagName === 'VIDEO' && index !== i) {
             s.pause();
+            s.currentTime = 0; // volta o vídeo para o começo
           }
         });
 

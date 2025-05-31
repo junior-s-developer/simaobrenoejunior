@@ -19,14 +19,6 @@
     .section-video p {
         padding: 0px 10px;
     }
-
-    footer {
-        border-radius: 20px 20px 0px 0px;
-    }
-
-    .copy {
-        padding: 20px 20px;
-    }
 }
 
 /*=========================================================*/
@@ -44,7 +36,7 @@
     }
 
     main {
-        padding: 103px 20px 0px;
+        padding: 103px 20px 50px;
     }
 
     .section-video p {
@@ -63,7 +55,7 @@
     }
 
     main {
-        padding: 116px 50px 0px 50px;
+        padding: 116px 50px 50px 50px;
     }
 
     .section-video p {
@@ -78,6 +70,6 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 116px 50px 0px 50px;
+        padding: 116px 50px 50px 50px;
     }
 }

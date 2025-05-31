@@ -5,7 +5,7 @@
 @media (max-width: 480px) {
 
     .card {
-        gap: 20px;
+        gap: 24px;
     }
 
     .galeria-wrapper {
@@ -35,7 +35,34 @@
 /*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
 /*=========================================================*/
 
-@media (min-width: 481px) and (max-width: 767px) {}
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .card {
+        gap: 24px;
+    }
+
+    .galeria-wrapper {
+        width: 100%;
+        max-width: 100%;
+        order: 2;
+    }
+
+    .legenda-fixa {
+        order: 1;
+    }
+
+    .legenda-fixa h3 {
+        font-size: 15px;
+    }
+
+    .legenda-fixa p {
+        font-size: 13px;
+    }
+
+    .seta i {
+        font-size: 1.6rem;
+    }
+}
 
 /*=========================================================*/
 /*Tablet vertical (iPad em pé, por exemplo)*/
@@ -52,7 +79,6 @@
     .galeria-wrapper {
         width: 100%;
         max-width: 100%;
-        aspect-ratio: auto;
         order: 2;
     }
 

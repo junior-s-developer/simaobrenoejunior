@@ -50,7 +50,11 @@
     user-select: none;
 }
 
-.carrossel video {
+/*Vídeo personalizado*/
+.video-wrapper {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
     background: black;
     flex: 0 0 100%;
     width: 100%;
@@ -63,6 +67,96 @@
     display: block;
     max-height: 100%;
 }
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-wrapper .play-overlay {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.video-wrapper .play-overlay i {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.video-controles {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.botao-controle {
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.botao-controle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-moz-media-controls {
+  display: none !important;
+}
+
+video::media-controls {
+  display: none !important;
+}
+
+:fullscreen video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-wrapper.modo-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: black;
+  border-radius: 0;
+}
+
+.video-wrapper.modo-fullscreen video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.video-wrapper.modo-fullscreen .video-controles {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.video-wrapper.modo-fullscreen .play-overlay {
+  font-size: 80px;
+}
+
+/*Setas do carrossel*/
 
 .seta {
     position: absolute;

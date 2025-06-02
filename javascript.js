@@ -1,3 +1,5 @@
+window.indexAtualGlobal = 0; // Agora global
+
 // ==============================
 // MENU MOBILE
 // ==============================
@@ -148,109 +150,190 @@ ${detalhes}`;
 });
 
 // ==============================
-// FILTROS DE GALERIA
+// VÍDEO PERSONALIZADO
 // ==============================
-function iniciarTodosCarrosseis() {
-  const galerias = document.querySelectorAll('.galeria-wrapper');
+function configurarVideoClick() {
+  const videoWrappers = document.querySelectorAll(".video-wrapper");
 
-  galerias.forEach(galeria => {
-    const carrossel = galeria.querySelector('.carrossel');
-    const slides = carrossel.querySelectorAll('img, video');
-    const indicadores = galeria.querySelector('.indicadores');
-    const btnAnterior = galeria.querySelector('.anterior');
-    const btnProximo = galeria.querySelector('.proximo');
+  videoWrappers.forEach(wrapper => {
+    const video = wrapper.querySelector("video");
+    const playOverlay = wrapper.querySelector(".play-overlay");
+    const muteBtn = wrapper.querySelector(".botao-controle.mute");
+    const fullscreenBtn = wrapper.querySelector(".botao-controle.fullscreen");
 
-    let indiceAtual = 0;
-
-    // Cria os indicadores
-    indicadores.innerHTML = '';
-    slides.forEach((_, i) => {
-      const btn = document.createElement('button');
-      btn.addEventListener('click', () => {
-        indiceAtual = i;
-        scrollParaSlide(i);
-      });
-      indicadores.appendChild(btn);
-    });
-
-    function scrollParaSlide(i) {
-      const slide = slides[i];
-      if (slide) {
-        // Pausa todos os vídeos fora do slide atual
-        slides.forEach((s, index) => {
-          if (s.tagName === 'VIDEO' && index !== i) {
-            s.pause();
-          }
-        });
-
-        carrossel.scrollTo({
-          left: slide.offsetLeft,
-          behavior: 'smooth'
-        });
-        atualizarIndicadores(i);
-        atualizarSetas();
-      }
-    }
-
-    function atualizarIndicadores(ativo) {
-      indicadores.querySelectorAll('button').forEach((btn, i) => {
-        btn.classList.toggle('ativo', i === ativo);
-      });
-    }
-
-    function atualizarSetas() {
-      btnAnterior.style.display = indiceAtual === 0 ? 'none' : 'flex';
-      btnProximo.style.display = indiceAtual === slides.length - 1 ? 'none' : 'flex';
-    }
-
-    btnAnterior.addEventListener('click', () => {
-      if (indiceAtual > 0) {
-        indiceAtual--;
-        scrollParaSlide(indiceAtual);
+    // Play/Pause ao clicar no vídeo
+    wrapper.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playOverlay.style.display = "none";
+      } else {
+        video.pause();
+        playOverlay.style.display = "block";
       }
     });
 
-    btnProximo.addEventListener('click', () => {
-      if (indiceAtual < slides.length - 1) {
-        indiceAtual++;
-        scrollParaSlide(indiceAtual);
-      }
+    // Controle de mute
+    muteBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // evita que pause/play ao clicar
+      video.muted = !video.muted;
+      const icon = muteBtn.querySelector("i");
+      icon.classList.toggle("fa-volume-up", !video.muted);
+      icon.classList.toggle("fa-volume-mute", video.muted);
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          indiceAtual = Array.from(slides).indexOf(entry.target);
-          atualizarIndicadores(indiceAtual);
-          atualizarSetas();
+    // Tela cheia
+    fullscreenBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-          // Pausa os vídeos que não são o slide visível
-          slides.forEach((slide, index) => {
-            if (slide.tagName === 'VIDEO' && index !== indiceAtual) {
-              slide.pause();
+      const wrapper = fullscreenBtn.closest(".video-wrapper");
+      wrapper.classList.toggle("modo-fullscreen");
+
+      // ✅ Aqui está o bloco essencial
+      if (!wrapper.classList.contains("modo-fullscreen")) {
+        const carrossel = document.querySelector(".carrossel");
+        const slides = carrossel?.children;
+        if (slides && window.indexAtualGlobal !== undefined) {
+          slides[window.indexAtualGlobal].scrollIntoView({ behavior: "instant", inline: "start" });
+        }
+      }
+
+      // Impede o vídeo de exibir controles nativos mesmo no modo simulado
+      const video = wrapper.querySelector("video");
+      video.controls = false;
+
+      // Atualiza botão fullscreen para refletir estado
+      const icon = fullscreenBtn.querySelector("i");
+      icon.classList.toggle("fa-expand");
+      icon.classList.toggle("fa-compress");
+    });
+
+    // Esconde o ícone de play quando o vídeo está tocando
+    video.addEventListener("play", () => {
+      playOverlay.style.display = "none";
+
+      // 🔇 Pausa todos os outros vídeos
+      document.querySelectorAll(".video-wrapper video").forEach(v => {
+        if (v !== video) {
+          v.pause();
+          v.currentTime = 0;
+          v.muted = true;
+
+          const parent = v.closest(".video-wrapper");
+          if (parent) {
+            const overlay = parent.querySelector(".play-overlay");
+            if (overlay) overlay.style.display = "block";
+
+            const muteBtn = parent.querySelector(".botao-controle.mute i");
+            if (muteBtn) {
+              muteBtn.classList.remove("fa-volume-up");
+              muteBtn.classList.add("fa-volume-mute");
             }
-          });
+          }
         }
       });
-    }, {
-      root: carrossel,
-      threshold: 0.6
     });
 
-    slides.forEach(slide => observer.observe(slide));
+    video.addEventListener("pause", () => {
+      playOverlay.style.display = "block";
+    });
+  });
+}
 
-    // Inicializa
-    atualizarIndicadores(0);
+// ==============================
+// CARROSSEL DE IMAGENS/VÍDEOS
+// ==============================
+function iniciarTodosCarrosseis() {
+  const wrappers = document.querySelectorAll(".galeria-wrapper");
+
+  wrappers.forEach((wrapper, wrapperIndex) => {
+    const carrossel = wrapper.querySelector(".carrossel");
+    const anteriorBtn = wrapper.querySelector(".seta.anterior");
+    const proximoBtn = wrapper.querySelector(".seta.proximo");
+    const slides = carrossel.children;
+    let indexAtual = 0;
+
+    function atualizarSetas() {
+      if (anteriorBtn) anteriorBtn.style.display = indexAtual === 0 ? "none" : "flex";
+      if (proximoBtn) proximoBtn.style.display = indexAtual === slides.length - 1 ? "none" : "flex";
+    }
+
+    function irParaSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+
+      for (let i = 0; i < slides.length; i++) {
+        const video = slides[i].querySelector("video");
+        const muteBtn = slides[i].querySelector(".botao-controle.mute");
+
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+          video.muted = true;
+
+          if (muteBtn) {
+            const icon = muteBtn.querySelector("i");
+            icon.classList.remove("fa-volume-up");
+            icon.classList.add("fa-volume-mute");
+          }
+        }
+      }
+
+      indexAtual = index;
+      window.indexAtualGlobal = index;
+
+      const slide = slides[index];
+      carrossel.scrollTo({
+        left: slide.offsetLeft,
+        behavior: 'smooth'
+      });
+
+      const videoAtivo = slide.querySelector("video");
+      if (videoAtivo) {
+        videoAtivo.muted = true;
+        videoAtivo.play();
+      }
+
+      atualizarIndicadores();
+      atualizarSetas();
+    }
+
+    function atualizarIndicadores() {
+      const indicadores = wrapper.querySelector(".indicadores");
+      if (!indicadores) return;
+      indicadores.innerHTML = "";
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement("button");
+        dot.classList.toggle("ativo", i === indexAtual);
+        dot.addEventListener("click", () => irParaSlide(i));
+        indicadores.appendChild(dot);
+      }
+    }
+
+    anteriorBtn?.addEventListener("click", () => irParaSlide(indexAtual - 1));
+    proximoBtn?.addEventListener("click", () => irParaSlide(indexAtual + 1));
+
+    // Swipe touch mobile
+    let startX = 0;
+    carrossel.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carrossel.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) irParaSlide(indexAtual + 1);
+        else irParaSlide(indexAtual - 1);
+      }
+    });
+
+    irParaSlide(0);
     atualizarSetas();
   });
 }
 
-// Ao carregar a página, ativa "Shows" por padrão
-document.addEventListener('DOMContentLoaded', () => {
-  const botaoShows = document.getElementById('botao-shows');
-  carregarConteudo('../includes/shows.html', botaoShows);
-});
-
+// ==============================
+// CARREGAR CONTEÚDO
+// ==============================
 function carregarConteudo(caminho, botao) {
   fetch(caminho)
     .then(response => {
@@ -264,17 +347,24 @@ function carregarConteudo(caminho, botao) {
       if (!container) return console.error("Div #conteudo-dinamico não encontrada.");
       container.innerHTML = html;
 
+      // Ativa funcionalidades após carregar
+      configurarVideoClick();
+      iniciarTodosCarrosseis();
+
       // Atualiza botão ativo
       document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
       if (botao) botao.classList.add('ativo');
-
-      // Inicializa carrossel após inserir o HTML
-      iniciarTodosCarrosseis();
     })
     .catch(error => {
       console.error("Erro ao carregar o conteúdo:", error);
     });
 }
+
+// Ao carregar a página, ativa "Shows" por padrão
+document.addEventListener('DOMContentLoaded', () => {
+  const botaoShows = document.getElementById('botao-shows');
+  carregarConteudo('../includes/shows.html', botaoShows);
+});
 
 // ==============================
 // CONFIGURAÇÕES DO FORMULÁRIO BREVO

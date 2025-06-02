@@ -9,10 +9,21 @@
                 <img src="../img/coopcostas1.jpg" alt="Slide 1">
                 <img src="../img/coopcostas2.jpg" alt="Slide 2">
                 <img src="../img/coopcostas3.jpg" alt="Slide 3">
-                <video width="100%" controls preload="metadata" controlsList="nodownload noplaybackrate" muted>
-                    <source src="../videos/coopcostas-2025.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeos HTML5.
-                </video>
+                <div class="video-wrapper">
+                    <video src="../videos/coopcostas-2025.mp4" muted autoplay loop playsinline
+                        controlslist="nodownload nofullscreen noremoteplay">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+                    <div class="video-controles">
+                        <button class="botao-controle mute" title="Silenciar">
+                            <i class="fas fa-volume-mute"></i></i>
+                        </button>
+                        <button class="botao-controle fullscreen" title="Tela cheia">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <button class="seta externa direita proximo" type="button">
                 <i class="fa-solid fa-circle-chevron-right"></i>

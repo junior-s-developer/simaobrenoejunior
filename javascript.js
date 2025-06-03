@@ -243,91 +243,122 @@ function configurarVideoClick() {
 // CARROSSEL DE IMAGENS/VÍDEOS
 // ==============================
 function iniciarTodosCarrosseis() {
-  const wrappers = document.querySelectorAll(".galeria-wrapper");
+  const galerias = document.querySelectorAll('.galeria-wrapper');
 
-  wrappers.forEach((wrapper, wrapperIndex) => {
-    const carrossel = wrapper.querySelector(".carrossel");
-    const anteriorBtn = wrapper.querySelector(".seta.anterior");
-    const proximoBtn = wrapper.querySelector(".seta.proximo");
-    const slides = carrossel.children;
-    let indexAtual = 0;
+  galerias.forEach(galeria => {
+    const carrossel = galeria.querySelector('.carrossel');
+    const slides = carrossel.querySelectorAll('img, .video-wrapper');
+    const indicadores = galeria.querySelector('.indicadores');
+    const btnAnterior = galeria.querySelector('.anterior');
+    const btnProximo = galeria.querySelector('.proximo');
+
+    let indiceAtual = 0;
+
+    // Cria os indicadores
+    indicadores.innerHTML = '';
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.addEventListener('click', () => {
+        indiceAtual = i;
+        scrollParaSlide(i);
+      });
+      indicadores.appendChild(btn);
+    });
+
+    function scrollParaSlide(i) {
+      const slide = slides[i];
+      if (slide) {
+        // Pausa todos os vídeos que não estão visíveis
+        slides.forEach((s, index) => {
+          const video = s.querySelector('video');
+          if (video && index !== i) {
+            video.pause();
+          }
+        });
+
+        // Tenta dar play no vídeo do slide atual
+        const videoAtual = slide.querySelector('video');
+        if (videoAtual) {
+          videoAtual.play().catch(err => console.warn("Autoplay bloqueado:", err));
+        }
+
+        carrossel.scrollTo({
+          left: slide.offsetLeft,
+          behavior: 'auto'
+        });
+
+        atualizarIndicadores(i);
+        atualizarSetas();
+      }
+    }
+
+    function atualizarIndicadores(ativo) {
+      indicadores.querySelectorAll('button').forEach((btn, i) => {
+        btn.classList.toggle('ativo', i === ativo);
+      });
+    }
 
     function atualizarSetas() {
-      if (anteriorBtn) anteriorBtn.style.display = indexAtual === 0 ? "none" : "flex";
-      if (proximoBtn) proximoBtn.style.display = indexAtual === slides.length - 1 ? "none" : "flex";
+      btnAnterior.style.display = indiceAtual === 0 ? 'none' : 'flex';
+      btnProximo.style.display = indiceAtual === slides.length - 1 ? 'none' : 'flex';
     }
 
-    function irParaSlide(index) {
-      if (index < 0 || index >= slides.length) return;
+    btnAnterior.addEventListener('click', () => {
+      if (indiceAtual > 0) {
+        indiceAtual--;
+        scrollParaSlide(indiceAtual);
+      }
+    });
 
-      for (let i = 0; i < slides.length; i++) {
-        const video = slides[i].querySelector("video");
-        const muteBtn = slides[i].querySelector(".botao-controle.mute");
+    btnProximo.addEventListener('click', () => {
+      if (indiceAtual < slides.length - 1) {
+        indiceAtual++;
+        scrollParaSlide(indiceAtual);
+      }
+    });
 
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-          video.muted = true;
+    // Observa quais slides estão visíveis
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          indiceAtual = Array.from(slides).indexOf(entry.target);
+          atualizarIndicadores(indiceAtual);
+          atualizarSetas();
 
-          if (muteBtn) {
-            const icon = muteBtn.querySelector("i");
-            icon.classList.remove("fa-volume-up");
-            icon.classList.add("fa-volume-mute");
+          // Pausa vídeos que não são o slide atual
+          slides.forEach((slide, index) => {
+            const video = slide.querySelector('video');
+            if (video && index !== indiceAtual) {
+              video.pause();
+            }
+          });
+
+          // Dá play no vídeo do slide visível
+          const videoVisivel = entry.target.querySelector('video');
+          if (videoVisivel) {
+            videoVisivel.play().catch(err => console.warn("Autoplay bloqueado:", err));
           }
         }
-      }
-
-      indexAtual = index;
-      window.indexAtualGlobal = index;
-
-      const slide = slides[index];
-      carrossel.scrollTo({
-        left: slide.offsetLeft,
-        behavior: 'smooth'
       });
-
-      const videoAtivo = slide.querySelector("video");
-      if (videoAtivo) {
-        videoAtivo.muted = true;
-        videoAtivo.play();
-      }
-
-      atualizarIndicadores();
-      atualizarSetas();
-    }
-
-    function atualizarIndicadores() {
-      const indicadores = wrapper.querySelector(".indicadores");
-      if (!indicadores) return;
-      indicadores.innerHTML = "";
-      for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement("button");
-        dot.classList.toggle("ativo", i === indexAtual);
-        dot.addEventListener("click", () => irParaSlide(i));
-        indicadores.appendChild(dot);
-      }
-    }
-
-    anteriorBtn?.addEventListener("click", () => irParaSlide(indexAtual - 1));
-    proximoBtn?.addEventListener("click", () => irParaSlide(indexAtual + 1));
-
-    // Swipe touch mobile
-    let startX = 0;
-    carrossel.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
+    }, {
+      root: carrossel,
+      threshold: 0.6
     });
 
-    carrossel.addEventListener("touchend", (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) irParaSlide(indexAtual + 1);
-        else irParaSlide(indexAtual - 1);
-      }
-    });
+    slides.forEach(slide => observer.observe(slide));
 
-    irParaSlide(0);
+    // Inicializa
+    atualizarIndicadores(0);
     atualizarSetas();
+
+    // Dá play no vídeo do primeiro slide, se existir
+    const primeiroSlide = slides[0];
+    if (primeiroSlide) {
+      const video = primeiroSlide.querySelector('video');
+      if (video) {
+        video.play().catch(err => console.warn("Autoplay bloqueado:", err));
+      }
+    }
   });
 }
 

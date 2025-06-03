@@ -33,6 +33,7 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
 }
 
 .carrossel::-webkit-scrollbar {
@@ -162,14 +163,12 @@ video::media-controls {
 }
 
 /*Setas do carrossel*/
-
 .seta {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
-    padding: 0;
     cursor: pointer;
     z-index: 2;
     transition: transform 0.2s ease;
@@ -179,17 +178,27 @@ video::media-controls {
 }
 
 .seta.esquerda {
-    left: 8px;
+    left: 0px;
+    padding: 20px 20px 20px 8px;
 }
 
 .seta.direita {
-    right: 8px;
+    right: 0px;
+    padding: 20px 8px 20px 20px;
 }
 
 .seta i {
     font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.7);
     pointer-events: none;
+}
+
+.seta:focus {
+    outline: none;
+}
+
+.seta:focus-visible {
+    outline: none;
 }
 
 .legenda-fixa {

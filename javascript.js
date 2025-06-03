@@ -1,4 +1,3 @@
-window.indexAtualGlobal = 0; // Agora global
 
 // ==============================
 // MENU MOBILE
@@ -150,6 +149,142 @@ ${detalhes}`;
 });
 
 // ==============================
+// CARROSSEL DE VÍDEOS E IMAGENS
+// ==============================
+function configurarCarrossel() {
+
+  const wrapper = document.querySelector('.galeria-wrapper');
+  if (!wrapper) return;
+
+  const carrossel = wrapper.querySelector('.carrossel');
+  const slides = Array.from(carrossel.children);
+  const btnEsquerda = wrapper.querySelector('.seta.esquerda');
+  const btnDireita = wrapper.querySelector('.seta.direita');
+  const indicadoresContainer = wrapper.querySelector('.indicadores');
+
+  if (!carrossel || !slides.length || !indicadoresContainer) return;
+
+  let indexAtual = 0;
+  window.indexAtualGlobal = 0;
+  let ignorarScrollTemporariamente = false; // ⬅️ Novo controle para evitar reset ao sair do fullscreen
+
+  // Gera os indicadores
+  indicadoresContainer.innerHTML = '';
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('aria-label', `Slide ${i + 1}`);
+    if (i === 0) btn.classList.add('ativo');
+    btn.addEventListener('click', () => irParaSlide(i));
+    indicadoresContainer.appendChild(btn);
+  });
+
+  const atualizarIndicadores = () => {
+    indicadoresContainer.querySelectorAll('button').forEach((btn, i) => {
+      btn.classList.toggle('ativo', i === indexAtual);
+    });
+
+    btnEsquerda.style.display = indexAtual === 0 ? 'none' : 'block';
+    btnDireita.style.display = indexAtual === slides.length - 1 ? 'none' : 'block';
+  };
+
+  const irParaSlide = (i) => {
+    indexAtual = i;
+    carrossel.scrollTo({
+      left: i * carrossel.clientWidth,
+      behavior: 'smooth'
+    });
+  };
+
+  btnEsquerda.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    btnEsquerda.blur();
+    if (indexAtual > 0) irParaSlide(indexAtual - 1);
+  });
+
+  btnDireita.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    btnDireita.blur();
+    if (indexAtual < slides.length - 1) irParaSlide(indexAtual + 1);
+  });
+
+  carrossel.addEventListener('scroll', () => {
+    if (ignorarScrollTemporariamente) return;
+
+    const scrollLeft = carrossel.scrollLeft;
+    const larguraSlide = carrossel.clientWidth;
+    const novoIndex = Math.round(scrollLeft / larguraSlide);
+    if (novoIndex !== indexAtual) {
+      indexAtual = novoIndex;
+      window.indexAtualGlobal = novoIndex;
+      atualizarIndicadores();
+
+      // 🎯 Reinicia e silencia vídeo no slide atual
+      slides.forEach((slide, i) => {
+        const video = slide.querySelector('video');
+        if (!video) return;
+
+        if (i === indexAtual) {
+          video.currentTime = 0;
+          video.muted = true;
+          video.play().catch(() => { });
+
+          const muteIcon = slide.querySelector('.botao-controle.mute i');
+          if (muteIcon) {
+            muteIcon.classList.remove('fa-volume-up');
+            muteIcon.classList.add('fa-volume-mute');
+          }
+        }
+      });
+    }
+  });
+
+  // ⚙️ FULLSCREEN - evita scroll interferir no reset do vídeo
+  const fullscreenButtons = wrapper.querySelectorAll('.botao-controle.fullscreen');
+  fullscreenButtons.forEach(fullscreenBtn => {
+    fullscreenBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      const wrapper = fullscreenBtn.closest(".video-wrapper");
+      const video = wrapper.querySelector("video");
+      const icon = fullscreenBtn.querySelector("i");
+
+      const entrouFullscreen = !wrapper.classList.contains("modo-fullscreen");
+      wrapper.classList.toggle("modo-fullscreen");
+      video.controls = false;
+
+      icon.classList.toggle("fa-expand");
+      icon.classList.toggle("fa-compress");
+
+      // ✅ Ao sair do fullscreen, manter no mesmo slide sem reset
+      if (!entrouFullscreen) {
+        ignorarScrollTemporariamente = true;
+
+        requestAnimationFrame(() => {
+          const index = slides.indexOf(wrapper);
+          if (index >= 0) {
+            carrossel.scrollTo({
+              left: index * carrossel.clientWidth,
+              behavior: 'instant'
+            });
+            indexAtual = index;
+            window.indexAtualGlobal = index;
+            atualizarIndicadores();
+          }
+        });
+
+        setTimeout(() => {
+          ignorarScrollTemporariamente = false;
+        }, 100);
+      }
+    });
+  });
+
+  atualizarIndicadores();
+}
+
+// ==============================
 // VÍDEO PERSONALIZADO
 // ==============================
 function configurarVideoClick() {
@@ -179,32 +314,6 @@ function configurarVideoClick() {
       const icon = muteBtn.querySelector("i");
       icon.classList.toggle("fa-volume-up", !video.muted);
       icon.classList.toggle("fa-volume-mute", video.muted);
-    });
-
-    // Tela cheia
-    fullscreenBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      const wrapper = fullscreenBtn.closest(".video-wrapper");
-      wrapper.classList.toggle("modo-fullscreen");
-
-      // ✅ Aqui está o bloco essencial
-      if (!wrapper.classList.contains("modo-fullscreen")) {
-        const carrossel = document.querySelector(".carrossel");
-        const slides = carrossel?.children;
-        if (slides && window.indexAtualGlobal !== undefined) {
-          slides[window.indexAtualGlobal].scrollIntoView({ behavior: "instant", inline: "start" });
-        }
-      }
-
-      // Impede o vídeo de exibir controles nativos mesmo no modo simulado
-      const video = wrapper.querySelector("video");
-      video.controls = false;
-
-      // Atualiza botão fullscreen para refletir estado
-      const icon = fullscreenBtn.querySelector("i");
-      icon.classList.toggle("fa-expand");
-      icon.classList.toggle("fa-compress");
     });
 
     // Esconde o ícone de play quando o vídeo está tocando
@@ -240,129 +349,6 @@ function configurarVideoClick() {
 }
 
 // ==============================
-// CARROSSEL DE IMAGENS/VÍDEOS
-// ==============================
-function iniciarTodosCarrosseis() {
-  const galerias = document.querySelectorAll('.galeria-wrapper');
-
-  galerias.forEach(galeria => {
-    const carrossel = galeria.querySelector('.carrossel');
-    const slides = carrossel.querySelectorAll('img, .video-wrapper');
-    const indicadores = galeria.querySelector('.indicadores');
-    const btnAnterior = galeria.querySelector('.anterior');
-    const btnProximo = galeria.querySelector('.proximo');
-
-    let indiceAtual = 0;
-
-    // Cria os indicadores
-    indicadores.innerHTML = '';
-    slides.forEach((_, i) => {
-      const btn = document.createElement('button');
-      btn.addEventListener('click', () => {
-        indiceAtual = i;
-        scrollParaSlide(i);
-      });
-      indicadores.appendChild(btn);
-    });
-
-    function scrollParaSlide(i) {
-      const slide = slides[i];
-      if (slide) {
-        // Pausa todos os vídeos que não estão visíveis
-        slides.forEach((s, index) => {
-          const video = s.querySelector('video');
-          if (video && index !== i) {
-            video.pause();
-          }
-        });
-
-        // Tenta dar play no vídeo do slide atual
-        const videoAtual = slide.querySelector('video');
-        if (videoAtual) {
-          videoAtual.play().catch(err => console.warn("Autoplay bloqueado:", err));
-        }
-
-        carrossel.scrollTo({
-          left: slide.offsetLeft,
-          behavior: 'auto'
-        });
-
-        atualizarIndicadores(i);
-        atualizarSetas();
-      }
-    }
-
-    function atualizarIndicadores(ativo) {
-      indicadores.querySelectorAll('button').forEach((btn, i) => {
-        btn.classList.toggle('ativo', i === ativo);
-      });
-    }
-
-    function atualizarSetas() {
-      btnAnterior.style.display = indiceAtual === 0 ? 'none' : 'flex';
-      btnProximo.style.display = indiceAtual === slides.length - 1 ? 'none' : 'flex';
-    }
-
-    btnAnterior.addEventListener('click', () => {
-      if (indiceAtual > 0) {
-        indiceAtual--;
-        scrollParaSlide(indiceAtual);
-      }
-    });
-
-    btnProximo.addEventListener('click', () => {
-      if (indiceAtual < slides.length - 1) {
-        indiceAtual++;
-        scrollParaSlide(indiceAtual);
-      }
-    });
-
-    // Observa quais slides estão visíveis
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          indiceAtual = Array.from(slides).indexOf(entry.target);
-          atualizarIndicadores(indiceAtual);
-          atualizarSetas();
-
-          // Pausa vídeos que não são o slide atual
-          slides.forEach((slide, index) => {
-            const video = slide.querySelector('video');
-            if (video && index !== indiceAtual) {
-              video.pause();
-            }
-          });
-
-          // Dá play no vídeo do slide visível
-          const videoVisivel = entry.target.querySelector('video');
-          if (videoVisivel) {
-            videoVisivel.play().catch(err => console.warn("Autoplay bloqueado:", err));
-          }
-        }
-      });
-    }, {
-      root: carrossel,
-      threshold: 0.6
-    });
-
-    slides.forEach(slide => observer.observe(slide));
-
-    // Inicializa
-    atualizarIndicadores(0);
-    atualizarSetas();
-
-    // Dá play no vídeo do primeiro slide, se existir
-    const primeiroSlide = slides[0];
-    if (primeiroSlide) {
-      const video = primeiroSlide.querySelector('video');
-      if (video) {
-        video.play().catch(err => console.warn("Autoplay bloqueado:", err));
-      }
-    }
-  });
-}
-
-// ==============================
 // CARREGAR CONTEÚDO
 // ==============================
 function carregarConteudo(caminho, botao) {
@@ -380,7 +366,7 @@ function carregarConteudo(caminho, botao) {
 
       // Ativa funcionalidades após carregar
       configurarVideoClick();
-      iniciarTodosCarrosseis();
+      configurarCarrossel();
 
       // Atualiza botão ativo
       document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));

@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
   // MÁSCARA DE TELEFONE
   const telefoneInput = document.getElementById("telefone");
   if (telefoneInput) {
@@ -149,10 +150,76 @@ ${detalhes}`;
 });
 
 // ==============================
+// FUNÇÕES AUXILIARES
+// ==============================
+function silenciarVideo(video) {
+  video.pause();
+  video.currentTime = 0;
+  video.muted = true;
+
+  const wrapper = video.closest(".video-wrapper");
+  if (wrapper) {
+    const overlay = wrapper.querySelector(".play-overlay");
+    if (overlay) overlay.style.display = "block";
+    const muteIcon = wrapper.querySelector(".botao-controle.mute i");
+    if (muteIcon) {
+      muteIcon.classList.remove("fa-volume-up");
+      muteIcon.classList.add("fa-volume-mute");
+    }
+  }
+}
+
+function destacarBotaoAtivo(botao) {
+  document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
+  if (botao) botao.classList.add('ativo');
+}
+
+
+// ==============================
+// CONTROLES DE VÍDEO PERSONALIZADOS
+// ==============================
+function configurarVideoClick() {
+  document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+    const video = wrapper.querySelector("video");
+    const playOverlay = wrapper.querySelector(".play-overlay");
+    const muteBtn = wrapper.querySelector(".botao-controle.mute");
+
+    wrapper.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playOverlay.style.display = "none";
+      } else {
+        video.pause();
+        playOverlay.style.display = "block";
+      }
+    });
+
+    muteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      const icon = muteBtn.querySelector("i");
+      icon.classList.toggle("fa-volume-up", !video.muted);
+      icon.classList.toggle("fa-volume-mute", video.muted);
+    });
+
+    video.addEventListener("play", () => {
+      playOverlay.style.display = "none";
+      document.querySelectorAll(".video-wrapper video").forEach(v => {
+        if (v !== video) silenciarVideo(v);
+      });
+    });
+
+    video.addEventListener("pause", () => {
+      playOverlay.style.display = "block";
+    });
+  });
+}
+
+
+// ==============================
 // CARROSSEL DE VÍDEOS E IMAGENS
 // ==============================
 function configurarCarrossel() {
-
   const wrapper = document.querySelector('.galeria-wrapper');
   if (!wrapper) return;
 
@@ -166,9 +233,9 @@ function configurarCarrossel() {
 
   let indexAtual = 0;
   window.indexAtualGlobal = 0;
-  let ignorarScrollTemporariamente = false; // ⬅️ Novo controle para evitar reset ao sair do fullscreen
+  let ignorarScrollTemporariamente = false;
 
-  // Gera os indicadores
+  // Cria indicadores
   indicadoresContainer.innerHTML = '';
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
@@ -182,17 +249,13 @@ function configurarCarrossel() {
     indicadoresContainer.querySelectorAll('button').forEach((btn, i) => {
       btn.classList.toggle('ativo', i === indexAtual);
     });
-
     btnEsquerda.style.display = indexAtual === 0 ? 'none' : 'block';
     btnDireita.style.display = indexAtual === slides.length - 1 ? 'none' : 'block';
   };
 
   const irParaSlide = (i) => {
     indexAtual = i;
-    carrossel.scrollTo({
-      left: i * carrossel.clientWidth,
-      behavior: 'smooth'
-    });
+    carrossel.scrollTo({ left: i * carrossel.clientWidth, behavior: 'smooth' });
   };
 
   btnEsquerda.addEventListener("click", (e) => {
@@ -215,68 +278,64 @@ function configurarCarrossel() {
     const scrollLeft = carrossel.scrollLeft;
     const larguraSlide = carrossel.clientWidth;
     const novoIndex = Math.round(scrollLeft / larguraSlide);
+
+    const estaEmFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+    const temModoFullscreen = !!document.querySelector(".video-wrapper.modo-fullscreen");
+    if (estaEmFullscreen || temModoFullscreen) return;
+
     if (novoIndex !== indexAtual) {
       indexAtual = novoIndex;
       window.indexAtualGlobal = novoIndex;
       atualizarIndicadores();
-
-      // 🎯 Reinicia e silencia vídeo no slide atual
-      slides.forEach((slide, i) => {
-        const video = slide.querySelector('video');
-        if (!video) return;
-
-        if (i === indexAtual) {
-          video.currentTime = 0;
-          video.muted = true;
-          video.play().catch(() => { });
-
-          const muteIcon = slide.querySelector('.botao-controle.mute i');
-          if (muteIcon) {
-            muteIcon.classList.remove('fa-volume-up');
-            muteIcon.classList.add('fa-volume-mute');
-          }
-        }
-      });
     }
+
+    slides.forEach((slide, i) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      const overlay = slide.querySelector(".play-overlay");
+      const muteIcon = slide.querySelector(".botao-controle.mute i");
+
+      if (i === indexAtual) {
+        video.currentTime = 0;
+        video.muted = true;
+        video.play().catch(() => { });
+        if (overlay) overlay.style.display = "none";
+        if (muteIcon) {
+          muteIcon.classList.remove("fa-volume-up");
+          muteIcon.classList.add("fa-volume-mute");
+        }
+      } else {
+        silenciarVideo(video);
+      }
+    });
   });
 
-  // ⚙️ FULLSCREEN - evita scroll interferir no reset do vídeo
-  const fullscreenButtons = wrapper.querySelectorAll('.botao-controle.fullscreen');
-  fullscreenButtons.forEach(fullscreenBtn => {
+  // FULLSCREEN
+  wrapper.querySelectorAll('.botao-controle.fullscreen').forEach(fullscreenBtn => {
     fullscreenBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-
       const wrapper = fullscreenBtn.closest(".video-wrapper");
       const video = wrapper.querySelector("video");
       const icon = fullscreenBtn.querySelector("i");
-
       const entrouFullscreen = !wrapper.classList.contains("modo-fullscreen");
       wrapper.classList.toggle("modo-fullscreen");
       video.controls = false;
-
       icon.classList.toggle("fa-expand");
       icon.classList.toggle("fa-compress");
 
-      // ✅ Ao sair do fullscreen, manter no mesmo slide sem reset
       if (!entrouFullscreen) {
         ignorarScrollTemporariamente = true;
-
         requestAnimationFrame(() => {
           const index = slides.indexOf(wrapper);
           if (index >= 0) {
-            carrossel.scrollTo({
-              left: index * carrossel.clientWidth,
-              behavior: 'instant'
-            });
+            carrossel.scrollTo({ left: index * carrossel.clientWidth, behavior: 'instant' });
             indexAtual = index;
             window.indexAtualGlobal = index;
             atualizarIndicadores();
           }
         });
-
-        setTimeout(() => {
-          ignorarScrollTemporariamente = false;
-        }, 100);
+        setTimeout(() => ignorarScrollTemporariamente = false, 100);
       }
     });
   });
@@ -285,102 +344,47 @@ function configurarCarrossel() {
 }
 
 // ==============================
-// VÍDEO PERSONALIZADO
-// ==============================
-function configurarVideoClick() {
-  const videoWrappers = document.querySelectorAll(".video-wrapper");
-
-  videoWrappers.forEach(wrapper => {
-    const video = wrapper.querySelector("video");
-    const playOverlay = wrapper.querySelector(".play-overlay");
-    const muteBtn = wrapper.querySelector(".botao-controle.mute");
-    const fullscreenBtn = wrapper.querySelector(".botao-controle.fullscreen");
-
-    // Play/Pause ao clicar no vídeo
-    wrapper.addEventListener("click", () => {
-      if (video.paused) {
-        video.play();
-        playOverlay.style.display = "none";
-      } else {
-        video.pause();
-        playOverlay.style.display = "block";
-      }
-    });
-
-    // Controle de mute
-    muteBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // evita que pause/play ao clicar
-      video.muted = !video.muted;
-      const icon = muteBtn.querySelector("i");
-      icon.classList.toggle("fa-volume-up", !video.muted);
-      icon.classList.toggle("fa-volume-mute", video.muted);
-    });
-
-    // Esconde o ícone de play quando o vídeo está tocando
-    video.addEventListener("play", () => {
-      playOverlay.style.display = "none";
-
-      // 🔇 Pausa todos os outros vídeos
-      document.querySelectorAll(".video-wrapper video").forEach(v => {
-        if (v !== video) {
-          v.pause();
-          v.currentTime = 0;
-          v.muted = true;
-
-          const parent = v.closest(".video-wrapper");
-          if (parent) {
-            const overlay = parent.querySelector(".play-overlay");
-            if (overlay) overlay.style.display = "block";
-
-            const muteBtn = parent.querySelector(".botao-controle.mute i");
-            if (muteBtn) {
-              muteBtn.classList.remove("fa-volume-up");
-              muteBtn.classList.add("fa-volume-mute");
-            }
-          }
-        }
-      });
-    });
-
-    video.addEventListener("pause", () => {
-      playOverlay.style.display = "block";
-    });
-  });
-}
-
-// ==============================
-// CARREGAR CONTEÚDO
+// CARREGAR CONTEÚDO EXTERNO (HTML)
 // ==============================
 function carregarConteudo(caminho, botao) {
-  fetch(caminho)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Erro ao carregar ${caminho}`);
-      }
-      return response.text();
-    })
-    .then(html => {
-      const container = document.getElementById("conteudo-dinamico");
-      if (!container) return console.error("Div #conteudo-dinamico não encontrada.");
-      container.innerHTML = html;
+  const container = document.getElementById("conteudo-dinamico");
+  if (!container) return console.error("Div #conteudo-dinamico não encontrada.");
 
-      // Ativa funcionalidades após carregar
-      configurarVideoClick();
-      configurarCarrossel();
+  // Inicia o fade-out
+  container.classList.remove("fade-in");
+  container.style.opacity = 0;
 
-      // Atualiza botão ativo
-      document.querySelectorAll('.link-botao').forEach(btn => btn.classList.remove('ativo'));
-      if (botao) botao.classList.add('ativo');
-    })
-    .catch(error => {
-      console.error("Erro ao carregar o conteúdo:", error);
-    });
+  // Aguarda a transição de 300ms antes de trocar o conteúdo
+  setTimeout(() => {
+    fetch(caminho)
+      .then(response => {
+        if (!response.ok) throw new Error(`Erro ao carregar ${caminho}`);
+        return response.text();
+      })
+      .then(html => {
+        container.innerHTML = html;
+
+        configurarVideoClick();
+        configurarCarrossel();
+        destacarBotaoAtivo(botao);
+
+        // Força reflow para garantir que o fade-in funcione
+        void container.offsetWidth;
+
+        // Aplica o fade-in após inserir o conteúdo
+        container.classList.add("fade-in");
+        container.style.opacity = 1;
+      })
+      .catch(error => console.error("Erro ao carregar o conteúdo:", error));
+  }, 300);
 }
 
-// Ao carregar a página, ativa "Shows" por padrão
+// ==============================
+// ATIVAR CONTEÚDO PADRÃO NA CARGA
+// ==============================
 document.addEventListener('DOMContentLoaded', () => {
-  const botaoShows = document.getElementById('botao-shows');
-  carregarConteudo('../includes/shows.html', botaoShows);
+  const botao = document.getElementById('botao-shows');
+  carregarConteudo('../includes/shows.html', botao);
 });
 
 // ==============================

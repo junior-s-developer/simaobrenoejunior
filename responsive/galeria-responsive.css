@@ -1,9 +1,7 @@
-/*=========================================================*/
-/*Celular pequeno*/
-/*=========================================================*/
-
+/* ========================================
+CELULAR PEQUENO
+======================================== */
 @media (max-width: 480px) {
-
     #nav-desktop {
         display: none;
     }
@@ -13,7 +11,7 @@
     }
 
     main {
-        padding: 0px 20px 50px 20px;
+        padding: 0 20px 50px 20px;
     }
 
     .filtros-galeria {
@@ -22,12 +20,10 @@
     }
 }
 
-/*=========================================================*/
-/*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
-/*=========================================================*/
-
+/* ========================================
+CELULAR MÉDIO/GRANDE
+======================================== */
 @media (min-width: 481px) and (max-width: 767px) {
-
     #nav-desktop {
         display: none;
     }
@@ -37,7 +33,7 @@
     }
 
     main {
-        padding: 0px 20px 50px 20px;
+        padding: 0 20px 50px 20px;
     }
 
     .filtros-galeria {
@@ -46,18 +42,16 @@
     }
 }
 
-/*=========================================================*/
-/*Tablet vertical (iPad em pé, por exemplo)*/
-/*=========================================================*/
-
+/* ========================================
+TABLET VERTICAL
+======================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
-
     #nav-desktop {
         padding: 50px 50px 16px 50px;
     }
 
     main {
-        padding: 0px 50px 50px 50px;
+        padding: 0 50px 50px 50px;
     }
 
     .filtros-galeria {
@@ -66,14 +60,11 @@
     }
 }
 
-
-/*=========================================================*/
-/*Desktop padrão / Tablet deitado*/
-/*=========================================================*/
-
+/* ========================================
+DESKTOP PADRÃO / TABLET DEITADO
+======================================== */
 @media (min-width: 1024px) and (max-width: 1279px) {
-
     main {
-        padding: 0px 100px 50px 100px;
+        padding: 0 100px 50px 100px;
     }
 }

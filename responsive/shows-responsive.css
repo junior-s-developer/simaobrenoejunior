@@ -1,11 +1,9 @@
-/*=========================================================*/
-/*Celular pequeno*/
-/*=========================================================*/
-
+/* ========================================
+CELULAR PEQUENO
+======================================== */
 @media (max-width: 480px) {
-
     .card {
-        gap: 24px;
+        gap: 1.5rem;
     }
 
     .galeria-wrapper {
@@ -18,27 +16,17 @@
         order: 1;
     }
 
-    .legenda-fixa h3 {
-        font-size: 15px;
-    }
-
-    .legenda-fixa p {
-        font-size: 13px;
-    }
-
     .seta i {
         font-size: 1.6rem;
     }
 }
 
-/*=========================================================*/
-/*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
-/*=========================================================*/
-
+/* ========================================
+CELULAR MÉDIO/GRANDE
+======================================== */
 @media (min-width: 481px) and (max-width: 767px) {
-
     .card {
-        gap: 24px;
+        gap: 1.5rem;
     }
 
     .galeria-wrapper {
@@ -51,28 +39,18 @@
         order: 1;
     }
 
-    .legenda-fixa h3 {
-        font-size: 15px;
-    }
-
-    .legenda-fixa p {
-        font-size: 13px;
-    }
-
     .seta i {
         font-size: 1.6rem;
     }
 }
 
-/*=========================================================*/
-/*Tablet vertical (iPad em pé, por exemplo)*/
-/*=========================================================*/
-
+/* ========================================
+TABLET VERTICAL
+======================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
-
     .card {
         flex-direction: column;
-        gap: 24px;
+        gap: 1.5rem;
         max-width: 100%;
     }
 
@@ -89,16 +67,8 @@
     }
 
     .legenda-fixa {
-        padding: 0 16px;
+        padding: 0 1rem;
         order: 1;
-    }
-
-    .legenda-fixa h3 {
-        font-size: 16px;
-    }
-
-    .legenda-fixa p {
-        font-size: 14px;
     }
 
     .seta i {
@@ -106,9 +76,7 @@
     }
 }
 
-
-/*=========================================================*/
-/*Desktop padrão / Tablet deitado*/
-/*=========================================================*/
-
+/* ========================================
+DESKTOP PADRÃO / TABLET DEITADO
+======================================== */
 @media (min-width: 1024px) and (max-width: 1279px) {}

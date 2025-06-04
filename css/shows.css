@@ -1,7 +1,10 @@
+/* ========================================
+   LAYOUT E CONTAINERS GERAIS
+======================================== */
 .container-card {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 3.125rem;
 }
 
 .card {
@@ -9,18 +12,21 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    max-width: 800px;
+    gap: 3.125rem;
+    max-width: 50rem;
     margin: 0 auto;
     flex-wrap: wrap;
 }
 
+/* ========================================
+   CARROSSEL
+======================================== */
 .galeria-wrapper {
     position: relative;
-    width: 380px;
+    width: 23.75rem;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 .carrossel {
@@ -40,31 +46,26 @@
     display: none;
 }
 
-.carrossel img {
+.carrossel img,
+.video-wrapper {
     flex: 0 0 100%;
     width: 100%;
     height: auto;
     object-fit: cover;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     user-select: none;
 }
 
-/*Vídeo personalizado*/
+/* ========================================
+   VÍDEO PERSONALIZADO
+======================================== */
 .video-wrapper {
     overflow: hidden;
     position: relative;
     cursor: pointer;
     background: black;
-    flex: 0 0 100%;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    border-radius: 8px;
-    user-select: none;
     display: block;
     max-height: 100%;
 }
@@ -75,39 +76,39 @@
     object-fit: cover;
 }
 
-.video-wrapper .play-overlay {
+.play-overlay {
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 64px;
+    font-size: 4rem;
     color: rgba(255, 255, 255, 0.8);
     pointer-events: none;
 }
 
-.video-wrapper .play-overlay i {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+.play-overlay i {
+    text-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.7);
 }
 
 .video-controles {
     position: absolute;
-    bottom: 12px;
-    right: 12px;
+    bottom: 0.75rem;
+    right: 0.75rem;
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     z-index: 5;
 }
 
 .botao-controle {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     background: transparent;
     border: none;
     border-radius: 50%;
     color: white;
     padding: 0;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s;
     display: flex;
@@ -119,18 +120,9 @@
     background: rgba(51, 51, 51, 0.4);
 }
 
-video::-webkit-media-controls {
-    display: none !important;
-}
-
-video::-moz-media-controls {
-    display: none !important;
-}
-
-video::media-controls {
-    display: none !important;
-}
-
+video::-webkit-media-controls,
+video::-moz-media-controls,
+video::media-controls,
 :fullscreen video::-webkit-media-controls {
     display: none !important;
 }
@@ -153,16 +145,17 @@ video::media-controls {
 }
 
 .video-wrapper.modo-fullscreen .video-controles {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1.25rem;
+    right: 1.25rem;
 }
 
 .video-wrapper.modo-fullscreen .play-overlay {
-    font-size: 80px;
+    font-size: 5rem;
 }
 
-/*Setas do carrossel*/
+/* ========================================
+   CONTROLES DE NAVEGAÇÃO (SETAS)
+======================================== */
 .seta {
     position: absolute;
     top: 50%;
@@ -178,13 +171,13 @@ video::media-controls {
 }
 
 .seta.esquerda {
-    left: 0px;
-    padding: 20px 20px 20px 8px;
+    left: 0;
+    padding: 1.25rem 1.25rem 1.25rem 0.5rem;
 }
 
 .seta.direita {
-    right: 0px;
-    padding: 20px 8px 20px 20px;
+    right: 0;
+    padding: 1.25rem 0.5rem 1.25rem 1.25rem;
 }
 
 .seta i {
@@ -193,14 +186,14 @@ video::media-controls {
     pointer-events: none;
 }
 
-.seta:focus {
-    outline: none;
-}
-
+.seta:focus,
 .seta:focus-visible {
     outline: none;
 }
 
+/* ========================================
+   LEGENDA DO CARD
+======================================== */
 .legenda-fixa {
     flex: 1;
     color: white;
@@ -209,30 +202,31 @@ video::media-controls {
 }
 
 .legenda-fixa h3 {
-    font-size: 18px;
+    font-size: 1.25rem;
     color: #9b8a29;
-    line-height: 1.7;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 }
 
 .legenda-fixa p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 0.75rem;
 }
 
+/* ========================================
+   INDICADORES DO CARROSSEL
+======================================== */
 .indicadores {
     position: absolute;
-    bottom: 10px;
+    bottom: 0.625rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 0.4375rem;
     z-index: 3;
 }
 
 .indicadores button {
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     background: rgba(211, 211, 211, 0.4);
     border: none;
     border-radius: 50%;
@@ -244,6 +238,9 @@ video::media-controls {
     background-color: #e2ca3f;
 }
 
+/* ========================================
+   MENU DE CATEGORIAS ATIVO
+======================================== */
 .link-botao.ativo {
     color: #e2ca3f;
 }

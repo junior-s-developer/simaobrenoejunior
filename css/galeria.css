@@ -1,3 +1,6 @@
+/* ========================================
+   RESET E CONFIGURAÇÕES GERAIS
+======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +17,7 @@ body {
     color: white;
     background-color: black;
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     opacity: 0;
     transition: opacity 0.3s ease;
     line-height: 2;
@@ -24,36 +27,38 @@ body.fade-in {
     opacity: 1;
 }
 
-#conteudo-dinamico {
-  /*opacity: 0;
-  transition: opacity 0.3s ease;*/
-}
-
-#conteudo-dinamico.fade-in {
-  /*opacity: 1;*/
-}
-
 a:focus {
     outline: none;
 }
 
+strong {
+    color: #9b8a29;
+}
+
+.link {
+    color: rgb(0, 204, 255);
+}
+
+/* ========================================
+   NAV DESKTOP
+======================================== */
 #nav-desktop {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(0, 0, 0);
-    padding: 50px 15% 16px 15%;
+    background-color: black;
+    padding: 3.125rem 15% 1rem 15%;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
+    box-shadow: 0 0.1875rem 0.1875rem rgba(0, 0, 0, 0.5);
 }
 
 #nav-desktop img {
     max-width: 100%;
-    width: 50px;
+    width: 3.125rem;
 }
 
 #nav-desktop .menu {
@@ -64,7 +69,7 @@ a:focus {
 
 #nav-desktop .menu>li {
     display: flex;
-    margin-left: 50px;
+    margin-left: 3.125rem;
     position: relative;
 }
 
@@ -73,6 +78,10 @@ a:focus {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+#nav-desktop .menu a:hover {
+    color: #e2ca3f;
 }
 
 #nav-desktop .menu .dropdown .submenu {
@@ -86,20 +95,10 @@ a:focus {
     background: #222;
     list-style: none;
     padding: 0;
-    margin: 3px 0 0 10px;
+    margin: 0.1875rem 0 0 0.625rem;
     z-index: 1000;
-    border-radius: 0px 7px 7px 7px;
+    border-radius: 0 0.4375rem 0.4375rem 0.4375rem;
     border: solid 1px #444;
-}
-
-#nav-desktop .menu .dropdown li {
-    display: flex;
-    line-height: 100%;
-    margin: 30px 80px 30px 30px;
-}
-
-#nav-desktop .menu a:hover {
-    color: #e2ca3f;
 }
 
 #nav-desktop .menu .dropdown:hover .submenu,
@@ -107,6 +106,12 @@ a:focus {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+}
+
+#nav-desktop .menu .dropdown li {
+    display: flex;
+    line-height: 100%;
+    margin: 1.875rem 5rem 1.875rem 1.875rem;
 }
 
 #nav-desktop .galeria {
@@ -126,51 +131,14 @@ a:focus {
     border-bottom: solid 1px #e2ca3f;
 }
 
-strong {
-    color: #9b8a29;
-}
-
-.link {
-    color: rgb(0, 204, 255);
-}
-
-main {
-    padding: 0px 15% 50px 15%;
-}
-
-.filtros-galeria {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 164px 0 60px 0;
-}
-
-.link-botao {
-    color: #999;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.link-botao:hover {
-    color: #e2ca3f;
-}
-
-.separador-vertical {
-    font-size: 1.5rem;
-    color: #999;
-    user-select: none;
-}
-
-/*NavBar Mobile*/
-
+/* ========================================
+   NAVBAR MOBILE
+======================================== */
 #navbar-mobile {
     display: none;
-    background-color: #333333;
-    border-radius: 0px 0px 20px 20px;
-    box-shadow: 0px 3px 3px rgb(0, 0, 0, 0.5);
+    background-color: #333;
+    border-radius: 0 0 1.25rem 1.25rem;
+    box-shadow: 0 0.1875rem 0.1875rem rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -178,24 +146,24 @@ main {
     z-index: 1000;
 }
 
-#navbar-mobile .logo a {
-    display: flex;
-}
-
 #navbar-mobile .logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 15%;
+    padding: 1.25rem 15%;
+}
+
+#navbar-mobile .logo a {
+    display: flex;
 }
 
 #navbar-mobile .logo img {
-    max-width: 40px;
+    max-width: 2.5rem;
 }
 
 #navbar-mobile .logo i {
-    font-size: 24px;
-    padding: 20px 0px;
+    font-size: 1.5rem;
+    padding: 1.25rem 0;
     color: #9b8a29;
 }
 
@@ -206,7 +174,7 @@ main {
 
 #navbar-mobile .menu>li {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     list-style: none;
 }
 
@@ -227,36 +195,20 @@ main {
 }
 
 #navbar-mobile .menu .dropdown .submenu li {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 #navbar-mobile .menu .dropdown .submenu li a {
     color: #9b8a29;
 }
 
-#navbar-mobile .galeria {
-    display: inline-block;
-    color: #e2ca3f;
-    position: relative;
-}
-
-#navbar-mobile .galeria::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    border-bottom: solid 1px #e2ca3f;
-}
-
 #navbar-mobile .menu .dropdown .submenu.open {
-    max-height: 200px;
+    max-height: 12.5rem;
 }
 
 #mobile-menu.open {
-    max-height: 500px;
-    padding: 20px 0;
+    max-height: 31.25rem;
+    padding: 1.25rem 0;
 }
 
 #navbar-mobile #mobile-menu {
@@ -266,5 +218,50 @@ main {
 }
 
 #navbar-mobile #mobile-menu.active {
-    max-height: 500px;
+    max-height: 31.25rem;
+}
+
+/* ========================================
+   CONTEÚDO DINÂMICO
+======================================== */
+#conteudo-dinamico {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#conteudo-dinamico.fade-in {
+    opacity: 1;
+}
+
+/* ========================================
+   CONTAINER PRINCIPAL
+======================================== */
+main {
+    padding: 0 15% 3.125rem 15%;
+}
+
+.filtros-galeria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    margin: 10.25rem 0 3.75rem 0;
+}
+
+.link-botao {
+    color: #999;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.link-botao:hover {
+    color: #e2ca3f;
+}
+
+.separador-vertical {
+    font-size: 1.5rem;
+    color: #999;
+    user-select: none;
 }

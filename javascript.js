@@ -174,7 +174,6 @@ function destacarBotaoAtivo(botao) {
   if (botao) botao.classList.add('ativo');
 }
 
-
 // ==============================
 // CONTROLES DE VÍDEO PERSONALIZADOS
 // ==============================
@@ -215,133 +214,128 @@ function configurarVideoClick() {
   });
 }
 
-
 // ==============================
 // CARROSSEL DE VÍDEOS E IMAGENS
 // ==============================
 function configurarCarrossel() {
-  const wrapper = document.querySelector('.galeria-wrapper');
-  if (!wrapper) return;
+  document.querySelectorAll('.galeria-wrapper').forEach(wrapper => {
+    const carrossel = wrapper.querySelector('.carrossel');
+    const slides = Array.from(carrossel.children);
+    const btnEsquerda = wrapper.querySelector('.seta.esquerda');
+    const btnDireita = wrapper.querySelector('.seta.direita');
+    const indicadoresContainer = wrapper.querySelector('.indicadores');
 
-  const carrossel = wrapper.querySelector('.carrossel');
-  const slides = Array.from(carrossel.children);
-  const btnEsquerda = wrapper.querySelector('.seta.esquerda');
-  const btnDireita = wrapper.querySelector('.seta.direita');
-  const indicadoresContainer = wrapper.querySelector('.indicadores');
+    if (!carrossel || !slides.length || !indicadoresContainer) return;
 
-  if (!carrossel || !slides.length || !indicadoresContainer) return;
+    let indexAtual = 0;
+    let ignorarScrollTemporariamente = false;
 
-  let indexAtual = 0;
-  window.indexAtualGlobal = 0;
-  let ignorarScrollTemporariamente = false;
-
-  // Cria indicadores
-  indicadoresContainer.innerHTML = '';
-  slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    btn.setAttribute('aria-label', `Slide ${i + 1}`);
-    if (i === 0) btn.classList.add('ativo');
-    btn.addEventListener('click', () => irParaSlide(i));
-    indicadoresContainer.appendChild(btn);
-  });
-
-  const atualizarIndicadores = () => {
-    indicadoresContainer.querySelectorAll('button').forEach((btn, i) => {
-      btn.classList.toggle('ativo', i === indexAtual);
+    // Criar indicadores
+    indicadoresContainer.innerHTML = '';
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.setAttribute('aria-label', `Slide ${i + 1}`);
+      if (i === 0) btn.classList.add('ativo');
+      btn.addEventListener('click', () => irParaSlide(i));
+      indicadoresContainer.appendChild(btn);
     });
-    btnEsquerda.style.display = indexAtual === 0 ? 'none' : 'block';
-    btnDireita.style.display = indexAtual === slides.length - 1 ? 'none' : 'block';
-  };
 
-  const irParaSlide = (i) => {
-    indexAtual = i;
-    carrossel.scrollTo({ left: i * carrossel.clientWidth, behavior: 'smooth' });
-  };
+    const atualizarIndicadores = () => {
+      indicadoresContainer.querySelectorAll('button').forEach((btn, i) => {
+        btn.classList.toggle('ativo', i === indexAtual);
+      });
+      btnEsquerda.style.display = indexAtual === 0 ? 'none' : 'block';
+      btnDireita.style.display = indexAtual === slides.length - 1 ? 'none' : 'block';
+    };
 
-  btnEsquerda.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    btnEsquerda.blur();
-    if (indexAtual > 0) irParaSlide(indexAtual - 1);
-  });
-
-  btnDireita.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    btnDireita.blur();
-    if (indexAtual < slides.length - 1) irParaSlide(indexAtual + 1);
-  });
-
-  carrossel.addEventListener('scroll', () => {
-    if (ignorarScrollTemporariamente) return;
-
-    const scrollLeft = carrossel.scrollLeft;
-    const larguraSlide = carrossel.clientWidth;
-    const novoIndex = Math.round(scrollLeft / larguraSlide);
-
-    const estaEmFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
-    const temModoFullscreen = !!document.querySelector(".video-wrapper.modo-fullscreen");
-    if (estaEmFullscreen || temModoFullscreen) return;
-
-    if (novoIndex !== indexAtual) {
-      indexAtual = novoIndex;
-      window.indexAtualGlobal = novoIndex;
+    const irParaSlide = (i) => {
+      indexAtual = i;
+      carrossel.scrollTo({ left: i * carrossel.clientWidth, behavior: 'smooth' });
       atualizarIndicadores();
-    }
+    };
 
-    slides.forEach((slide, i) => {
-      const video = slide.querySelector('video');
-      if (!video) return;
-
-      const overlay = slide.querySelector(".play-overlay");
-      const muteIcon = slide.querySelector(".botao-controle.mute i");
-
-      if (i === indexAtual) {
-        video.currentTime = 0;
-        video.muted = true;
-        video.play().catch(() => { });
-        if (overlay) overlay.style.display = "none";
-        if (muteIcon) {
-          muteIcon.classList.remove("fa-volume-up");
-          muteIcon.classList.add("fa-volume-mute");
-        }
-      } else {
-        silenciarVideo(video);
-      }
-    });
-  });
-
-  // FULLSCREEN
-  wrapper.querySelectorAll('.botao-controle.fullscreen').forEach(fullscreenBtn => {
-    fullscreenBtn.addEventListener('click', (e) => {
+    btnEsquerda.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const wrapper = fullscreenBtn.closest(".video-wrapper");
-      const video = wrapper.querySelector("video");
-      const icon = fullscreenBtn.querySelector("i");
-      const entrouFullscreen = !wrapper.classList.contains("modo-fullscreen");
-      wrapper.classList.toggle("modo-fullscreen");
-      video.controls = false;
-      icon.classList.toggle("fa-expand");
-      icon.classList.toggle("fa-compress");
-
-      if (!entrouFullscreen) {
-        ignorarScrollTemporariamente = true;
-        requestAnimationFrame(() => {
-          const index = slides.indexOf(wrapper);
-          if (index >= 0) {
-            carrossel.scrollTo({ left: index * carrossel.clientWidth, behavior: 'instant' });
-            indexAtual = index;
-            window.indexAtualGlobal = index;
-            atualizarIndicadores();
-          }
-        });
-        setTimeout(() => ignorarScrollTemporariamente = false, 100);
-      }
+      if (indexAtual > 0) irParaSlide(indexAtual - 1);
     });
-  });
 
-  atualizarIndicadores();
+    btnDireita.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (indexAtual < slides.length - 1) irParaSlide(indexAtual + 1);
+    });
+
+    carrossel.addEventListener('scroll', () => {
+      if (ignorarScrollTemporariamente) return;
+
+      const scrollLeft = carrossel.scrollLeft;
+      const larguraSlide = carrossel.clientWidth;
+      const novoIndex = Math.round(scrollLeft / larguraSlide);
+
+      const estaEmFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+      const temModoFullscreen = !!wrapper.querySelector(".modo-fullscreen");
+      if (estaEmFullscreen || temModoFullscreen) return;
+
+      if (novoIndex !== indexAtual) {
+        indexAtual = novoIndex;
+        atualizarIndicadores();
+      }
+
+      slides.forEach((slide, i) => {
+        const video = slide.querySelector('video');
+        if (!video) return;
+
+        const overlay = slide.querySelector(".play-overlay");
+        const muteIcon = slide.querySelector(".botao-controle.mute i");
+
+        if (i === indexAtual) {
+          video.currentTime = 0;
+          video.muted = true;
+          video.play().catch(() => { });
+          if (overlay) overlay.style.display = "none";
+          if (muteIcon) {
+            muteIcon.classList.remove("fa-volume-up");
+            muteIcon.classList.add("fa-volume-mute");
+          }
+        } else {
+          silenciarVideo(video);
+        }
+      });
+    });
+
+    // Fullscreen
+    wrapper.querySelectorAll('.botao-controle.fullscreen').forEach(fullscreenBtn => {
+      fullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wrapper = fullscreenBtn.closest(".video-wrapper");
+        const video = wrapper.querySelector("video");
+        const icon = fullscreenBtn.querySelector("i");
+        const entrouFullscreen = !wrapper.classList.contains("modo-fullscreen");
+        wrapper.classList.toggle("modo-fullscreen");
+        video.controls = false;
+        icon.classList.toggle("fa-expand");
+        icon.classList.toggle("fa-compress");
+
+        if (!entrouFullscreen) {
+          ignorarScrollTemporariamente = true;
+          requestAnimationFrame(() => {
+            const index = slides.indexOf(wrapper);
+            if (index >= 0) {
+              carrossel.scrollTo({ left: index * carrossel.clientWidth, behavior: 'instant' });
+              indexAtual = index;
+              atualizarIndicadores();
+            }
+          });
+          setTimeout(() => ignorarScrollTemporariamente = false, 100);
+        }
+      });
+    });
+
+    atualizarIndicadores();
+  });
 }
+
 
 // ==============================
 // CARREGAR CONTEÚDO EXTERNO (HTML)

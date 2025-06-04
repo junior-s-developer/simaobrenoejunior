@@ -336,7 +336,6 @@ function configurarCarrossel() {
   });
 }
 
-
 // ==============================
 // CARREGAR CONTEÚDO EXTERNO (HTML)
 // ==============================
@@ -376,9 +375,32 @@ function carregarConteudo(caminho, botao) {
 // ==============================
 // ATIVAR CONTEÚDO PADRÃO NA CARGA
 // ==============================
+function carregarConteudoInicial(caminho, botao) {
+  const container = document.getElementById("conteudo-dinamico");
+  if (!container) return console.error("Div #conteudo-dinamico não encontrada.");
+
+  fetch(caminho)
+    .then(response => {
+      if (!response.ok) throw new Error(`Erro ao carregar ${caminho}`);
+      return response.text();
+    })
+    .then(html => {
+      container.innerHTML = html;
+
+      configurarVideoClick();
+      configurarCarrossel();
+      destacarBotaoAtivo(botao);
+
+      // NÃO aplica fade-in
+      container.classList.remove("fade-in");
+      container.style.opacity = 1;
+    })
+    .catch(error => console.error("Erro ao carregar o conteúdo:", error));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const botao = document.getElementById('botao-shows');
-  carregarConteudo('../includes/shows.html', botao);
+  carregarConteudoInicial('../includes/shows.html', botao);
 });
 
 // ==============================

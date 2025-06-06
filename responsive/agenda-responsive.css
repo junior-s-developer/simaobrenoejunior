@@ -1,7 +1,6 @@
-/*=========================================================*/
-/*Celular pequeno*/
-/*=========================================================*/
-
+/*=========================================================
+CELULAR PEQUENO
+=========================================================*/
 @media (max-width: 480px) {
 
     #nav-desktop {
@@ -13,31 +12,23 @@
     }
 
     main {
-        padding: 0px 20px 50px 20px;
+        padding: 0rem 1.25rem 3.125rem 1.25rem;
     }
 
     .home {
-        margin-top: 160px;
+        margin-top: 10rem;
     }
 
     .container-programacao {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-    }
-
-    .title-agenda {
-        text-align: center;
+        gap: 1.875rem;
     }
 
     .container-agenda .container-programacao .evento {
         align-items: center;
-        margin: 0px;
-    }
-
-    .container-agenda .container-programacao .evento .texto {
-        text-align: center;
+        margin: 0;
     }
 
     .container-agenda .container-programacao .button {
@@ -51,12 +42,29 @@
     .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
+
+    .localizacao {
+        align-items: center;
+    }
+
+    .link-mapa {
+        margin-left: 0;
+    }
+
+    .horario {
+        margin-left: 0;
+    }
+
+    .titulo-eventos-hoje,
+    .titulo-eventos-futuros,
+    .titulo-eventos-passados {
+        text-align: center;
+    }
 }
 
-/*=========================================================*/
-/*Celular médio / grande (tipo iPhone Plus, Galaxy S, etc.)*/
-/*=========================================================*/
-
+/*=========================================================
+CELULAR MÉDIO / GRANDE (TIPO IPHONE PLUS, GALAXY S, ETC.)
+=========================================================*/
 @media (min-width: 481px) and (max-width: 767px) {
 
     #nav-desktop {
@@ -68,31 +76,23 @@
     }
 
     main {
-        padding: 0px 20px;
+        padding: 0rem 1.25rem 3.125rem 1.25rem;
+    }
+
+    .home {
+        margin-top: 10rem;
     }
 
     .container-programacao {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-    }
-
-    .home {
-        margin-top: 50px;
-    }
-
-    .title-agenda {
-        text-align: center;
+        gap: 1.875rem;
     }
 
     .container-agenda .container-programacao .evento {
         align-items: center;
-        margin: 0px;
-    }
-
-    .container-agenda .container-programacao .evento .texto {
-        text-align: center;
+        margin: 0;
     }
 
     .container-agenda .container-programacao .button {
@@ -106,20 +106,37 @@
     .container-agenda .container-programacao .button:hover {
         border-color: unset;
     }
+
+    .localizacao {
+        align-items: center;
+    }
+
+    .link-mapa {
+        margin-left: 0;
+    }
+
+    .horario {
+        margin-left: 0;
+    }
+
+    .titulo-eventos-hoje,
+    .titulo-eventos-futuros,
+    .titulo-eventos-passados {
+        text-align: center;
+    }
 }
 
-/*=========================================================*/
-/*Tablet vertical (iPad em pé, por exemplo)*/
-/*=========================================================*/
-
+/*=========================================================
+TABLET VERTICAL (IPAD EM PÉ, POR EXEMPLO)
+=========================================================*/
 @media (min-width: 768px) and (max-width: 1023px) {
 
     #nav-desktop {
-        padding: 50px 50px 16px 50px;
+        padding: 3.125rem 3.125rem 1rem 3.125rem;
     }
 
     main {
-        padding: 0px 50px 0px 50px;
+        padding: 0rem 3.125rem 3.125rem 3.125rem;
     }
 
     .container-agenda .container-programacao .button a:hover {
@@ -131,15 +148,13 @@
     }
 }
 
-
-/*=========================================================*/
-/*Desktop padrão / Tablet deitado*/
-/*=========================================================*/
-
+/*=========================================================
+DESKTOP PADRÃO / TABLET DEITADO
+=========================================================*/
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 0px 100px 0px 100px;
+        padding: 0rem 6.25rem 3.125rem 6.25rem;
     }
 
     .container-agenda .container-programacao .button a:hover {

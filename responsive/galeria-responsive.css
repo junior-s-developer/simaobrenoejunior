@@ -1,7 +1,8 @@
-/* ========================================
+/*=========================================================
 CELULAR PEQUENO
-======================================== */
+=========================================================*/
 @media (max-width: 480px) {
+
     #nav-desktop {
         display: none;
     }
@@ -11,19 +12,20 @@ CELULAR PEQUENO
     }
 
     main {
-        padding: 0 20px 50px 20px;
+        padding: 0rem 1.25rem 3.125rem 1.25rem;
     }
 
     .filtros-galeria {
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
     }
 }
 
-/* ========================================
-CELULAR MÉDIO/GRANDE
-======================================== */
+/*=========================================================
+CELULAR MÉDIO / GRANDE (TIPO IPHONE PLUS, GALAXY S, ETC.)
+=========================================================*/
 @media (min-width: 481px) and (max-width: 767px) {
+
     #nav-desktop {
         display: none;
     }
@@ -33,38 +35,40 @@ CELULAR MÉDIO/GRANDE
     }
 
     main {
-        padding: 0 20px 50px 20px;
+        padding: 0rem 1.25rem 3.125rem 1.25rem;
     }
 
     .filtros-galeria {
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
     }
 }
 
-/* ========================================
-TABLET VERTICAL
-======================================== */
+/*=========================================================
+TABLET VERTICAL (IPAD EM PÉ, POR EXEMPLO)
+=========================================================*/
 @media (min-width: 768px) and (max-width: 1023px) {
+
     #nav-desktop {
-        padding: 50px 50px 16px 50px;
+        padding: 3.125rem 3.125rem 1rem 3.125rem;
     }
 
     main {
-        padding: 0 50px 50px 50px;
+        padding: 0rem 3.125rem 3.125rem 3.125rem;
     }
 
     .filtros-galeria {
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
     }
 }
 
-/* ========================================
+/*=========================================================
 DESKTOP PADRÃO / TABLET DEITADO
-======================================== */
+=========================================================*/
 @media (min-width: 1024px) and (max-width: 1279px) {
+
     main {
-        padding: 0 100px 50px 100px;
+        padding: 0rem 6.25rem 3.125rem 6.25rem;
     }
 }

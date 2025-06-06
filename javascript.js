@@ -134,19 +134,237 @@ ${detalhes}`;
     const dataTexto = evento.getAttribute("data-date");
     if (!dataTexto) return;
 
+    // Cria a data do evento com hora zerada
     const [ano, mes, dia] = dataTexto.split("-");
     const dataEvento = new Date(ano, mes - 1, dia);
-    const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0);
+    dataEvento.setHours(0, 0, 0, 0); // ZERA a hora
 
+    // Cria a data de hoje com hora zerada
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0); // ZERA a hora
+
+    // Se o evento já passou (ontem ou antes), marca como realizado
     if (dataEvento < hoje) {
       const statusSpan = evento.querySelector(".status-evento");
       if (statusSpan) {
         statusSpan.innerHTML = '<i class="fa-solid fa-check icone-verde"></i> Evento Realizado';
         statusSpan.classList.add("evento-passado");
+        statusSpan.style.display = 'inline-block';
+      }
+
+      evento.classList.add("bloco-passado");
+
+      // Desativa botão
+      const botaoDetalhes = evento.querySelector(".button a");
+      if (botaoDetalhes) {
+        botaoDetalhes.removeAttribute("href");
+        botaoDetalhes.setAttribute("title", "Evento já realizado");
+        botaoDetalhes.classList.add("desativado");
+
+        const botaoWrapper = botaoDetalhes.closest(".button");
+        if (botaoWrapper) {
+          botaoWrapper.classList.add("botao-desativado");
+        }
       }
     }
   });
+
+  // ====================================================
+  // REORDENAR EVENTOS: Todos → Hoje → Futuros → Passados
+  // ====================================================
+  const containerAgenda = document.querySelector(".container-agenda");
+
+  if (containerAgenda) {
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    const timestampHoje = hoje.getTime();
+    const mesAtual = hoje.getMonth();
+    const anoAtual = hoje.getFullYear();
+
+    const eventosHoje = [];
+    const eventosFuturos = [];
+    const eventosPassados = [];
+
+    const eventosOriginais = Array.from(containerAgenda.querySelectorAll(".container-programacao"));
+
+    eventosOriginais.forEach(evento => {
+      const dataTexto = evento.getAttribute("data-date");
+      if (!dataTexto) return;
+
+      const horaTexto = (evento.querySelector(".hr")?.textContent || "00:00").replace("hr", "").trim();
+      const dataHoraCompleta = new Date(`${dataTexto}T${horaTexto}`);
+
+      const [ano, mes, dia] = dataTexto.split("-");
+      const dataZerada = new Date(ano, mes - 1, dia);
+      dataZerada.setHours(0, 0, 0, 0);
+      const timestampEvento = dataZerada.getTime();
+
+      const eventoMes = dataZerada.getMonth();
+      const eventoAno = dataZerada.getFullYear();
+      const isMesAnterior =
+        eventoAno < anoAtual || (eventoAno === anoAtual && eventoMes < mesAtual);
+
+      if (isMesAnterior) {
+        evento.classList.add("mes-anterior");
+        evento.style.display = "none";
+        return;
+      }
+
+      evento.dataset.ordenacao = dataHoraCompleta.getTime();
+
+      if (timestampEvento === timestampHoje) {
+        eventosHoje.push(evento);
+        evento.classList.add("evento-hoje");
+      } else if (timestampEvento > timestampHoje) {
+        eventosFuturos.push(evento);
+        evento.classList.add("evento-futuro");
+      } else {
+        eventosPassados.push(evento);
+        evento.classList.add("evento-passado");
+      }
+    });
+
+    const ordenarPorHorario = (a, b) => parseInt(a.dataset.ordenacao) - parseInt(b.dataset.ordenacao);
+
+    eventosHoje.sort(ordenarPorHorario);
+    eventosFuturos.sort(ordenarPorHorario);
+    eventosPassados.sort(ordenarPorHorario).reverse();
+
+    const eventosTodos = [...eventosHoje, ...eventosFuturos, ...eventosPassados];
+
+    // ============================================
+    // FUNÇÃO: Exibir grupo com título e animação
+    // ============================================
+    function inserirGrupo(container, titulo, eventosGrupo) {
+      if (eventosGrupo.length === 0) return;
+
+      const h2 = document.createElement("h2");
+      h2.innerHTML = titulo;
+      h2.className = "titulo-categoria fade";
+      container.appendChild(h2);
+
+      eventosGrupo.forEach(e => {
+        const clone = e.cloneNode(true);
+        clone.style.display = "flex";
+        clone.classList.add("fade");
+        container.appendChild(clone);
+      });
+
+      requestAnimationFrame(() => {
+        h2.classList.add("show");
+        Array.from(container.children).forEach(child => {
+          if (child.classList.contains("fade")) child.classList.add("show");
+        });
+      });
+    }
+
+    // ========================
+    // EXIBIR: TODOS OS EVENTOS
+    // ========================
+function exibirTodosComTitulos() {
+  containerAgenda.innerHTML = "";
+
+  const totalEventos =
+    eventosHoje.length + eventosFuturos.length + eventosPassados.length;
+
+  const mostrarTitulos = totalEventos > 1;
+
+  if (mostrarTitulos) {
+    inserirGrupo(containerAgenda, "Eventos de <strong>Hoje</strong>", eventosHoje);
+    inserirGrupo(containerAgenda, "<strong>Próximos</strong> Eventos", eventosFuturos);
+    inserirGrupo(containerAgenda, "Eventos <strong>Realizados</strong>", eventosPassados);
+  } else {
+    // Caso só tenha um evento, exibe ele direto (sem título)
+    const todos = [...eventosHoje, ...eventosFuturos, ...eventosPassados];
+    todos.forEach(e => {
+      const clone = e.cloneNode(true);
+      clone.style.display = "flex";
+      clone.classList.add("fade");
+      containerAgenda.appendChild(clone);
+    });
+
+    requestAnimationFrame(() => {
+      Array.from(containerAgenda.children).forEach(child => {
+        if (child.classList.contains("fade")) child.classList.add("show");
+      });
+    });
+  }
+}
+
+
+    // ========================
+    // EXIBIR FILTRO INDIVIDUAL
+    // ========================
+    function exibirFiltro(tipo) {
+      containerAgenda.innerHTML = "";
+
+      let lista = [];
+      let mensagemTexto = "";
+
+      if (tipo === "hoje") {
+        lista = eventosHoje;
+        mensagemTexto = "Nenhum evento pra <strong>hoje</strong>.";
+      }
+      if (tipo === "futuros") {
+        lista = eventosFuturos;
+        mensagemTexto = "Nenhum evento <strong>futuro</strong>.";
+      }
+      if (tipo === "passados") {
+        lista = eventosPassados;
+        mensagemTexto = "Nenhum evento <strong>realizado</strong>.";
+      }
+
+      if (lista.length === 0) {
+        const mensagem = document.createElement("p");
+        mensagem.className = "mensagem-vazia fade";
+        mensagem.innerHTML = mensagemTexto;
+        containerAgenda.appendChild(mensagem);
+
+        requestAnimationFrame(() => mensagem.classList.add("show"));
+        return;
+      }
+
+      lista.forEach(e => {
+        const clone = e.cloneNode(true);
+        clone.style.display = "flex";
+        clone.classList.add("fade");
+        containerAgenda.appendChild(clone);
+      });
+
+      requestAnimationFrame(() => {
+        Array.from(containerAgenda.children).forEach(child => {
+          if (child.classList.contains("fade")) child.classList.add("show");
+        });
+      });
+    }
+
+    // ==================
+    // FILTROS DE EVENTOS
+    // ==================
+    const filtroLinks = document.querySelectorAll(".filtro-link");
+
+    filtroLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+
+        filtroLinks.forEach(l => l.classList.remove("ativo"));
+        link.classList.add("ativo");
+
+        const filtro = link.dataset.filtro;
+
+        if (filtro === "todos") {
+          exibirTodosComTitulos();
+        } else {
+          exibirFiltro(filtro);
+        }
+      });
+    });
+
+    // ==================
+    // EXIBE AO CARREGAR
+    // ==================
+    exibirTodosComTitulos();
+  }
 });
 
 // ==============================

@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
-    <meta name="keywords" content="Simão Breno, Júnior Silva, dupla sertaneja, música autoral, shows, eventos, agenda, portfólio, vídeos, download, contato, sertanejo universitário, música brasileira">
+    <meta name="description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta name="keywords"
+        content="Simão Breno, Júnior Silva, dupla sertaneja, música autoral, shows, eventos, agenda, portfólio, vídeos, download, contato, sertanejo universitário, música brasileira">
     <meta name="author" content="Desenvolvido por José Odete Da Silva Júnior para Simão Breno & Júnior">
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://simaobrenoejunior.com.br/navbar/agenda.html">
     <meta property="og:title" content="Agenda de Shows e Eventos - Simão Breno & Júnior">
-    <meta property="og:description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta property="og:description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
     <meta property="og:image" content="https://simaobrenoejunior.com.br/img/logo-meta.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -24,7 +27,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://simaobrenoejunior.com.br/navbar/agenda.html">
     <meta name="twitter:title" content="Agenda de Shows e Eventos - Simão Breno & Júnior">
-    <meta name="twitter:description" content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
+    <meta name="twitter:description"
+        content="Confira a agenda oficial da dupla Simão Breno & Júnior. Fique por dentro das próximas apresentações, eventos e turnês.">
     <meta name="twitter:image" content="https://simaobrenoejunior.com.br/img/logo-meta.png">
 
     <!-- DADOS ESTRUTURADOS JSON-LD -->
@@ -136,46 +140,54 @@
         <div class="home">
             <a href="../index.html">Página Inicial</a>
             <span>|</span>
-            <h4>Agenda</h4>
+            <h1>Agenda</h1>
         </div>
 
-        <div class="title-agenda">
-            <h3>Confira nossa programação</h3>
-        </div>
+        <nav class="filtros-eventos" aria-label="Filtro de eventos">
+            <a href="#" class="filtro-link ativo" data-filtro="todos">Todos</a>
+            <a href="#" class="filtro-link" data-filtro="hoje">Hoje</a>
+            <a href="#" class="filtro-link" data-filtro="futuros">Próximos</a>
+            <a href="#" class="filtro-link" data-filtro="passados">Realizados</a>
+        </nav>
 
-        <div class="agendas">
-            <section class="container-agenda">
-                <div class="container-programacao" data-date="2025-05-24">
-                    <div class="data">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>24/05/2025</p>
-                    </div>
-                    <div class="evento">
-                        <h4>Festa da família</h4>
-                        <p class="texto">Cooperativa dos Costas,<br>Boa Esperança - MG.</p>
-                        <h5>Evento Particular</h5>
+        <section class="container-agenda" role="region" aria-labelledby="titulo-evento-2025-05-03">
+
+            <article class="container-programacao" data-date="2025-06-07">
+                <div class="data">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <time datetime="2025-06-07">07/06/2025</time>
+                </div>
+                <div class="evento">
+                    <h2 id="titulo-evento-2025-06-07">X Expo Capeb</h2>
+                    <div class="localizacao">
+                        <div class="cidade">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <p aria-label="Local do evento">Boa Esperança/MG</p>
+                        </div>
+
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Parque+de+Exposi%C3%A7%C3%B5es+Jos%C3%A9+Milton+Martins,+Boa+Esperan%C3%A7a,+MG"
+                            target="_blank" class="link-mapa" rel="noopener noreferrer"
+                            aria-label="Ver Boa Esperança MG no mapa">
+                            Ver rota
+                        </a>
+
+                        <div class="horario">
+                            <!--<i class="fa-solid fa-clock" aria-hidden="true"></i>-->
+                            <time datetime="21:00" class="hr" aria-label="Horário do evento às 20 horas">Início às <strong>21:00 h</strong></time>
+                        </div>
+
+                        <!--<p class="tipo-evento" aria-label="Tipo de evento: particular">Evento Particular</p>-->
                         <span class="status-evento"></span>
                     </div>
                 </div>
-            </section>
-
-            <section class="container-agenda">
-                <div class="container-programacao" data-date="2025-06-07">
-                    <div class="data">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>07/06/2025</p>
-                    </div>
-                    <div class="evento">
-                        <h4>X Expo Capeb</h4>
-                        <p>Boa Esperança - MG</p>
-                    </div>
-                    <div class="button">
-                        <a href="https://www.instagram.com/p/DJpqWhQN0sP/?igsh=MXBib3hvZ2lzZTVxNQ%3D%3D" target="_blank"
-                            rel="noopener noreferrer">Detalhes</a>
-                    </div>
+                <div class="button">
+                    <a href="https://www.instagram.com/p/DJpqWhQN0sP/?igsh=MXBib3hvZ2lzZTVxNQ%3D%3D" target="_blank"
+                        rel="noopener noreferrer" aria-label="Ver detalhes do evento X Expo Capeb no Instagram">
+                        Detalhes
+                    </a>
                 </div>
-            </section>
-        </div>
+            </article>
+        </section>
     </main>
     <div id="rodape-container"></div>
     <script src="../javascript.js"></script>

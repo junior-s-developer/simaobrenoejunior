@@ -248,6 +248,15 @@ main {
     margin: 10.25rem 0 3.75rem 0;
 }
 
+.home {
+    text-decoration: none;
+    color: white;
+}
+
+.home:hover {
+    text-decoration: underline;
+}
+
 .link-botao {
     color: #999;
     text-decoration: none;

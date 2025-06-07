@@ -261,35 +261,35 @@ ${detalhes}`;
     // ========================
     // EXIBIR: TODOS OS EVENTOS
     // ========================
-function exibirTodosComTitulos() {
-  containerAgenda.innerHTML = "";
+    function exibirTodosComTitulos() {
+      containerAgenda.innerHTML = "";
 
-  const totalEventos =
-    eventosHoje.length + eventosFuturos.length + eventosPassados.length;
+      const totalEventos =
+        eventosHoje.length + eventosFuturos.length + eventosPassados.length;
 
-  const mostrarTitulos = totalEventos > 1;
+      const mostrarTitulos = totalEventos > 1;
 
-  if (mostrarTitulos) {
-    inserirGrupo(containerAgenda, "Eventos de <strong>Hoje</strong>", eventosHoje);
-    inserirGrupo(containerAgenda, "<strong>Próximos</strong> Eventos", eventosFuturos);
-    inserirGrupo(containerAgenda, "Eventos <strong>Realizados</strong>", eventosPassados);
-  } else {
-    // Caso só tenha um evento, exibe ele direto (sem título)
-    const todos = [...eventosHoje, ...eventosFuturos, ...eventosPassados];
-    todos.forEach(e => {
-      const clone = e.cloneNode(true);
-      clone.style.display = "flex";
-      clone.classList.add("fade");
-      containerAgenda.appendChild(clone);
-    });
+      if (mostrarTitulos) {
+        inserirGrupo(containerAgenda, "Eventos de <strong>Hoje</strong>", eventosHoje);
+        inserirGrupo(containerAgenda, "<strong>Próximos</strong> Eventos", eventosFuturos);
+        inserirGrupo(containerAgenda, "Eventos <strong>Realizados</strong>", eventosPassados);
+      } else {
+        // Caso só tenha um evento, exibe ele direto (sem título)
+        const todos = [...eventosHoje, ...eventosFuturos, ...eventosPassados];
+        todos.forEach(e => {
+          const clone = e.cloneNode(true);
+          clone.style.display = "flex";
+          clone.classList.add("fade");
+          containerAgenda.appendChild(clone);
+        });
 
-    requestAnimationFrame(() => {
-      Array.from(containerAgenda.children).forEach(child => {
-        if (child.classList.contains("fade")) child.classList.add("show");
-      });
-    });
-  }
-}
+        requestAnimationFrame(() => {
+          Array.from(containerAgenda.children).forEach(child => {
+            if (child.classList.contains("fade")) child.classList.add("show");
+          });
+        });
+      }
+    }
 
 
     // ========================
@@ -364,6 +364,28 @@ function exibirTodosComTitulos() {
     // EXIBE AO CARREGAR
     // ==================
     exibirTodosComTitulos();
+
+    // =================================================
+    // ATUALIZAR PÁGINA QUANDO UM EVENTO ENTRAR EM VIGOR
+    // =================================================
+    (function recarregarNaMeiaNoite() {
+      const agora = new Date();
+      const proximaMeiaNoite = new Date(
+        agora.getFullYear(),
+        agora.getMonth(),
+        agora.getDate() + 1, // Próximo dia
+        0, 0, 0, 0 // 00:00:00.000
+      );
+      const tempoAteMeiaNoite = proximaMeiaNoite - agora;
+
+      console.log(`Página será recarregada em ${Math.round(tempoAteMeiaNoite / 1000 / 60)} minutos`);
+
+      setTimeout(() => {
+        console.log("Recarregando página à meia-noite...");
+        window.location.reload();
+      }, tempoAteMeiaNoite);
+    })();
+
   }
 });
 

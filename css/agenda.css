@@ -484,10 +484,13 @@ DESATIVAR CARD
     cursor: default;
 }
 
+.bloco-passado .data,
 .bloco-passado .evento,
+.bloco-passado .evento h2,
 .bloco-passado .cidade i,
 .bloco-passado .link-mapa,
-.bloco-passado .tipo-evento {
+.bloco-passado .tipo-evento,
+.bloco-passado .horario strong {
     color: #aaa !important;
 }
 
